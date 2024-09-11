@@ -1,5 +1,16 @@
+<!DOCTYPE resources [
+    <!ENTITY app_text "松鼠">
+    ]>
+
 <resources>
-    <string name="app_name">FastTemplate</string>
-    <string name="home">主页</string>
+    <string name="app_name">电报仓鼠</string>
+    <string name="home">首页</string>
+    <string name="market">市场</string>
+    <string name="game">游戏</string>
+    <string name="quest">任务</string>
     <string name="mine">我的</string>
+    <string name="sign_in">登录</string>
+    <string name="sign_up">注册</string>
+    <string name="app_content">&app_text;</string>
+    <string name="i_agree">我已阅读并同意</string>
 </resources>

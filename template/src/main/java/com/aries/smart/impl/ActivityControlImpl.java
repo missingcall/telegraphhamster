@@ -59,7 +59,7 @@ public class ActivityControlImpl implements ActivityFragmentControl, ActivityKey
 
     private void volume(int value, boolean plus) {
         if (mAudioManager == null) {
-            mAudioManager = (AudioManager) App.getContext().getSystemService(Context.AUDIO_SERVICE);
+            mAudioManager = (AudioManager) App.getInstance().getSystemService(Context.AUDIO_SERVICE);
             // 获取最大音乐音量
             mMaxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
             // 获取最小音乐音量

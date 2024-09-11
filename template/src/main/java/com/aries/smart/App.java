@@ -105,7 +105,7 @@ public class App extends MultiDexApplication {
         //其它初始化
     }
 
-    public static Context getContext() {
+    public static Context getInstance() {
         return mContext;
     }
 

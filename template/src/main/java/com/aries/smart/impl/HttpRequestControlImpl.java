@@ -102,7 +102,7 @@ public class HttpRequestControlImpl implements HttpRequestControl {
         LoggerManager.e(TAG, "httpRequestError:" + e.getMessage());
         int reason = R.string.fast_exception_other_error;
 //        int code = FastError.EXCEPTION_OTHER_ERROR;
-        if (!NetworkUtil.isConnected(App.getContext())) {
+        if (!NetworkUtil.isConnected(App.getInstance())) {
             reason = R.string.fast_exception_network_not_connected;
         } else {
             //网络异常--继承于AccountsException

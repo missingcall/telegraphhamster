@@ -1,3 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- textSize<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_huge">21sp</dimen>
+    <dimen name="text_size_big">19sp</dimen>
+    <dimen name="text_size_middle">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_micro">12sp</dimen>
+
+    <!-- textSize>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+
+    <!-- margin<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    <dimen name="margin_common">15dp</dimen>
+    <dimen name="margin_micro">5dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_big">20dp</dimen>
+    <dimen name="margin_large">40dp</dimen>
+
+    <!-- margin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+    <!-- corner<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    <dimen name="corner_common">45dp</dimen>
+    <dimen name="corner_micro">5dp</dimen>
+    <dimen name="corner_small">10dp</dimen>
+
+    <!-- corner>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 </resources>

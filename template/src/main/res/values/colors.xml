@@ -3,4 +3,24 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#393939</color>
+
+    <!--  >>>  tab相关  >>>-->
+    <color name="tab_main_bg">#262A2E</color>
+    <color name="tab_unit_bg">#1C1E23</color>
+    <color name="tab_text_unselected">#4E4F50</color>
+    <color name="tab_text_selected">#FFFFFF</color>
+
+    <!--  <<<  tab相关  <<<-->
+
+
+    <!--  >>>  text相关  >>>-->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_hyperlink">#5ACBFF</color>
+
+    <!--  <<<  text相关  <<<-->
+
+    <!--  >>>  其他组件  >>>-->
+    <color name="cb_login">#5A60FF</color>
+
+    <!--  <<<  其他组件  <<<-->
 </resources>

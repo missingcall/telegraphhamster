@@ -11,7 +11,7 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "Boolean", "LOG_ENABALE", "true"
-        buildConfigField "String", "BASE_URL", "\"https://api.xxx.com/\""
+        buildConfigField "String", "BASE_URL", "\"https://121.40.238.170:8201/\""
     }
 
     dexOptions {
@@ -64,13 +64,14 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    implementation project(':library')
-    implementation 'com.github.AriesHoo:FastLib:2.4.0'
+    implementation project(':library')
+//    implementation 'com.github.AriesHoo:FastLib:2.4.0'
 
     //以下库FastLib里使用compileOnly只是编译,使用时需根据项目选择相应版本
     implementation 'com.google.android.material:material:'.concat(supportVersion)
     implementation 'androidx.appcompat:appcompat:'.concat(supportVersion)
     implementation 'androidx.recyclerview:recyclerview:'.concat(supportVersion)
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     //快速Tab库-继承FastMainActivity使用
     implementation "com.github.AriesHoo.UIWidget:tab-layout:".concat(widgetVersion)
     //页面事件交互-androideventbus-停止维护-按需导入
@@ -88,7 +89,11 @@ dependencies {
     implementation 'com.scwang.smart:refresh-header-material:'.concat(smartRefreshLayoutVersion)
     //Glide图片加载
     implementation 'com.github.bumptech.glide:glide:'.concat(glideVersion)
+
     annotationProcessor 'com.github.bumptech.glide:compiler:'.concat(glideVersion)
     annotationProcessor 'com.jakewharton:butterknife-compiler:'.concat(butterknifeVersion)
     //以上库FastLib里使用compileOnly只是编译,使用时需根据项目选择相应版本
+
+    //沉浸式状态栏
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
 }

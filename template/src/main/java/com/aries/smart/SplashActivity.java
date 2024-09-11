@@ -11,6 +11,7 @@ import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.library.fast.retrofit.FastObserver;
 import com.aries.library.fast.util.FastStackUtil;
 import com.aries.library.fast.util.FastUtil;
+import com.aries.smart.module.login.LoginActivity;
 import com.aries.ui.util.StatusBarUtil;
 import com.aries.ui.view.title.TitleBarView;
 import com.trello.rxlifecycle3.android.ActivityEvent;
@@ -31,7 +32,7 @@ public class SplashActivity extends FastTitleActivity {
     /**
      * 闪屏
      */
-    private long mDelayTime = 5000;
+    private long mDelayTime = 1000;
 
     @Override
     public void beforeSetContentView() {
@@ -65,6 +66,7 @@ public class SplashActivity extends FastTitleActivity {
             //隐藏状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
+
         startGo();
     }
 
@@ -77,7 +79,9 @@ public class SplashActivity extends FastTitleActivity {
                         if (isFinishing() || isDestroyed()) {
                             return;
                         }
-                        FastUtil.startActivity(mContext, MainActivity.class);
+                        //TODO yhd 用户已登录进主页面 未登录进登录页面
+//                        FastUtil.startActivity(mContext, MainActivity.class);
+                        FastUtil.startActivity(mContext, LoginActivity.class);
                         finish();
                     }
                 });

@@ -12,7 +12,9 @@
     app:title_leftTextColor="@color/colorTitleText"
     app:title_rightTextColor="@color/colorTitleText"
     app:title_titleMainTextColor="@color/colorTitleText"
-    app:title_titleSubTextColor="@color/colorTitleText"/>
+    app:title_titleSubTextColor="@color/colorTitleText"
+    android:visibility="gone"
+    />
 
 
 

@@ -11,7 +11,7 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "Boolean", "LOG_ENABALE", "true"
-        buildConfigField "String", "BASE_URL", "\"https://121.40.238.170:8201/\""
+        buildConfigField "String", "BASE_URL", "\"http://121.40.238.170:8201/\""
     }
 
     dexOptions {
@@ -95,5 +95,7 @@ dependencies {
     //以上库FastLib里使用compileOnly只是编译,使用时需根据项目选择相应版本
 
     //沉浸式状态栏
-    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+//    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    //blankj
+    implementation 'com.blankj:utilcodex:1.31.1'
 }

@@ -39,6 +39,18 @@
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
             />
 
+        <activity
+            android:name=".module.login.SignInActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
+            />
+
+        <activity
+            android:name=".module.login.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
+            />
+
         <!-- 应用内浏览器 -->
         <activity
             android:name="com.aries.smart.WebViewActivity"

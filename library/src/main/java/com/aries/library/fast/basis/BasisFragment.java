@@ -171,7 +171,11 @@ public abstract class BasisFragment extends RxFragment implements IBasisView {
             return false;
         }
         if (fragment.getParentFragment() != null) {
-            return isVisibleToUser((BasisFragment) fragment.getParentFragment()) && (fragment.isInViewPager() ? fragment.getUserVisibleHint() : fragment.isVisible());
+            if (fragment.getParentFragment() instanceof BasisFragment) {
+                return isVisibleToUser((BasisFragment) fragment.getParentFragment()) && (fragment.isInViewPager() ? fragment.getUserVisibleHint() : fragment.isVisible());
+            } else {
+                return (fragment.isInViewPager() ? fragment.getUserVisibleHint() : fragment.isVisible());
+            }
         }
         return fragment.isInViewPager() ? fragment.getUserVisibleHint() : fragment.isVisible();
     }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
+import com.aries.library.fast.FastManager;
 import com.aries.library.fast.demo.R;
 
 /**
@@ -18,5 +19,6 @@ public class TestStatusActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_status);
+
     }
 }

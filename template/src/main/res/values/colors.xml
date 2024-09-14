@@ -3,6 +3,11 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#393939</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_a">#AAAAAA</color>
+    <color name="black">#000000</color>
+    <color name="gray">#262A2E</color>
+    <color name="blue">#5A60FF</color>
 
     <!--  >>>  tab相关  >>>-->
     <color name="tab_main_bg">#262A2E</color>
@@ -16,11 +21,17 @@
     <!--  >>>  text相关  >>>-->
     <color name="text_white">#FFFFFF</color>
     <color name="text_hyperlink">#5ACBFF</color>
-
+    <color name="text_sign">#5A60FF</color>
+    <color name="text_gray_aaa">#AAAAAA</color>
     <!--  <<<  text相关  <<<-->
 
     <!--  >>>  其他组件  >>>-->
     <color name="cb_login">#5A60FF</color>
+    <color name="btn_confirm">#5A60FF</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_55">#55000000</color>
+    <color name="transparent_aa">#aa000000</color>
+    <color name="transparent_dd">#dd000000</color>
 
     <!--  <<<  其他组件  <<<-->
 </resources>

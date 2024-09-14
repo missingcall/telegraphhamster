@@ -17,7 +17,7 @@
 #}
 #实体类不要混淆不然无法解析
 -keep class com.aries.smart.base.**{*;}
--keep class com.aries.smart.entity.**{*;}
+-keep class com.aries.smart.response.**{*;}
 
 #
 #-------------------------------------------基本不用动区域----------------------------------------------

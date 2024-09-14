@@ -26,4 +26,23 @@
     <dimen name="corner_small">10dp</dimen>
 
     <!-- corner>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+
+    <!-- width height <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+
+
+    <dimen name="width_80">80dp</dimen>
+    <dimen name="width_large">45dp</dimen>
+    <dimen name="width_big">35dp</dimen>
+    <dimen name="width_middle">30dp</dimen>
+    <dimen name="width_small">15dp</dimen>
+
+    <dimen name="height_80">80dp</dimen>
+    <dimen name="height_70">70dp</dimen>
+    <dimen name="height_large">45dp</dimen>
+    <dimen name="height_big">35dp</dimen>
+    <dimen name="height_middle">30dp</dimen>
+    <dimen name="height_small">15dp</dimen>
+
+    <!-- width height >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 </resources>

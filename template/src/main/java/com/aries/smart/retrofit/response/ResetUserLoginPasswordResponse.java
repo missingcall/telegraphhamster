@@ -1,20 +1,30 @@
 package com.aries.smart.retrofit.response;
 
-public class SmsVerificationResponse {
+/**
+ * @Author: AriesHoo on 2019/7/11 22:00
+ * @E-Mail: AriesHoo@126.com
+ * @Function:
+ * @Description:
+ */
+public class ResetUserLoginPasswordResponse {
 
     /**
-     *
-     * responseCode :   200 OK
-     *                  401 Unauthorized
-     *                  403 Forbidden
-     *                  404 Not Found
-     * responseMessage : 操作成功
-     * data : true
+     * data : 0
+     * responseCode :
+     * responseMessage :
      */
 
+    private int data;
     private String responseCode;
     private String responseMessage;
-    private boolean data;
+
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
 
     public String getResponseCode() {
         return responseCode;
@@ -30,13 +40,5 @@ public class SmsVerificationResponse {
 
     public void setResponseMessage(String responseMessage) {
         this.responseMessage = responseMessage;
-    }
-
-    public boolean isData() {
-        return data;
-    }
-
-    public void setData(boolean data) {
-        this.data = data;
     }
 }

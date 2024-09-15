@@ -2,9 +2,16 @@ package com.aries.smart.retrofit.service;
 
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.retrofit.request.AccountCreateTo;
+import com.aries.smart.retrofit.request.LoginTo;
+import com.aries.smart.retrofit.request.PasswordLoginTo;
+import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
+import com.aries.smart.retrofit.response.LoginResponse;
+import com.aries.smart.retrofit.response.PasswordLoginResponse;
+import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
+import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
-import com.aries.smart.retrofit.response.SmsVerificationResponse;
+import com.aries.smart.retrofit.response.VerificationCodeResponse;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
@@ -15,10 +22,8 @@ import retrofit2.http.Query;
 public interface AuthService {
 
 
-
-
     /**
-     *
+     *发送验证码
      * @param mobile
      * @param type 类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
      * @return
@@ -28,20 +33,52 @@ public interface AuthService {
 
 
     /**
+     * 短信验证
      * @param code 验证码
      * @param mobile 手机号
      * @param type 类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
      * @return
      */
     @GET(ApiConstant.API_USER_SMS_VERIFICATION_CODE)
-    Observable<SmsVerificationResponse> smsVerification(@Query("code") String code, @Query("mobile") String mobile, @Query("type") String type);
+    Observable<VerificationCodeResponse> verificationCode(@Query("code") String code, @Query("mobile") String mobile, @Query("type") String type);
 
     /**
-     * @param
-     * @param
+     * 创建账号
      * @param
      * @return
      */
     @POST(ApiConstant.API_USER_ACCOUNT_CREATE)
     Observable<AccountCreateResponse> accountCreate(@Body AccountCreateTo accountCreateTo);
+
+    /**
+     * 密码登录
+     * @param
+     * @return
+     */
+    @POST(ApiConstant.API_USER_PASSWORD_LOGIN)
+    Observable<PasswordLoginResponse> passwordLogin(@Body PasswordLoginTo passwordLoginTo);
+
+    /**
+     * 查询所有用户信息
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_USER_QUERY_PHONE_EXIST)
+    Observable<QueryPhoneExistResponse> queryPhoneExist(@Query("phone") String phone);
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @POST(ApiConstant.API_USER_RESET_USER_LOGIN_PASSWORD)
+    Observable<ResetUserLoginPasswordResponse> resetUserLoginPassword(@Body ResetUserLoginPasswordTo queryPhoneExistTo);
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @POST(ApiConstant.API_LOGIN)
+    Observable<LoginResponse> login(@Body LoginTo loginTo);
 }

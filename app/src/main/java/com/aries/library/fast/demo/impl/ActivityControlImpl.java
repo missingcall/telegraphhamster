@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -155,6 +156,7 @@ public class ActivityControlImpl implements ActivityFragmentControl, ActivityKey
 
     /**
      * 设置Fragment/Activity根布局背景
+     * 增加DialogFragment判断
      *
      * @param contentView
      * @param cls
@@ -166,7 +168,7 @@ public class ActivityControlImpl implements ActivityFragmentControl, ActivityKey
                 && contentView.getBackground() == null) {
             contentView.setBackgroundResource(R.color.colorBackground);
         } else {
-            if (BasisActivity.class.isAssignableFrom(cls) || BasisFragment.class.isAssignableFrom(cls)) {
+            if (BasisActivity.class.isAssignableFrom(cls) || BasisFragment.class.isAssignableFrom(cls) || DialogFragment.class.isAssignableFrom(cls)) {
                 return;
             }
             Activity activity = FastStackUtil.getInstance().getCurrent();

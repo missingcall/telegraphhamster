@@ -13,6 +13,9 @@ public abstract class BaseRepository {
 
     /*  Response常量  */
     public static final String RESPONSE_OK = "200";
+    public static final String RESPONSE_UNAUTHORIZED = "401";
+    public static final String RESPONSE_FORBIDDEN = "403";
+    public static final String RESPONSE_NOT_FOUND = "404";
 
 
     /**

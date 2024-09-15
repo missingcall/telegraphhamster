@@ -17,12 +17,14 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
 import com.aries.smart.WebViewActivity;
 import com.aries.smart.module.login.fragment.LoginDialogFragment;
+import com.aries.smart.module.login.fragment.LoginSmsFragment;
 import com.aries.smart.module.widget.dialog.AgreePrivacyDialog;
 import com.aries.smart.module.widget.dialog.LoginDialog;
 import com.aries.smart.utils.RxTextTool;
@@ -128,12 +130,11 @@ public class LoginActivity extends FastTitleActivity {
             case R.id.btn_sign_in:
                 //判断协议勾选状态
                 if (isAgreeProtocol) {
+
+//                    FastUtil.startActivity(this ,SignInActivity.class);
                     //弹出登录页面 DialogFragment
                     LoginDialog loginDialog = new LoginDialog();
                     loginDialog.show(getSupportFragmentManager(),"tag");
-
-
-
                 } else {
                     //弹窗提示
                     agreeToPrivacy();

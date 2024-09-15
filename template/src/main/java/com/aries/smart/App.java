@@ -10,6 +10,8 @@ import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.smart.impl.ActivityControlImpl;
 import com.aries.smart.impl.AppImpl;
 import com.aries.smart.impl.HttpRequestControlImpl;
+import com.aries.smart.utils.ConstantUtils;
+import com.aries.smart.utils.PreferenceUtil;
 import com.orhanobut.logger.PrettyFormatStrategy;
 
 /**
@@ -76,7 +78,8 @@ public class App extends MultiDexApplication {
                 .setCertificates()
                 //设置统一请求头
 //                .addHeader(header)
-//                .addHeader(key,value)
+                .addHeader(ConstantUtils.AUTHORIZATION_TOKEN, PreferenceUtil.getString(ConstantUtils.TOKEN_HEAD, "")
+                        + PreferenceUtil.getString(ConstantUtils.AUTHORIZATION_TOKEN, ""))
                 //设置请求全局log-可设置tag及Level类型
                 .setLogEnable(true)
 //                .setLogEnable(BuildConfig.DEBUG, TAG, HttpLoggingInterceptor.Level.BODY)

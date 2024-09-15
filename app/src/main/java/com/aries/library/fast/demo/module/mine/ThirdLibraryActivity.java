@@ -1,5 +1,6 @@
 package com.aries.library.fast.demo.module.mine;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -51,6 +52,12 @@ public class ThirdLibraryActivity extends FastRefreshLoadActivity<WidgetEntity> 
 
     @Override
     public void setTitleBar(TitleBarView titleBar) {
+        titleBar.setLeftTextDrawable(R.drawable.fast_ic_back)
+                .setTitleMainText("找回密码")
+                .setTitleMainTextColor(Color.WHITE)
+                .setBgColor(0)
+                .setStatusBarLightMode(false)
+                .setVisibility(View.VISIBLE);
     }
 
     @Override

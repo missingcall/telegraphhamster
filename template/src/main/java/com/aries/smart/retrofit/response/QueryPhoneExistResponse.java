@@ -6,13 +6,11 @@ package com.aries.smart.retrofit.response;
  * @Function:
  * @Description:
  */
-public class BaseResponse {
+
+public class QueryPhoneExistResponse {
+
     /**
-     *
-     * responseCode :   200 OK
-     *                  401 Unauthorized
-     *                  403 Forbidden
-     *                  404 Not Found
+     * responseCode : 200
      * responseMessage : 操作成功
      * data : true
      */
@@ -47,7 +45,7 @@ public class BaseResponse {
 
     @Override
     public String toString() {
-        return "BaseResponse{" +
+        return "QueryPhoneExistResponse{" +
                 "responseCode='" + responseCode + '\'' +
                 ", responseMessage='" + responseMessage + '\'' +
                 ", data=" + data +

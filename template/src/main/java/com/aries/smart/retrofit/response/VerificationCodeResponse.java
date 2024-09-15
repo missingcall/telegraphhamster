@@ -1,12 +1,7 @@
 package com.aries.smart.retrofit.response;
 
-/**
- * @Author: AriesHoo on 2019/7/11 22:00
- * @E-Mail: AriesHoo@126.com
- * @Function:
- * @Description:
- */
-public class BaseResponse {
+public class VerificationCodeResponse {
+
     /**
      *
      * responseCode :   200 OK
@@ -43,14 +38,5 @@ public class BaseResponse {
 
     public void setData(boolean data) {
         this.data = data;
-    }
-
-    @Override
-    public String toString() {
-        return "BaseResponse{" +
-                "responseCode='" + responseCode + '\'' +
-                ", responseMessage='" + responseMessage + '\'' +
-                ", data=" + data +
-                '}';
     }
 }

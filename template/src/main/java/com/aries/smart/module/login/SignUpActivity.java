@@ -225,7 +225,7 @@ public class SignUpActivity extends FastTitleActivity {
             return;
         }
 
-        AuthRepository.getInstance().smsVerification(getVerify(), getPhone(), ApiConstant.SMS_TYPE_REGISTER)
+        AuthRepository.getInstance().verificationCode(getVerify(), getPhone(), ApiConstant.SMS_TYPE_REGISTER)
                 .subscribe(smsVerificationResponse -> {
                     LoggerManager.d("smsVerificationResponse", smsVerificationResponse.getResponseCode());
                     LoggerManager.d("smsVerificationResponse", smsVerificationResponse.getResponseMessage());
@@ -240,7 +240,6 @@ public class SignUpActivity extends FastTitleActivity {
                         accountCreateTo.setSmsCode(getVerify()); // 短信验证码
                         LogUtils.d(accountCreateTo);
 
-                        //TODO yhd 接口超时待验证逻辑
                         AuthRepository.getInstance().accountCreate(accountCreateTo).subscribe(accountCreateResponse -> {
                             LoggerManager.d("accountCreateResponse", accountCreateResponse.getResponseCode());
                             LoggerManager.d("accountCreateResponse", accountCreateResponse.getResponseMessage());
@@ -272,7 +271,7 @@ public class SignUpActivity extends FastTitleActivity {
         // 获取验证码
         mBtnVerify.setEnabled(false);
         if (clickable) {
-            //TODO yhd 请求验证码
+            // 请求验证码
             AuthRepository.getInstance().smsSendCode(getPhone(), ApiConstant.SMS_TYPE_REGISTER)
                     .subscribe(smsSendResponse -> {
                         LoggerManager.d("startVerify", smsSendResponse.getResponseCode());

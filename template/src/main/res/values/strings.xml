@@ -25,7 +25,7 @@
     <string name="hint_invite_code">请输入邀请码</string>
     <string name="confirm">确认</string>
     <string name="cencel">取消</string>
-    <string name="phonenum_wrong">手机号有误或已注册</string>
+    <string name="wrong_phonenum">手机号有误或已注册</string>
     <string name="wait_sms">请稍等...</string>
     <string name="get_sms_fail">获取失败</string>
     <string name="toast_password_too_short">登录密码过短</string>
@@ -48,6 +48,7 @@
     <string name="psw_not_equals">新密码不一致，请重新输入</string>
     <string name="set_psw_success">密码修改成功</string>
     <string name="set_psw_fail">密码修改失败</string>
+    <string name="worng_phonenum_or_verifycode">手机号或验证码错误</string>
 
 
 </resources>

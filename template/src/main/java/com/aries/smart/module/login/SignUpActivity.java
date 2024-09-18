@@ -204,12 +204,12 @@ public class SignUpActivity extends FastTitleActivity {
     private void toVerify() {
         //手机号为空
         if (StringUtils.isTrimEmpty(getPhone())) {
-            ToastUtil.show(getString(R.string.phonenum_wrong));
+            ToastUtil.show(getString(R.string.wrong_phonenum));
             return;
         }
         //简单验证手机号
         if (!RegexUtils.isMobileSimple(getPhone())) {
-            ToastUtil.show(getString(R.string.phonenum_wrong));
+            ToastUtil.show(getString(R.string.wrong_phonenum));
             return;
         }
         //开始验证
@@ -232,7 +232,7 @@ public class SignUpActivity extends FastTitleActivity {
                     if (StringUtils.equals(smsVerificationResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
                         //校验成功 创建用户
                         AccountCreateTo accountCreateTo = new AccountCreateTo();
-                        accountCreateTo.setAccessFlags(AuthRepository.TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID); //访问标识 0：代表Android；1：代表IOS；可为空
+                        accountCreateTo.setAccessFlags(ApiConstant.TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID); //访问标识 0：代表Android；1：代表IOS；可为空
                         accountCreateTo.setInviteCode(getInviteCode()); //	邀请码；用户UID
                         accountCreateTo.setMachineCode(DeviceUtils.getUniqueDeviceId()); //	机器码
                         accountCreateTo.setPassword(getPassword()); // 密码
@@ -280,7 +280,7 @@ public class SignUpActivity extends FastTitleActivity {
                         if (StringUtils.equals(smsSendResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
                             ToastUtils.showShort(R.string.wait_sms);
                         } else {
-                            ToastUtils.showShort(R.string.phonenum_wrong);
+                            ToastUtils.showShort(R.string.wrong_phonenum);
                         }
                     }, throwable -> {
                         ToastUtils.showShort(R.string.get_sms_fail);

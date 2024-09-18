@@ -75,9 +75,6 @@ public class AuthRepository extends BaseRepository {
         return FastTransformer.switchSchedulers(getAuthService().verificationCode(code, mobile, type).retryWhen(new FastRetryWhen()));
     }
 
-
-    public static final String TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID = "0";
-
     /**
      * 创建账号
      *

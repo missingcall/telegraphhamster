@@ -95,7 +95,7 @@ public class FindPasswordStep2Activity extends FastTitleActivity {
                                 if (StringUtils.equals(smsSendResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
                                     ToastUtils.showShort(R.string.wait_sms);
                                 } else {
-                                    ToastUtils.showShort(R.string.phonenum_wrong);
+                                    ToastUtils.showShort(R.string.wrong_phonenum);
                                 }
                             }, throwable -> {
                                 ToastUtils.showShort(R.string.get_sms_fail);
@@ -137,7 +137,7 @@ public class FindPasswordStep2Activity extends FastTitleActivity {
                             //校验通过 调登录接口
                             LoginTo loginTo = new LoginTo();
                             loginTo.setMobile(getPhone());
-                            loginTo.setAccessFlags(AuthRepository.TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID);
+                            loginTo.setAccessFlags(ApiConstant.TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID);
                             loginTo.setMachineCode(DeviceUtils.getUniqueDeviceId());
                             loginTo.setSmsCode(getVerify());
 

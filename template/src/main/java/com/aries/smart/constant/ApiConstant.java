@@ -8,6 +8,9 @@ package com.aries.smart.constant;
  */
 public class ApiConstant {
 
+    /* 	accessFlags 访问标识 0：代表Android；1：代表IOS；可为空 android平台 */
+    public static final String TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID = "0";
+
     /* /hamster-user/sms  sendCode type
     * 类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
     * */

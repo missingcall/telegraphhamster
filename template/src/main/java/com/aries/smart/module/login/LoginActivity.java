@@ -9,22 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.Guideline;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
 import com.aries.smart.WebViewActivity;
-import com.aries.smart.module.login.fragment.LoginDialogFragment;
-import com.aries.smart.module.login.fragment.LoginSmsFragment;
 import com.aries.smart.module.widget.dialog.AgreePrivacyDialog;
 import com.aries.smart.module.widget.dialog.LoginDialog;
 import com.aries.smart.utils.RxTextTool;

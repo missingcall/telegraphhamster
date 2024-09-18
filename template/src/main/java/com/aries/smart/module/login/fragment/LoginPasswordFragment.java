@@ -13,7 +13,6 @@ import com.aries.library.fast.module.fragment.FastTitleFragment;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.MainActivity;
 import com.aries.smart.R;
-import com.aries.smart.module.login.FindPasswordStep1Activity;
 import com.aries.smart.module.login.FindPasswordStep2Activity;
 import com.aries.smart.module.login.widget.ClearEditText;
 import com.aries.smart.retrofit.repository.AuthRepository;
@@ -22,6 +21,7 @@ import com.aries.smart.retrofit.request.PasswordLoginTo;
 import com.aries.ui.view.title.TitleBarView;
 import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.RegexUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
@@ -98,6 +98,13 @@ public class LoginPasswordFragment extends FastTitleFragment {
     void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_in:
+
+                //简单校验电话号码
+                if (!RegexUtils.isMobileSimple(getPhone())) {
+                    ToastUtils.showShort(R.string.worng_pn_or_psw);
+                    return;
+                }
+
                 //登录
                 PasswordLoginTo passwordLoginTo = new PasswordLoginTo();
                 passwordLoginTo.setMachineCode(DeviceUtils.getUniqueDeviceId());
@@ -108,14 +115,13 @@ public class LoginPasswordFragment extends FastTitleFragment {
                     LogUtils.d(passwordLoginResponse);
                     if (StringUtils.equals(passwordLoginResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
                         //TODO yhd 登录成功 进入首页 将用户数据记录
-
-                        ToastUtils.showShort(getString(R.string.login_password));
+                        ToastUtils.showShort(getString(R.string.login_success));
                         FastUtil.startActivity(getActivity(), MainActivity.class);
                         getActivity().finish();
                     } else {
                         ToastUtils.showShort(getString(R.string.worng_pn_or_psw));
                     }
-                },throwable -> {
+                }, throwable -> {
                     ToastUtils.showShort(getString(R.string.worng_pn_or_psw));
                 });
                 break;

@@ -49,6 +49,13 @@
     <string name="set_psw_success">密码修改成功</string>
     <string name="set_psw_fail">密码修改失败</string>
     <string name="worng_phonenum_or_verifycode">手机号或验证码错误</string>
+    <string name="personal_image">个人形象</string>
+    <string name="nickname">昵称</string>
+    <string name="achievement">成就</string>
+    <string name="view_all">查看全部</string>
+    <string name="skin">皮肤</string>
+    <string name="avatar">头像</string>
+    <string name="unlock_now">立即解锁</string>
 
 
 </resources>

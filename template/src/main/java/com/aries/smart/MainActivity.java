@@ -8,7 +8,7 @@ import com.aries.library.fast.manager.LoggerManager;
 import com.aries.library.fast.module.activity.FastMainActivity;
 import com.aries.library.fast.util.SizeUtil;
 import com.aries.smart.module.game.GameFragment;
-import com.aries.smart.module.main.HomeFragment;
+import com.aries.smart.module.main.PersonalImageFragment;
 import com.aries.smart.module.market.MarketFragment;
 import com.aries.smart.module.mine.MineFragment;
 import com.aries.smart.module.quest.QuestFragment;
@@ -51,7 +51,7 @@ public class MainActivity extends FastMainActivity {
 //        mTabEntities.add(new FastTabEntity(R.string.quest, R.drawable.tab_quest_default, R.drawable.tab_quest_selected, MineFragment.newInstance()));
 //        mTabEntities.add(new FastTabEntity(R.string.mine, R.drawable.tab_mine_default, R.drawable.tab_mine_selected, MineFragment.newInstance()));
         //图文合并
-        mTabEntities.add(new FastTabEntity(R.drawable.tab_main_unselected, R.drawable.tab_main_selected, HomeFragment.newInstance()));
+        mTabEntities.add(new FastTabEntity(R.drawable.tab_main_unselected, R.drawable.tab_main_selected, PersonalImageFragment.newInstance()));
         mTabEntities.add(new FastTabEntity(R.drawable.tab_market_unselected, R.drawable.tab_market_selected, MarketFragment.newInstance()));
         mTabEntities.add(new FastTabEntity(R.drawable.tab_game_unselected, R.drawable.tab_game_selected, GameFragment.newInstance()));
         mTabEntities.add(new FastTabEntity(R.drawable.tab_quest_unselected, R.drawable.tab_quest_selected, QuestFragment.newInstance()));

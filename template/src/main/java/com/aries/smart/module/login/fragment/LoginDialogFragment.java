@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.aries.smart.R;
-import com.aries.smart.module.login.adapter.LoginAdapter;
+import com.aries.smart.module.adapter.LoginAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class LoginDialogFragment extends DialogFragment {

@@ -19,7 +19,7 @@ public class ApiConstant {
     public static final String SMS_TYPE_LOG_OUT = "4"; //注销
     public static final String SMS_TYPE_RETRIEVE_PASSWORD = "5"; //找回密码
 
-    /* path */
+    /* 登录接口 */
     public static final String API_USER_SMS_SEND_CODE = "/hamster-user/sms/sendCode"; //发送短信验证码
     public static final String API_USER_SMS_VERIFICATION_CODE = "/hamster-user/sms/verificationCode"; //短信验证
     public static final String API_USER_ACCOUNT_CREATE = "/hamster-user/user/accountCreate"; //创建账号
@@ -28,4 +28,6 @@ public class ApiConstant {
     public static final String API_USER_RESET_USER_LOGIN_PASSWORD = "/hamster-user/user/resetUserLoginPassword"; //忘记用户登录密码
     public static final String API_LOGIN = "/hamster-user/user/login"; //手机号验证码登录(老版本)
 
+    /* 配件接口 */
+    public static final String API_ACCESSORIES_INFO_LIST = "/hamster-user/accessories/infoList"; //用户查看饰品头像皮肤首页
 }

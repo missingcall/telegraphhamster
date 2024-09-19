@@ -8,14 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.aries.library.fast.module.activity.FastTitleActivity;
-import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
 import com.aries.smart.module.login.widget.ClearEditText;
-import com.aries.smart.retrofit.repository.AuthRepository;
-import com.aries.smart.retrofit.request.QueryPhoneExistTo;
 import com.aries.ui.view.title.TitleBarView;
-import com.blankj.utilcode.util.StringUtils;
-import com.blankj.utilcode.util.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;

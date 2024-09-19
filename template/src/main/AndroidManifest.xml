@@ -9,77 +9,78 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
-
     <application
         android:name="com.aries.smart.App"
         android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:roundIcon="@drawable/icon"
         android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <activity
             android:name="com.aries.smart.SplashActivity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc"
+            android:screenOrientation="portrait"
             android:theme="@style/NormalSplash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--            TODO 测试用-->
+            <!--            <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
+                            <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>-->
         </activity>
 
         <activity
             android:name="com.aries.smart.MainActivity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
         <activity
             android:name=".module.login.LoginActivity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
-            />
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".module.login.SignInActivity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
-            />
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".module.login.SignUpActivity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
-            />
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".module.login.FindPasswordStep1Activity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
-            />
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".module.login.FindPasswordStep2Activity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
-            />
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".module.login.FindPasswordStep3Activity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
-            />
+            android:screenOrientation="portrait" />
 
 
         <!-- 应用内浏览器 -->
         <activity
             android:name="com.aries.smart.WebViewActivity"
-            android:screenOrientation="portrait"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
             android:hardwareAccelerated="true"
-            android:label="@string/fast_loading" />
+            android:label="@string/fast_loading"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

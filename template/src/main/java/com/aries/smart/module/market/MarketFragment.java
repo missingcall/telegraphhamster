@@ -56,35 +56,7 @@ public class MarketFragment extends FastTitleFragment {
         super.onVisibleChanged(isVisibleToUser);
         //Fragment 可见性变化回调
 
-        RadiusTextView radiusTextView = mContentView.findViewById(R.id.rtv_webMainFragment);
-        radiusTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://47.108.167.249:9796/"));
-                if (isAppInstall(LENOVO_PACKAGE_NAME)) {
-                    intent.setPackage(LENOVO_PACKAGE_NAME);
-                    startActivity(intent);
-                } else if (isAppInstall(GOOGLE_PACKAGE_NAME)) {
-                    intent.setPackage(GOOGLE_PACKAGE_NAME);
-                    startActivity(intent);
-                }
-                Intent chooserIntent = Intent.createChooser(intent, "iiii");
-                ///筛选只分享应用
-                List<ResolveInfo> resInfo = mContext.getPackageManager().queryIntentActivities(intent, 0);
-                if (!resInfo.isEmpty()) {
-                    List<String> list = new ArrayList<>();
-                    for (ResolveInfo info : resInfo) {
-                        ActivityInfo activityInfo = info.activityInfo;
-                        list.add(activityInfo.packageName + ';' + activityInfo.targetActivity);
-                    }
-                    ToastUtil.show("string" + new Gson().toJson(list));
-                    FastUtil.copyToClipboard(mContext, new Gson().toJson(list));
-                }
-                //mContext.startActivity(chooserIntent);
-            }
 
-        });
     }
 
     public boolean isAppInstall(String packageName) {

@@ -1,6 +1,7 @@
 package com.aries.smart;
 
 import android.content.Context;
+import android.os.Build;
 
 import androidx.multidex.MultiDexApplication;
 
@@ -112,4 +113,11 @@ public class App extends MultiDexApplication {
         return mContext;
     }
 
+    public static boolean isSupportElevation() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
+    public static Context getContext() {
+        return mContext;
+    }
 }

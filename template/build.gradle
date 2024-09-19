@@ -93,6 +93,11 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:'.concat(glideVersion)
     annotationProcessor 'com.jakewharton:butterknife-compiler:'.concat(butterknifeVersion)
     //以上库FastLib里使用compileOnly只是编译,使用时需根据项目选择相应版本
+    implementation 'cn.bingoogolapple:bga-banner:2.1.7@aar'
+    implementation 'com.github.lygttpod:SuperTextView:2.4.6'
+    implementation 'com.flyco.labelview:FlycoLabelView_Lib:1.0.2@aar'
+    //文件选择器
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.6.1'
 
     //沉浸式状态栏
 //    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'

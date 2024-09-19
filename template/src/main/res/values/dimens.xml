@@ -7,6 +7,7 @@
     <dimen name="text_size_middle">16sp</dimen>
     <dimen name="text_size_small">14sp</dimen>
     <dimen name="text_size_micro">12sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
 
     <!-- textSize>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
@@ -25,6 +26,7 @@
     <dimen name="corner_common">45dp</dimen>
     <dimen name="corner_micro">5dp</dimen>
     <dimen name="corner_small">10dp</dimen>
+    <dimen name="corner_middle">15dp</dimen>
 
     <!-- corner>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
@@ -33,6 +35,8 @@
 
 
     <dimen name="width_80">80dp</dimen>
+    <dimen name="width_60">60dp</dimen>
+    <dimen name="width_50">50dp</dimen>
     <dimen name="width_large">45dp</dimen>
     <dimen name="width_big">35dp</dimen>
     <dimen name="width_middle">30dp</dimen>

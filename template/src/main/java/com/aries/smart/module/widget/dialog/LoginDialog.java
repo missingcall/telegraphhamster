@@ -19,10 +19,9 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.aries.smart.R;
-import com.aries.smart.module.login.adapter.LoginAdapter;
+import com.aries.smart.module.adapter.LoginAdapter;
 import com.aries.smart.module.login.fragment.LoginPasswordFragment;
 import com.aries.smart.module.login.fragment.LoginSmsFragment;
-import com.blankj.utilcode.util.ScreenUtils;
 import com.google.android.material.tabs.TabLayout;
 import com.trello.rxlifecycle3.components.support.RxAppCompatDialogFragment;
 

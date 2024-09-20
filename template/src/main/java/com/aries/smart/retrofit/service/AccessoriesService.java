@@ -24,21 +24,5 @@ public interface AccessoriesService {
      */
     @POST(ApiConstant.API_ACCESSORIES_INFO_LIST)
     Observable<AccessoriesInfoListResponse> infoList(@Body AccessoriesInfoListTo accessoriesInfoListTo);
-/*
-    *//**
-     * 查询所有用户信息
-     * @param
-     * @return
-     *//*
-    @GET(ApiConstant.API_USER_QUERY_PHONE_EXIST)
-    Observable<QueryPhoneExistResponse> queryPhoneExist(@Query("phone") String phone);
 
-
-    *//**
-     * 用户查看饰品头像皮肤首页
-     * @param
-     * @return
-     *//*
-    @POST(ApiConstant.API_USER_PASSWORD_LOGIN)
-    Observable<PasswordLoginResponse> passwordLogin(@Body PasswordLoginTo passwordLoginTo);*/
 }

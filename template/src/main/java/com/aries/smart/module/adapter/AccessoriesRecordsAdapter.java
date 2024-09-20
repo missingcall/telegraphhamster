@@ -2,15 +2,12 @@ package com.aries.smart.module.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.aries.library.fast.manager.GlideManager;
 import com.aries.smart.R;
 import com.aries.smart.module.entity.AccessoriesInfoListResponse;
-import com.aries.smart.module.entity.RecordsResponse;
-import com.aries.smart.utils.BaseItemTouchViewHolder;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.module.LoadMoreModule;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
@@ -23,14 +20,14 @@ import java.util.ArrayList;
  * Function: 描述性条目适配器
  * Description:
  */
-public class AccessoriesRecordsAdapter extends BaseQuickAdapter<RecordsResponse, BaseViewHolder> implements LoadMoreModule {
+public class AccessoriesRecordsAdapter extends BaseQuickAdapter<AccessoriesInfoListResponse.DataBean.RecordsBean, BaseViewHolder> {
 
     public AccessoriesRecordsAdapter() {
         super(R.layout.item_skin_display, new ArrayList<>());
     }
 
     @Override
-    protected void convert(@NonNull BaseViewHolder baseViewHolder, RecordsResponse recordsResponse) {
+    protected void convert(@NonNull BaseViewHolder baseViewHolder, AccessoriesInfoListResponse.DataBean.RecordsBean recordsResponse) {
         baseViewHolder.setText(R.id.tv_name, recordsResponse.getName());
         GlideManager.loadImg(recordsResponse.getIcon(), baseViewHolder.getView(R.id.iv_skin));
         ImageView iv_lock = baseViewHolder.getView(R.id.iv_lock);

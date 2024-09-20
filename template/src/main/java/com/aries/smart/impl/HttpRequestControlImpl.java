@@ -80,7 +80,8 @@ public class HttpRequestControlImpl implements HttpRequestControl {
             return;
         }
         statusLayoutManager.showSuccessLayout();
-        if (smartRefreshLayout.getState() == RefreshState.Refreshing || page == 0) {
+
+        if (smartRefreshLayout != null && (smartRefreshLayout.getState() == RefreshState.Refreshing || page == 0)) {
             adapter.setNewInstance(new ArrayList());
         }
         adapter.addData(list);
@@ -158,7 +159,7 @@ public class HttpRequestControlImpl implements HttpRequestControl {
 //                    //可自定义网络错误页面展示
 //                    statusLayoutManager.showCustomLayout(R.layout.layout_status_layout_manager_error);
 //                } else {
-                    statusLayoutManager.showErrorLayout();
+                statusLayoutManager.showErrorLayout();
 //                }
                 return;
             }

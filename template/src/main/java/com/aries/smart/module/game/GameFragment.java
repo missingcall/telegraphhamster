@@ -1,22 +1,11 @@
 package com.aries.smart.module.game;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 
 import com.aries.library.fast.module.fragment.FastTitleFragment;
-import com.aries.library.fast.util.FastUtil;
-import com.aries.library.fast.util.ToastUtil;
 import com.aries.smart.R;
-import com.aries.ui.view.radius.RadiusTextView;
 import com.aries.ui.view.title.TitleBarView;
-import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Author: AriesHoo on 2018/8/10 12:22

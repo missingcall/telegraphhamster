@@ -1,4 +1,4 @@
-package com.aries.smart.module.main;
+package com.aries.smart.module.mine;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,13 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.allen.library.SuperTextView;
-import com.aries.library.fast.module.fragment.FastTitleRefreshLoadFragment;
+import com.aries.library.fast.module.activity.FastRefreshLoadActivity;
 import com.aries.smart.R;
-import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.adapter.AchievementDisplayAdapter;
+import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.entity.AchievementDisplayEntity;
-import com.aries.smart.module.mine.AvatarFragment;
-import com.aries.smart.module.mine.AccessoriesInfoListFragment;
+import com.aries.smart.module.main.PersonalImageFragment;
 import com.aries.smart.utils.TitleBarViewHelper;
 import com.aries.ui.view.tab.SegmentTabLayout;
 import com.aries.ui.view.tab.listener.OnTabSelectListener;
@@ -31,13 +30,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-/**
-
- * Function:
- * Description:个人形象
- */
-@Deprecated
-public class PersonalImageFragment extends FastTitleRefreshLoadFragment<AchievementDisplayEntity> {
+public class PersonalImageActivity extends FastRefreshLoadActivity {
 
     List<AchievementDisplayEntity> list = new ArrayList<>();
     @BindView(R.id.titleBar_headFastLib)
@@ -88,12 +81,12 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
 
     @Override
     public int getContentLayout() {
-        return R.layout.fragment_personal_image;
+        return R.layout.activity_personal_image;
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 4);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 4);
         mRecyclerView.setLayoutManager(layoutManager);
 
         mTitleBarViewHelper = new TitleBarViewHelper(mContext)
@@ -105,7 +98,7 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
         fragments[0] = new AccessoriesInfoListFragment();
         fragments[1] = new AvatarFragment();
 
-        SkinAvatarAdapter skinAvatarAdapter = new SkinAvatarAdapter(getChildFragmentManager(), fragments, mTitles, getActivity());
+        SkinAvatarAdapter skinAvatarAdapter = new SkinAvatarAdapter(getSupportFragmentManager(), fragments, mTitles, this);
         mVpContentFastLib.setAdapter(skinAvatarAdapter);
 
         mStlSkinAvatar.setTabData(mTitles);
@@ -140,13 +133,6 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
         }
     }
 
-    @Override
-    protected void onVisibleChanged(boolean isVisibleToUser) {
-        super.onVisibleChanged(isVisibleToUser);
-        //Fragment 可见性变化回调
-
-
-    }
 
     @Override
     public boolean isLoadMoreEnable() {

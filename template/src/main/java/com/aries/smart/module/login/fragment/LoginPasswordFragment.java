@@ -18,6 +18,8 @@ import com.aries.smart.module.login.widget.ClearEditText;
 import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
+import com.aries.smart.utils.ConstantUtils;
+import com.aries.smart.utils.PreferenceUtil;
 import com.aries.ui.view.title.TitleBarView;
 import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.LogUtils;
@@ -115,6 +117,10 @@ public class LoginPasswordFragment extends FastTitleFragment {
                     LogUtils.d(passwordLoginResponse);
                     if (StringUtils.equals(passwordLoginResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
                         //TODO yhd 登录成功 进入首页 将用户数据记录
+//                        LogUtils.d("TOKEN_HEAD" + passwordLoginResponse.getData().getTokenHead());
+//                        LogUtils.d("AUTHORIZATION_TOKEN" + passwordLoginResponse.getData().getToken());
+                        PreferenceUtil.put(ConstantUtils.TOKEN_HEAD,passwordLoginResponse.getData().getTokenHead());
+                        PreferenceUtil.put(ConstantUtils.AUTHORIZATION_TOKEN,passwordLoginResponse.getData().getToken());
                         ToastUtils.showShort(getString(R.string.login_success));
                         FastUtil.startActivity(getActivity(), MainActivity.class);
                         getActivity().finish();

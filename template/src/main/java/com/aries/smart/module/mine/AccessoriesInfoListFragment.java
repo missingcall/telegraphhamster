@@ -1,6 +1,11 @@
 package com.aries.smart.module.mine;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.DynamicDrawableSpan;
+import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -8,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.Guideline;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -17,10 +23,10 @@ import com.aries.library.fast.retrofit.FastObserver;
 import com.aries.smart.R;
 import com.aries.smart.module.adapter.AccessoriesRecordsAdapter;
 import com.aries.smart.module.entity.AccessoriesInfoListResponse;
-import com.aries.smart.module.entity.RecordsResponse;
 import com.aries.smart.retrofit.repository.AccessoriesRepository;
 import com.aries.smart.retrofit.request.AccessoriesInfoListTo;
 import com.aries.ui.view.title.TitleBarView;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
@@ -30,7 +36,10 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class AccessoriesInfoListFragment extends FastTitleRefreshLoadFragment<RecordsResponse> {
+/**
+ * 个人形象页面
+ */
+public class AccessoriesInfoListFragment extends FastTitleRefreshLoadFragment<AccessoriesInfoListResponse.DataBean.RecordsBean> {
     @BindView(R.id.titleBar_headFastLib)
     TitleBarView mTitleBarHeadFastLib;
     @BindView(R.id.guideline_horizontal)
@@ -56,11 +65,12 @@ public class AccessoriesInfoListFragment extends FastTitleRefreshLoadFragment<Re
 
     @Override
     public int getContentLayout() {
-        return R.layout.fragment_skin;
+        return R.layout.fragment_accessories_info;
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        //TODO yhd 皮肤和头像多了需要加载更多逻辑
 /*        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -78,6 +88,15 @@ public class AccessoriesInfoListFragment extends FastTitleRefreshLoadFragment<Re
 
             }
         });*/
+
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+        mRvContentFastLib.setLayoutManager(layoutManager);
+
+        //TODO yhd unlockMethod unlockParameters 购买
+        SpannableString spannableString = new SpannableString("解锁花费 200");
+        ImageSpan image = new ImageSpan(getActivity(), R.drawable.unlock_pinecone, DynamicDrawableSpan.ALIGN_BOTTOM);
+        spannableString.setSpan(image, 4, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        mTvUnlockCost.setText(spannableString);
     }
 
     @Override
@@ -95,17 +114,18 @@ public class AccessoriesInfoListFragment extends FastTitleRefreshLoadFragment<Re
     }
 
     @Override
-    public void onItemClicked(BaseQuickAdapter<RecordsResponse, BaseViewHolder> adapter, View view, int position) {
+    public void onItemClicked(BaseQuickAdapter<AccessoriesInfoListResponse.DataBean.RecordsBean, BaseViewHolder> adapter, View view, int position) {
         super.onItemClicked(adapter, view, position);
         ToastUtils.showShort("点击了 position " + position);
     }
 
     @Override
-    public BaseQuickAdapter<RecordsResponse, BaseViewHolder> getAdapter() {
+    public BaseQuickAdapter<AccessoriesInfoListResponse.DataBean.RecordsBean, BaseViewHolder> getAdapter() {
         mAdapter = new AccessoriesRecordsAdapter();
         return mAdapter;
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void loadData(int page) {
         AccessoriesInfoListTo accessoriesInfoListTo = new AccessoriesInfoListTo();
@@ -118,10 +138,23 @@ public class AccessoriesInfoListFragment extends FastTitleRefreshLoadFragment<Re
                 .subscribe(new FastObserver<AccessoriesInfoListResponse>(getIHttpRequestControl()) {
                     @Override
                     public void _onNext(AccessoriesInfoListResponse entity) {
+                        LogUtils.d(entity);
+                        LogUtils.d(entity.getData().getRecords());
                         mStatusManager.showSuccessLayout();
-                        FastManager.getInstance().getHttpRequestControl().httpRequestSuccess(getIHttpRequestControl(), entity == null || entity.getRecords() == null ? new ArrayList<>() : entity.getRecords(), null);
+                        //测试数据
+                        entity.getData().getRecords().addAll(entity.getData().getRecords());
+                        entity.getData().getRecords().addAll(entity.getData().getRecords());
+                        FastManager.getInstance().getHttpRequestControl().httpRequestSuccess(getIHttpRequestControl(), entity == null || entity.getData().getRecords() == null ? new ArrayList<>() : entity.getData().getRecords(), null);
                     }
                 });
+
+/*        AccessoriesRepository.getInstance().infoList(accessoriesInfoListTo).subscribe(accessoriesInfoListResponse -> {
+            mStatusManager.showSuccessLayout();
+            LogUtils.d(accessoriesInfoListResponse);
+            LogUtils.d(accessoriesInfoListResponse.getData().getRecords());
+        },throwable -> {
+            ToastUtils.showShort("失败");
+        });*/
     }
 
 }

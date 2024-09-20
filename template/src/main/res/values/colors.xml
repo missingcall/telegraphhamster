@@ -11,6 +11,7 @@
     <color name="btn_stroke">#FF3D3F43</color>
     <color name="gray_s">#FF1C1E23</color>
     <color name="red">#FF1100</color>
+    <color name="white_9">#FF999999</color>
 
     <!--  >>>  tab相关  >>>-->
     <color name="tab_main_bg">#262A2E</color>

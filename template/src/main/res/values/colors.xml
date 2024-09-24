@@ -8,10 +8,13 @@
     <color name="black">#000000</color>
     <color name="gray">#262A2E</color>
     <color name="blue">#5A60FF</color>
+    <color name="blue_deep">#FF36398A</color>
     <color name="btn_stroke">#FF3D3F43</color>
     <color name="gray_s">#FF1C1E23</color>
     <color name="red">#FF1100</color>
     <color name="white_9">#FF999999</color>
+    <color name="green_light">#80F68D</color>
+    <color name="yellow_deep">#FDC120</color>
 
     <!--  >>>  tab相关  >>>-->
     <color name="tab_main_bg">#262A2E</color>

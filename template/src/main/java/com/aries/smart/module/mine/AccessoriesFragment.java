@@ -1,7 +1,6 @@
 package com.aries.smart.module.mine;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -17,19 +16,19 @@ import androidx.constraintlayout.widget.Guideline;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.aries.library.fast.FastManager;
 import com.aries.library.fast.manager.GlideManager;
-import com.aries.library.fast.module.fragment.FastTitleFragment;
 import com.aries.library.fast.module.fragment.FastTitleRefreshLoadFragment;
 import com.aries.library.fast.retrofit.FastObserver;
 import com.aries.smart.R;
 import com.aries.smart.module.adapter.AccessoriesRecordsAdapter;
 import com.aries.smart.module.widget.dialog.SkinPurchaseDialog;
-import com.aries.smart.retrofit.repository.AccessoriesRepository;
 import com.aries.smart.retrofit.repository.BaseRepository;
-import com.aries.smart.retrofit.request.AccessoriesInfoListTo;
 import com.aries.smart.retrofit.request.CurrentlyUseSkinTo;
 import com.aries.smart.retrofit.response.AccessoriesInfoListResponse;
+import com.aries.smart.retrofit.repository.AccessoriesRepository;
+import com.aries.smart.retrofit.request.AccessoriesInfoListTo;
 import com.aries.ui.view.title.TitleBarView;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.StringUtils;
@@ -43,8 +42,14 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfoListResponse.DataBean.RecordsBean> {
+/**
+ * 个人形象页面
+ */
+public class AccessoriesFragment extends FastTitleRefreshLoadFragment<AccessoriesInfoListResponse.DataBean.RecordsBean> {
 
+    public static final String SKIN = "001";//皮肤
+    public static final String AVATAR = "002";//头像
+    public String mType = "001";
 
     public int mUnlockButtonStatus = 0;
     public static int UNLOCK_BUTTON_STATE_UNLOCK_NOW = 0;
@@ -79,9 +84,15 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
     AccessoriesInfoListResponse.DataBean.RecordsBean mRecordsBean;
 
 
+    public static AccessoriesFragment getInstance(String type) {
+        AccessoriesFragment fragment = new AccessoriesFragment();
+        fragment.mType = type;
+        return fragment;
+    }
+
     @Override
     public int getContentLayout() {
-        return R.layout.fragment_avatar;
+        return R.layout.fragment_accessories_info;
     }
 
 
@@ -101,7 +112,6 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
         spannableString.setSpan(image, 4, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         mTvUnlockCost.setText(spannableString);
 
-
     }
 
     @Override
@@ -120,13 +130,14 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                     //（2）点击【购买】按钮，将底部拉起购买确认弹窗，
                     // 在弹窗中需要展示皮肤、昵称、说明，点击【购买】按钮需要判断用户持有的松果是否大于消耗的松果数量，
                     // 若用户持有的松果数量小于消耗数量，则toast提示“松果不足”，反之toast提示“购买成功”并关闭底部弹窗
-                    SkinPurchaseDialog skinPurchaseDialog = new SkinPurchaseDialog(getActivity() ,mRecordsBean);
+
+                    SkinPurchaseDialog skinPurchaseDialog = new SkinPurchaseDialog(getActivity(), mRecordsBean);
                     skinPurchaseDialog.show();
 
                 } else if (StringUtils.equals(mBtnUnlock.getText(), "立即使用")) {
-                    //设置当前显示头像
+                    //设置当前显示皮肤
                     CurrentlyUseSkinTo currentlyUseSkinTo = new CurrentlyUseSkinTo();
-                    currentlyUseSkinTo.setType("002");
+                    currentlyUseSkinTo.setType(mType);
                     AccessoriesRepository.getInstance().currentlyUseSkin(currentlyUseSkinTo).subscribe(currentlyUseSkinResponse -> {
                         if (StringUtils.equals(currentlyUseSkinResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
                             //使用成功 刷新列表 同时设置左边状态
@@ -149,22 +160,29 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
     @Override
     public void onItemClicked(BaseQuickAdapter<AccessoriesInfoListResponse.DataBean.RecordsBean, BaseViewHolder> adapter, View view, int position) {
         super.onItemClicked(adapter, view, position);
-        //记录当前点击信息
+        //设置左边显示状态
         mPosition = position;
-        ToastUtils.showShort(mPosition);
-        //点击右边列表左边显示具体信息
-        AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean = (AccessoriesInfoListResponse.DataBean.RecordsBean) adapter.getData().get(position);
-        //显示点击选中的皮肤
-        GlideManager.loadCircleImg(recordsBean.getIcon(), mIvImageDisplay);
-        mTvName.setText(recordsBean.getName());
-        mTvDescribe.setText(recordsBean.getRemark());
+        mRecordsBean = adapter.getItem(mPosition);
+        setLeftStatus();
 
-        if (recordsBean.isUnlockStatus()) {
+
+    }
+
+    private void setLeftStatus() {
+        //记录当前点击信息
+        //点击右边列表左边显示具体信息
+//        AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean = (AccessoriesInfoListResponse.DataBean.RecordsBean) adapter.getData().get(position);
+        //显示点击选中的皮肤
+        GlideManager.loadImg(mRecordsBean.getIcon(), mIvImageDisplay ,R.drawable.icon);
+        mTvName.setText(mRecordsBean.getName());
+        mTvDescribe.setText(mRecordsBean.getRemark());
+
+        if (mRecordsBean.isUnlockStatus()) {
             //已解锁
             mTvUnlockCost.setText("已解锁");
             mTvUnlockCost.setTextColor(getResources().getColor(R.color.green_light));
             //是否佩戴
-            if (recordsBean.isWearStatus()) {
+            if (mRecordsBean.isWearStatus()) {
                 //已佩戴
                 mBtnUnlock.setText("已使用");
                 mBtnUnlock.setEnabled(false);
@@ -177,8 +195,8 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
             //未解锁
             mTvUnlockCost.setTextColor(getResources().getColor(R.color.red));
             //解锁方式为购买 则显示解锁参数 这里解锁只会花费松果
-            if (StringUtils.equals(recordsBean.getUnlockMethod(), "001")) {
-                SpannableString spannableString = new SpannableString("解锁花费 " + recordsBean.getUnlockParameters().toString());
+            if (StringUtils.equals(mRecordsBean.getUnlockMethod(), "001")) {
+                SpannableString spannableString = new SpannableString("解锁花费 " + mRecordsBean.getUnlockParameters().toString());
                 ImageSpan image = new ImageSpan(getActivity(), R.drawable.unlock_pinecone, DynamicDrawableSpan.ALIGN_BOTTOM);
                 spannableString.setSpan(image, 4, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 mTvUnlockCost.setText(spannableString);
@@ -186,13 +204,11 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                 mBtnUnlock.setEnabled(true);
             } else {
                 //	解锁方式（001 购买 002 成就 003 升级） 如果是成就和升级 则显示解锁参数
-                mTvUnlockCost.setText(recordsBean.getUnlockParameters().toString());
+                mTvUnlockCost.setText(mRecordsBean.getUnlockParameters().toString());
                 mBtnUnlock.setText("立即解锁");
                 mBtnUnlock.setEnabled(true);
             }
         }
-
-
     }
 
     @Override
@@ -210,16 +226,16 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
         AccessoriesInfoListTo accessoriesInfoListTo = new AccessoriesInfoListTo();
         accessoriesInfoListTo.setPageNum(page * mDefaultPage);
         accessoriesInfoListTo.setPageSize(mDefaultPageSize);
-        accessoriesInfoListTo.setType("002");
+        accessoriesInfoListTo.setType(mType);
 
         AccessoriesRepository.getInstance().infoList(accessoriesInfoListTo)
                 .subscribe(accessoriesInfoListResponse -> {
                     if (StringUtils.equals(accessoriesInfoListResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
                         //测试数据
-                        AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean1 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
+                       /* AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean1 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
                         recordsBean1.setIcon("https://fastly.picsum.photos/id/562/200/200.jpg?hmac=F4ylYRNFPH6rDzYo48_NUieJXXI2yaMl9ElwGeFQHZo");
                         recordsBean1.setName("test1");
-                        recordsBean1.setType("002");
+                        recordsBean1.setType("001");
                         recordsBean1.setUnlockMethod("001");
                         recordsBean1.setUnlockStatus(false);
                         recordsBean1.setWearStatus(false);
@@ -230,7 +246,7 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                         AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean2 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
                         recordsBean2.setIcon("https://fastly.picsum.photos/id/452/200/200.jpg?hmac=f5vORXpRW2GF7jaYrCkzX3EwDowO7OXgUaVYM2NNRXY");
                         recordsBean2.setName("test2");
-                        recordsBean2.setType("002");
+                        recordsBean2.setType("001");
                         recordsBean2.setUnlockMethod("002");
                         recordsBean2.setUnlockStatus(true);
                         recordsBean2.setWearStatus(false);
@@ -241,7 +257,7 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                         AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean3 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
                         recordsBean3.setIcon("https://fastly.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0");
                         recordsBean3.setName("test3");
-                        recordsBean3.setType("002");
+                        recordsBean3.setType("001");
                         recordsBean3.setUnlockMethod("003");
                         recordsBean3.setUnlockStatus(true);
                         recordsBean3.setWearStatus(true);
@@ -269,7 +285,7 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                         list.add(recordsBean2);
                         list.add(recordsBean3);
 
-                        accessoriesInfoListResponse.getData().getRecords().addAll(list);
+                        accessoriesInfoListResponse.getData().getRecords().addAll(list);*/
 
                         mAdapter.setList(accessoriesInfoListResponse.getData().getRecords());
                         mAdapter.notifyDataSetChanged();
@@ -285,7 +301,7 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
         AccessoriesInfoListTo accessoriesInfoListTo = new AccessoriesInfoListTo();
         accessoriesInfoListTo.setPageNum(page * mDefaultPage);
         accessoriesInfoListTo.setPageSize(mDefaultPageSize);
-        accessoriesInfoListTo.setType("002");
+        accessoriesInfoListTo.setType(mType);
 
         mDefaultPageSize = 10;
         AccessoriesRepository.getInstance().infoList(accessoriesInfoListTo)
@@ -302,10 +318,10 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
 
                         mStatusManager.showSuccessLayout();
                         //测试数据
-                        AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean1 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
+                      /*  AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean1 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
                         recordsBean1.setIcon("https://fastly.picsum.photos/id/562/200/200.jpg?hmac=F4ylYRNFPH6rDzYo48_NUieJXXI2yaMl9ElwGeFQHZo");
                         recordsBean1.setName("test1");
-                        recordsBean1.setType("002");
+                        recordsBean1.setType("001");
                         recordsBean1.setUnlockMethod("001");
                         recordsBean1.setUnlockStatus(false);
                         recordsBean1.setWearStatus(false);
@@ -316,7 +332,7 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                         AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean2 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
                         recordsBean2.setIcon("https://fastly.picsum.photos/id/452/200/200.jpg?hmac=f5vORXpRW2GF7jaYrCkzX3EwDowO7OXgUaVYM2NNRXY");
                         recordsBean2.setName("test2");
-                        recordsBean2.setType("002");
+                        recordsBean2.setType("001");
                         recordsBean2.setUnlockMethod("002");
                         recordsBean2.setUnlockStatus(true);
                         recordsBean2.setWearStatus(false);
@@ -327,7 +343,7 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                         AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean3 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
                         recordsBean3.setIcon("https://fastly.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0");
                         recordsBean3.setName("test3");
-                        recordsBean3.setType("002");
+                        recordsBean3.setType("001");
                         recordsBean3.setUnlockMethod("003");
                         recordsBean3.setUnlockStatus(true);
                         recordsBean3.setWearStatus(true);
@@ -355,13 +371,16 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                         list.add(recordsBean2);
                         list.add(recordsBean3);
 
-                        entity.getData().getRecords().addAll(list);
+                        entity.getData().getRecords().addAll(list);*/
 
                         LogUtils.d("entity : " + entity);
                         LogUtils.d("getRecords : " + entity.getData().getRecords());
-
-
-
+                        //默认为列表中的第一个
+                        if (entity.getData().getRecords().isEmpty()){
+                            return;
+                        }
+                        mRecordsBean = entity.getData().getRecords().get(0);
+                        setLeftStatus();
 
                         FastManager.getInstance().getHttpRequestControl().httpRequestSuccess(getIHttpRequestControl(), entity == null || entity.getData().getRecords() == null ? new ArrayList<>() : entity.getData().getRecords(), null);
 
@@ -369,7 +388,7 @@ public class AvatarFragment extends FastTitleRefreshLoadFragment<AccessoriesInfo
                         for (AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean : entity.getData().getRecords()) {
                             //当前为佩戴状态
                             if (recordsBean.isWearStatus()) {
-                                GlideManager.loadCircleImg(recordsBean.getIcon(), mIvImageDisplay);
+                                GlideManager.loadImg(recordsBean.getIcon(), mIvImageDisplay);
                             }
                         }
                     }

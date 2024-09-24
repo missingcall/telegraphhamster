@@ -8,12 +8,17 @@ import com.aries.smart.retrofit.request.AccountCreateTo;
 import com.aries.smart.retrofit.request.LoginTo;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
 import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
+import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
+import com.aries.smart.retrofit.response.CheckFirstUpdateNicknameResponse;
+import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
+import com.aries.smart.retrofit.response.InfoResponse;
 import com.aries.smart.retrofit.response.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
+import com.aries.smart.retrofit.response.UpdateNicknameResponse;
 import com.aries.smart.retrofit.response.VerificationCodeResponse;
 import com.aries.smart.retrofit.service.AuthService;
 
@@ -125,4 +130,43 @@ public class AuthRepository extends BaseRepository {
         return FastTransformer.switchSchedulers(getAuthService().login(loginTo).retryWhen(new FastRetryWhen()));
     }
 
+    /**
+     * 获取会员信息 /hamster-user/user/info
+     *
+     * @return
+     */
+    public Observable<InfoResponse> info() {
+
+        return FastTransformer.switchSchedulers(getAuthService().info().retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 修改昵称
+     *
+     * @return
+     */
+    public Observable<UpdateNicknameResponse> updateNickname(UpdateNicknameTo updateNicknameTo) {
+
+        return FastTransformer.switchSchedulers(getAuthService().updateNickname(updateNicknameTo).retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 我的钱包
+     *
+     * @return
+     */
+    public Observable<GetMyMoneyBagResponse> getMyMoneyBag() {
+
+        return FastTransformer.switchSchedulers(getAuthService().getMyMoneyBag().retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 验证是否首次修改昵称
+     *
+     * @return
+     */
+    public Observable<CheckFirstUpdateNicknameResponse> checkFirstUpdateNickname() {
+
+        return FastTransformer.switchSchedulers(getAuthService().checkFirstUpdateNickname().retryWhen(new FastRetryWhen()));
+    }
 }

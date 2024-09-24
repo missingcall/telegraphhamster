@@ -54,6 +54,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".module.mine.MedalAchievementActivity"
+            android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".module.login.SignInActivity"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
             android:screenOrientation="portrait" />

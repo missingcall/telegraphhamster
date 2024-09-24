@@ -1,4 +1,4 @@
-package com.aries.smart.module.entity;
+package com.aries.smart.retrofit.response;
 
 import java.util.List;
 

@@ -4,21 +4,15 @@ package com.aries.smart.retrofit.repository;
 import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.library.fast.retrofit.FastRetryWhen;
 import com.aries.library.fast.retrofit.FastTransformer;
-import com.aries.smart.module.entity.AccessoriesInfoListResponse;
+import com.aries.smart.retrofit.request.UnlockSkinTo;
+import com.aries.smart.retrofit.request.WearSkinTo;
+import com.aries.smart.retrofit.response.AccessoriesInfoListResponse;
 import com.aries.smart.retrofit.request.AccessoriesInfoListTo;
-import com.aries.smart.retrofit.request.AccountCreateTo;
-import com.aries.smart.retrofit.request.LoginTo;
-import com.aries.smart.retrofit.request.PasswordLoginTo;
-import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
-import com.aries.smart.retrofit.response.AccountCreateResponse;
-import com.aries.smart.retrofit.response.LoginResponse;
-import com.aries.smart.retrofit.response.PasswordLoginResponse;
-import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
-import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
-import com.aries.smart.retrofit.response.SmsSendResponse;
-import com.aries.smart.retrofit.response.VerificationCodeResponse;
+import com.aries.smart.retrofit.request.CurrentlyUseSkinTo;
+import com.aries.smart.retrofit.response.CurrentlyUseSkinResponse;
+import com.aries.smart.retrofit.response.UnlockSkinResponse;
+import com.aries.smart.retrofit.response.WearSkinResponse;
 import com.aries.smart.retrofit.service.AccessoriesService;
-import com.aries.smart.retrofit.service.AuthService;
 
 import io.reactivex.Observable;
 
@@ -60,6 +54,36 @@ public class AccessoriesRepository extends BaseRepository {
     public Observable<AccessoriesInfoListResponse> infoList(AccessoriesInfoListTo accessoriesInfoListTo) {
 
         return FastTransformer.switchSchedulers(getAccessoriesService().infoList(accessoriesInfoListTo).retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 当前使用头像皮肤
+     *
+     * @return
+     */
+    public Observable<CurrentlyUseSkinResponse> currentlyUseSkin(CurrentlyUseSkinTo currentlyUseSkinTo) {
+
+        return FastTransformer.switchSchedulers(getAccessoriesService().currentlyUseSkin(currentlyUseSkinTo).retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 用户解锁饰品头像皮肤
+     *
+     * @return
+     */
+    public Observable<UnlockSkinResponse> unlockSkin(UnlockSkinTo unlockSkinTo) {
+
+        return FastTransformer.switchSchedulers(getAccessoriesService().unlockSkin(unlockSkinTo).retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 用户佩戴饰品头像皮肤
+     *
+     * @return
+     */
+    public Observable<WearSkinResponse> wearSkin(WearSkinTo wearSkinTo) {
+
+        return FastTransformer.switchSchedulers(getAccessoriesService().wearSkin(wearSkinTo).retryWhen(new FastRetryWhen()));
     }
 
 }

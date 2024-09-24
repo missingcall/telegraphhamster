@@ -50,6 +50,7 @@
     <string name="set_psw_fail">密码修改失败</string>
     <string name="worng_phonenum_or_verifycode">手机号或验证码错误</string>
     <string name="personal_image">个人形象</string>
+    <string name="medal_achievement">成就勋章</string>
     <string name="nickname">昵称</string>
     <string name="achievement">成就</string>
     <string name="view_all">查看全部</string>
@@ -57,6 +58,14 @@
     <string name="avatar">头像</string>
     <string name="unlock_now">立即解锁</string>
     <string name="buy_skin">购买\n皮肤</string>
+    <string name="satiety">饱食度</string>
+    <string name="cleanliness">清洁度</string>
+    <string name="update_nickname">修改我的昵称</string>
+    <string name="edit_new_nickname">请输入新昵称</string>
+    <string name="nickname_max">昵称不长于8个文字</string>
+    <string name="nickname_current">0/8</string>
+    <string name="nickname_available">我可用的 99999</string>
+    <string name="purchase_successful">购买成功</string>
 
 
 </resources>

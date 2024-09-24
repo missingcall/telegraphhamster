@@ -29,7 +29,7 @@ import butterknife.BindView;
  */
 public class NewsItemFragment extends FastTitleFragment {
 
-    @BindView(R.id.vp_contentFastLib) ViewPager vpContent;
+    @BindView(R.id.vp_skin_avatar) ViewPager vpContent;
     private String[] titles;
     private int[] slidingTab = new int[]{R.array.arrays_news_news_sliding, 0, R.array.arrays_news_live_sliding, 0};
     private int mPosition = 0;

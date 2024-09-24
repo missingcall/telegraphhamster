@@ -19,6 +19,10 @@ public class ApiConstant {
     public static final String SMS_TYPE_LOG_OUT = "4"; //注销
     public static final String SMS_TYPE_RETRIEVE_PASSWORD = "5"; //找回密码
 
+    public static final String ACCESSORIES_TYPE_SKIN = "001"; //皮肤
+    public static final String ACCESSORIES_TYPE_AVATAR = "002"; //头像
+
+
     /* 登录接口 */
     public static final String API_USER_SMS_SEND_CODE = "/hamster-user/sms/sendCode"; //发送短信验证码
     public static final String API_USER_SMS_VERIFICATION_CODE = "/hamster-user/sms/verificationCode"; //短信验证
@@ -30,4 +34,19 @@ public class ApiConstant {
 
     /* 配件接口 */
     public static final String API_ACCESSORIES_INFO_LIST = "/hamster-user/accessories/infoList"; //用户查看饰品头像皮肤首页
+    public static final String API_ACCESSORIES_CURRENTLY_USE_SKIN = "/hamster-user/accessories/currentlyUseSkin"; //当前使用头像皮肤
+    public static final String API_ACCESSORIES_UNLOCK_SKIN = "/hamster-user/accessories/unlockSkin"; //用户解锁饰品头像皮肤
+    public static final String API_ACCESSORIES_WEAR_SKIN = "/hamster-user/accessories/wearSkin"; //用户佩戴饰品头像皮肤
+
+    /* 用户接口 */
+    public static final String API_USER_INFO = "/hamster-user/user/info"; //获取会员信息
+    public static final String API_USER_UPDATE_NICKNAME = "/hamster-user/user/updateNickname"; //修改昵称
+
+
+    /* 钱包 */
+    public static final String API_USER_GET_MY_MONEY_BAG = "/hamster-user/userNum/getMyMoneyBag"; //我的钱包
+    public static final String API_USER_CHECK_FIRST_UPDATE_NICKNAME = "/hamster-user/user/checkFirstUpdateNickname"; //
+
+
+
 }

@@ -169,7 +169,7 @@ public class FastMainTabDelegate {
      * @param rootView
      */
     private void getViewPager(View rootView) {
-        mViewPager = rootView.findViewById(R.id.vp_contentFastLib);
+        mViewPager = rootView.findViewById(R.id.vp_skin_avatar);
         if (mViewPager == null) {
             mViewPager = FindViewUtil.getTargetView(rootView, ViewPager.class);
         }

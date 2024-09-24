@@ -7,12 +7,9 @@ import androidx.annotation.NonNull;
 
 import com.aries.library.fast.manager.GlideManager;
 import com.aries.smart.R;
-import com.aries.smart.module.entity.AccessoriesInfoListResponse;
+import com.aries.smart.retrofit.response.AccessoriesInfoListResponse;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.module.LoadMoreModule;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-
-import java.util.ArrayList;
 
 /**
  * @Author: AriesHoo on 2018/8/10 9:51
@@ -23,7 +20,7 @@ import java.util.ArrayList;
 public class AccessoriesRecordsAdapter extends BaseQuickAdapter<AccessoriesInfoListResponse.DataBean.RecordsBean, BaseViewHolder> {
 
     public AccessoriesRecordsAdapter() {
-        super(R.layout.item_skin_display, new ArrayList<>());
+        super(R.layout.item_skin_display);
     }
 
     @Override
@@ -31,7 +28,7 @@ public class AccessoriesRecordsAdapter extends BaseQuickAdapter<AccessoriesInfoL
         baseViewHolder.setText(R.id.tv_name, recordsResponse.getName());
         GlideManager.loadImg(recordsResponse.getIcon(), baseViewHolder.getView(R.id.iv_skin));
         ImageView iv_lock = baseViewHolder.getView(R.id.iv_lock);
-        iv_lock.setVisibility(recordsResponse.isUnlockStatus() ? View.VISIBLE : View.GONE);
+        iv_lock.setVisibility(recordsResponse.isUnlockStatus() ? View.GONE : View.VISIBLE);
         
     }
 }

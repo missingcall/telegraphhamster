@@ -3,6 +3,7 @@ package com.aries.smart;
 import android.content.Context;
 import android.os.Build;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.multidex.MultiDexApplication;
 
 import com.aries.library.fast.FastManager;
@@ -11,6 +12,7 @@ import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.smart.impl.ActivityControlImpl;
 import com.aries.smart.impl.AppImpl;
 import com.aries.smart.impl.HttpRequestControlImpl;
+import com.aries.smart.module.viewmodel.WalletModel;
 import com.aries.smart.utils.ConstantUtils;
 import com.aries.smart.utils.PreferenceUtil;
 import com.orhanobut.logger.PrettyFormatStrategy;
@@ -24,12 +26,18 @@ import com.orhanobut.logger.PrettyFormatStrategy;
 public class App extends MultiDexApplication {
 
     private static Context mContext;
+    private static App mApp;
+
     private static String TAG = "FastTemplate";
+
+    private WalletModel mWalletModel;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mContext = this;
+        mApp = this;
+
         //初始化Logger日志打印
         LoggerManager.init(TAG, BuildConfig.LOG_ENABALE,
                 PrettyFormatStrategy.newBuilder()
@@ -107,10 +115,20 @@ public class App extends MultiDexApplication {
         // 参考com.aries.template.retrofit.service.ApiService#updateApp
 
         //其它初始化
+        // 获取ViewModel实例
+        mWalletModel = new ViewModelProvider.AndroidViewModelFactory(this).create(WalletModel.class);
+    }
+
+    public WalletModel getViewModel() {
+        return mWalletModel;
     }
 
     public static Context getInstance() {
         return mContext;
+    }
+
+    public static App getApp() {
+        return mApp;
     }
 
     public static boolean isSupportElevation() {

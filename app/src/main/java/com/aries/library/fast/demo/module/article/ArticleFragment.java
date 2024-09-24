@@ -31,7 +31,7 @@ import butterknife.BindView;
  */
 public class ArticleFragment extends FastTitleFragment {
 
-    @BindView(R.id.vp_contentFastLib)
+    @BindView(R.id.vp_skin_avatar)
     ViewPager mVpContent;
     private List<Fragment> listFragment = new ArrayList<>();
     private SlidingTabLayout mSlidingTab;

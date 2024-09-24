@@ -18,7 +18,7 @@ import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.adapter.AchievementDisplayAdapter;
 import com.aries.smart.module.entity.AchievementDisplayEntity;
 import com.aries.smart.module.mine.AvatarFragment;
-import com.aries.smart.module.mine.AccessoriesInfoListFragment;
+import com.aries.smart.module.mine.AccessoriesFragment;
 import com.aries.smart.utils.TitleBarViewHelper;
 import com.aries.ui.view.tab.SegmentTabLayout;
 import com.aries.ui.view.tab.listener.OnTabSelectListener;
@@ -58,7 +58,7 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
     SegmentTabLayout mStlSkinAvatar;
     @BindView(R.id.ll_avatar_skin)
     LinearLayout mLlAvatarSkin;
-    @BindView(R.id.vp_contentFastLib)
+    @BindView(R.id.vp_skin_avatar)
     ViewPager mVpContentFastLib;
 
 
@@ -78,7 +78,7 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
     @Override
     public void setTitleBar(TitleBarView titleBar) {
         titleBar
-//                .setLeftTextDrawable(R.drawable.btn_left_white_m)
+                .setLeftTextDrawable(R.drawable.btn_left_white_m)
                 .setTitleMainText(R.string.personal_image)
                 .setTitleMainTextColor(Color.WHITE)
                 .setBgColor(0)
@@ -102,8 +102,8 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
                 .setMinHeight(0);
 
         fragments = new Fragment[mTitles.length];
-        fragments[0] = new AccessoriesInfoListFragment();
-        fragments[1] = new AvatarFragment();
+        fragments[0] = AccessoriesFragment.getInstance("001");
+        fragments[1] = AccessoriesFragment.getInstance("002");
 
         SkinAvatarAdapter skinAvatarAdapter = new SkinAvatarAdapter(getChildFragmentManager(), fragments, mTitles, getActivity());
         mVpContentFastLib.setAdapter(skinAvatarAdapter);
@@ -172,7 +172,7 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
         AchievementDisplayEntity achievementDisplayEntity1 = new AchievementDisplayEntity(true, "最佳新人1", "https://fastly.picsum.photos/id/452/200/200.jpg?hmac=f5vORXpRW2GF7jaYrCkzX3EwDowO7OXgUaVYM2NNRXY");
         AchievementDisplayEntity achievementDisplayEntity2 = new AchievementDisplayEntity(false, "最佳新人2", "https://fastly.picsum.photos/id/562/200/200.jpg?hmac=F4ylYRNFPH6rDzYo48_NUieJXXI2yaMl9ElwGeFQHZo");
         AchievementDisplayEntity achievementDisplayEntity3 = new AchievementDisplayEntity(true, "最佳新人3", "https://fastly.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0");
-        AchievementDisplayEntity achievementDisplayEntity4 = new AchievementDisplayEntity(true, "最佳新人3", "https://fastly.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0");
+        AchievementDisplayEntity achievementDisplayEntity4 = new AchievementDisplayEntity(true, "最佳新人4", "https://fastly.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0");
 
 
         list.add(achievementDisplayEntity1);

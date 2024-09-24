@@ -1,7 +1,5 @@
 package com.aries.smart.module.widget.dialog;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;

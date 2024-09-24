@@ -5,12 +5,17 @@ import com.aries.smart.retrofit.request.AccountCreateTo;
 import com.aries.smart.retrofit.request.LoginTo;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
 import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
+import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
+import com.aries.smart.retrofit.response.CheckFirstUpdateNicknameResponse;
+import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
+import com.aries.smart.retrofit.response.InfoResponse;
 import com.aries.smart.retrofit.response.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
+import com.aries.smart.retrofit.response.UpdateNicknameResponse;
 import com.aries.smart.retrofit.response.VerificationCodeResponse;
 
 import io.reactivex.Observable;
@@ -59,7 +64,7 @@ public interface AuthService {
     Observable<PasswordLoginResponse> passwordLogin(@Body PasswordLoginTo passwordLoginTo);
 
     /**
-     * 查询所有用户信息
+     * 查询号码是否存在
      * @param
      * @return
      */
@@ -81,4 +86,37 @@ public interface AuthService {
      */
     @POST(ApiConstant.API_LOGIN)
     Observable<LoginResponse> login(@Body LoginTo loginTo);
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_USER_INFO)
+    Observable<InfoResponse> info();
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @POST(ApiConstant.API_USER_UPDATE_NICKNAME)
+    Observable<UpdateNicknameResponse> updateNickname(@Body UpdateNicknameTo updateNicknameTo);
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_USER_GET_MY_MONEY_BAG)
+    Observable<GetMyMoneyBagResponse> getMyMoneyBag();
+
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_USER_CHECK_FIRST_UPDATE_NICKNAME)
+    Observable<CheckFirstUpdateNicknameResponse> checkFirstUpdateNickname();
 }

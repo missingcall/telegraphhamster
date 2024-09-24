@@ -1,5 +1,6 @@
 package com.aries.smart.module.mine;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -12,16 +13,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.allen.library.SuperTextView;
+import com.aries.library.fast.manager.GlideManager;
 import com.aries.library.fast.module.activity.FastRefreshLoadActivity;
+import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
 import com.aries.smart.module.adapter.AchievementDisplayAdapter;
 import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.entity.AchievementDisplayEntity;
-import com.aries.smart.module.main.PersonalImageFragment;
+import com.aries.smart.module.widget.dialog.UpdateNicknameDialog;
+import com.aries.smart.retrofit.repository.AuthRepository;
+import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.utils.TitleBarViewHelper;
 import com.aries.ui.view.tab.SegmentTabLayout;
 import com.aries.ui.view.tab.listener.OnTabSelectListener;
 import com.aries.ui.view.title.TitleBarView;
+import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.StringUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
@@ -29,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class PersonalImageActivity extends FastRefreshLoadActivity {
 
@@ -51,7 +60,7 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
     SegmentTabLayout mStlSkinAvatar;
     @BindView(R.id.ll_avatar_skin)
     LinearLayout mLlAvatarSkin;
-    @BindView(R.id.vp_contentFastLib)
+    @BindView(R.id.vp_skin_avatar)
     ViewPager mVpContentFastLib;
 
 
@@ -59,13 +68,6 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
 
     private String[] mTitles = {"皮肤", "头像"};
     private Fragment[] fragments;
-
-    public static PersonalImageFragment newInstance() {
-        Bundle args = new Bundle();
-        PersonalImageFragment fragment = new PersonalImageFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
 
     @Override
@@ -84,8 +86,40 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
         return R.layout.activity_personal_image;
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void initView(Bundle savedInstanceState) {
+
+        //点击修改头像(预留功能)
+        mStvPersonInfo.getLeftIconIV().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        //修改昵称
+        mStvPersonInfo.getLeftTextView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //拉起修改昵称Dialog
+                UpdateNicknameDialog updateNicknameDialog = new UpdateNicknameDialog(PersonalImageActivity.this, R.style.tran_dialog);
+                updateNicknameDialog.show();
+
+
+/*                UpdateNicknameTo updateNicknameTo = new UpdateNicknameTo();
+                updateNicknameTo.setNickname();
+                AuthRepository.getInstance().updateNickname(updateNicknameTo).subscribe(updateNicknameResponse -> {
+                    if (StringUtils.equals(updateNicknameResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                        //修改成功
+
+                    }
+                }, throwable -> {
+                    ToastUtils.showShort("获取用户信息失败");
+                });*/
+            }
+        });
+
+
         GridLayoutManager layoutManager = new GridLayoutManager(this, 4);
         mRecyclerView.setLayoutManager(layoutManager);
 
@@ -95,11 +129,13 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
                 .setMinHeight(0);
 
         fragments = new Fragment[mTitles.length];
-        fragments[0] = new AccessoriesInfoListFragment();
-        fragments[1] = new AvatarFragment();
+        fragments[0] = AccessoriesFragment.getInstance("001");
+        fragments[1] = AccessoriesFragment.getInstance("002");
 
+        //这里两句居然把状态栏文字颜色给改了 我惊了! 并且怎么改都改不回来 (查了半天原来是因为新建Fragment的时候重新执行了setTitleBar 要重写才能好
         SkinAvatarAdapter skinAvatarAdapter = new SkinAvatarAdapter(getSupportFragmentManager(), fragments, mTitles, this);
         mVpContentFastLib.setAdapter(skinAvatarAdapter);
+
 
         mStlSkinAvatar.setTabData(mTitles);
         mStlSkinAvatar.setOnTabSelectListener(new OnTabSelectListener() {
@@ -122,7 +158,20 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
             }
         });
 
-        mStatusManager.showSuccessLayout();
+        //请求头像,昵称
+        AuthRepository.getInstance().info().subscribe(infoResponse -> {
+            if (StringUtils.equals(infoResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                //头像
+                GlideManager.loadCircleImg(infoResponse.getData().getProfilePath(), mStvPersonInfo.getLeftIconIV());
+                //昵称
+                mStvPersonInfo.getLeftTextView().setText(infoResponse.getData().getNickname());
+
+
+            }
+        }, throwable -> {
+            ToastUtils.showShort("获取用户信息失败 : " + throwable);
+            LogUtils.d(throwable);
+        });
     }
 
     @Override
@@ -169,7 +218,7 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
         mAdapter.addData(list);
         mStatusManager.showSuccessLayout();
 
-        //TODO yhd 成就接口待替换 要重新写一下list 最多加4个
+        //TODO yhd (成就接口待替换 要重新写一下list 最多加4个)请求成就接口
 /*        RxJavaManager.getInstance().getDelayObservable(list, 2, TimeUnit.MILLISECONDS)
                 .compose(bindUntilEvent(FragmentEvent.DESTROY))
                 .subscribe(new FastObserver<List<WidgetEntity>>() {
@@ -178,5 +227,14 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
                         FastManager.getInstance().getHttpRequestControl().httpRequestSuccess(getIHttpRequestControl(), entity, null);
                     }
                 });*/
+    }
+
+    @OnClick({R.id.stv_achievement})
+    void onBindClick(View view) {
+        switch (view.getId()) {
+            case R.id.stv_achievement:
+                FastUtil.startActivity(this, MedalAchievementActivity.class);
+                break;
+        }
     }
 }

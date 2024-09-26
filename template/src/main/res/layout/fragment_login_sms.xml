@@ -103,7 +103,7 @@
         app:layout_constraintRight_toRightOf="@id/ll_phone"/>
 
     <Button
-        android:id="@+id/btn_sign_in"
+        android:id="@+id/btn_currency_conversion"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_50"
         android:layout_gravity="center"
@@ -129,6 +129,6 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_middle"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_sign_in" />
+        app:layout_constraintTop_toBottomOf="@id/btn_currency_conversion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

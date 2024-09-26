@@ -41,7 +41,7 @@ public class LoginActivity extends FastTitleActivity {
     CheckBox mCbAgree;
     @BindView(R.id.tv_protocol)
     TextView mTvProtocol;
-    @BindView(R.id.btn_sign_in)
+    @BindView(R.id.btn_currency_conversion)
     Button mBtnSignIn;
     @BindView(R.id.btn_sign_up)
     Button mBtnSignUp;
@@ -116,11 +116,11 @@ public class LoginActivity extends FastTitleActivity {
     }
 
 
-    @OnClick({R.id.btn_sign_in, R.id.btn_sign_up})
+    @OnClick({R.id.btn_currency_conversion, R.id.btn_sign_up})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             //点击登录
-            case R.id.btn_sign_in:
+            case R.id.btn_currency_conversion:
                 //判断协议勾选状态
                 if (isAgreeProtocol) {
 

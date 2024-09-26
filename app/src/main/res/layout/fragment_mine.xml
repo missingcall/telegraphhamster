@@ -74,7 +74,7 @@
                 android:id="@+id/stv_setting"
                 style="@style/SupperTextStyleItem"
                 android:layout_below="@id/stv_infoMine"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:sLeftIconRes="@drawable/ic_setting"
                 app:sLeftTextString="@string/setting"/>
 

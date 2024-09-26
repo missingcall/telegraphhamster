@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aries.smart.module.widget.AutoMoveTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:singleLine="true"
+    android:paddingTop="5dp"
+    android:paddingLeft="10dp"
+    android:paddingBottom="5dp"
+    android:textColor="#999999"
+    android:background="@drawable/shape_transfer_in_out"
+    android:textSize="13sp"
+    android:drawableRight="@drawable/icon_right"
+    />

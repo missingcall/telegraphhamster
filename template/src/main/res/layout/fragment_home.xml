@@ -115,40 +115,58 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.35" />
 
-        <ProgressBar
-            android:id="@+id/pb_exp"
-            style="@android:style/Widget.ProgressBar.Horizontal"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_rank"
             android:layout_width="0dp"
-            android:layout_height="10dp"
-            android:layout_weight="1"
-            android:max="100"
-            android:progress="30"
-            android:progressDrawable="@drawable/progress_get_level_exp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@id/cl_level_ranking_daily_output"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="@id/gl_vertical" />
+            app:layout_constraintRight_toRightOf="@id/gl_vertical"
+            app:layout_constraintTop_toTopOf="@id/cl_level_ranking_daily_output">
 
-        <TextView
-            android:id="@+id/tv_rank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_micro"
-            android:text="青铜"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/pb_exp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            <ProgressBar
+                android:id="@+id/pb_exp"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="30"
+                android:progressDrawable="@drawable/progress_get_level_exp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_exp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_micro"
-            android:text="1/6"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/pb_exp"
-            app:layout_constraintRight_toRightOf="@id/pb_exp" />
+            <TextView
+                android:id="@+id/tv_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_micro"
+                android:text="青铜"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/pb_exp"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_exp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_micro"
+                android:text="1/6"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/pb_exp"
+                app:layout_constraintRight_toRightOf="@id/pb_exp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
 
         <com.allen.library.SuperTextView
+            android:id="@+id/stv_daily"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/margin_big"
@@ -160,7 +178,7 @@
             app:sCenterBottomTextString="9999999999"
             app:sCenterTopTextColor="@color/white_9"
             app:sCenterTopTextSize="@dimen/text_size_micro"
-            app:sCenterTopTextString="每小时可获得"
+            app:sCenterTopTextString="每日可获得"
             app:sDividerLineType="none"
             app:sLeftIconRes="@drawable/tab_main_default"
             app:sRightIconRes="@drawable/icon_setting" />
@@ -295,33 +313,31 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginRight="-30dp"
-        app:layout_constraintRight_toLeftOf="@id/wlv_clean"
         android:src="@drawable/icon_cleanliness"
         app:layout_constraintBottom_toBottomOf="@id/wlv_clean"
-        />
+        app:layout_constraintRight_toLeftOf="@id/wlv_clean" />
 
     <ImageView
         android:id="@+id/iv_satiety"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginRight="-30dp"
-        app:layout_constraintRight_toLeftOf="@id/wlv_food"
         android:src="@drawable/icon_satiety"
         app:layout_constraintBottom_toBottomOf="@id/wlv_food"
+        app:layout_constraintRight_toLeftOf="@id/wlv_food"
 
         />
 
     <ImageView
-        android:id="@+id/iv_satiety"
+        android:id="@+id/iv_quest"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginRight="@dimen/margin_large"
-        app:layout_constraintRight_toRightOf="parent"
         android:src="@drawable/icon_quest"
         app:layout_constraintBottom_toBottomOf="@id/wlv_food"
+        app:layout_constraintRight_toRightOf="parent"
 
         />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

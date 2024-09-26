@@ -9,6 +9,7 @@ import androidx.multidex.MultiDexApplication;
 import com.aries.library.fast.FastManager;
 import com.aries.library.fast.manager.LoggerManager;
 import com.aries.library.fast.retrofit.FastRetrofit;
+import com.aries.library.fast.util.SizeUtil;
 import com.aries.smart.impl.ActivityControlImpl;
 import com.aries.smart.impl.AppImpl;
 import com.aries.smart.impl.HttpRequestControlImpl;
@@ -137,5 +138,17 @@ public class App extends MultiDexApplication {
 
     public static Context getContext() {
         return mContext;
+    }
+
+    private static int imageHeight = 0;
+
+    /**
+     * 获取banner及个人中心设置ImageView宽高
+     *
+     * @return
+     */
+    public static int getImageHeight() {
+        imageHeight = (int) (SizeUtil.getScreenWidth() * 0.55);
+        return imageHeight;
     }
 }

@@ -25,8 +25,8 @@ public class LoginDialogFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getActivity().getWindow().setWindowAnimations(R.style.DialogVerticalINOut);
         View view = inflater.inflate(R.layout.dialog_login, null);
-        TabLayout tlLogin = view.findViewById(R.id.tl_login);
-        ViewPager vpLogin = view.findViewById(R.id.vp_login);
+        TabLayout tlLogin = view.findViewById(R.id.stl_pine);
+        ViewPager vpLogin = view.findViewById(R.id.vp_wallet);
 
         fragments = new Fragment[titles.length];
         fragments[0] = new LoginPasswordFragment();

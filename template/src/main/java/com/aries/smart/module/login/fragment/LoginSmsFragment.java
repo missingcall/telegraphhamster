@@ -52,7 +52,7 @@ public class LoginSmsFragment extends FastTitleFragment {
     ClearEditText mEtVerify;
     @BindView(R.id.btn_verify)
     Button mBtnVerify;
-    @BindView(R.id.btn_sign_in)
+    @BindView(R.id.btn_currency_conversion)
     Button mBtnSignIn;
     @BindView(R.id.tv_forget_password)
     TextView mTvForgetPassword;
@@ -132,14 +132,14 @@ public class LoginSmsFragment extends FastTitleFragment {
         timer.cancel();
     }
 
-    @OnClick({R.id.btn_verify, R.id.btn_sign_in, R.id.tv_forget_password})
+    @OnClick({R.id.btn_verify, R.id.btn_currency_conversion, R.id.tv_forget_password})
     void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.btn_verify:
                 toVerify();
                 break;
 
-            case R.id.btn_sign_in:
+            case R.id.btn_currency_conversion:
                 //在未输入手机号与验证码时【立即登录】按钮为灰态无法点击，当两者均输入后【立即登录】按钮亮起可被点击（备注：不需要做位数判断）
                 toConfirm();
                 break;

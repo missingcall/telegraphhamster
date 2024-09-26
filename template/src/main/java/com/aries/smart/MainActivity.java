@@ -9,7 +9,7 @@ import com.aries.library.fast.module.activity.FastMainActivity;
 import com.aries.library.fast.util.SizeUtil;
 import com.aries.smart.module.game.GameFragment;
 import com.aries.smart.module.main.HomeFragment;
-import com.aries.smart.module.main.PersonalImageFragment;
+
 import com.aries.smart.module.market.MarketFragment;
 import com.aries.smart.module.mine.MineFragment;
 import com.aries.smart.module.quest.QuestFragment;

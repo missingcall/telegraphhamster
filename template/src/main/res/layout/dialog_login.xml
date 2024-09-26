@@ -9,7 +9,7 @@
 
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tl_login"
+        android:id="@+id/stl_pine"
         app:tabIndicatorHeight="0dp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_70"
@@ -20,7 +20,7 @@
         />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vp_login"
+        android:id="@+id/vp_wallet"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         />

@@ -8,10 +8,13 @@ import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
 import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
 import com.aries.smart.retrofit.response.CheckFirstUpdateNicknameResponse;
+import com.aries.smart.retrofit.response.GetLevelRankResponse;
+import com.aries.smart.retrofit.response.GetLevelResponse;
 import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.aries.smart.retrofit.response.InfoResponse;
 import com.aries.smart.retrofit.response.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
+import com.aries.smart.retrofit.response.QueryDayIncomeResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
@@ -119,4 +122,32 @@ public interface AuthService {
      */
     @GET(ApiConstant.API_USER_CHECK_FIRST_UPDATE_NICKNAME)
     Observable<CheckFirstUpdateNicknameResponse> checkFirstUpdateNickname();
+
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_CENTER_QUERY_DAY_INCOME)
+    Observable<QueryDayIncomeResponse> queryDayIncome();
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_USER_GET_LEVEL)
+    Observable<GetLevelResponse> getLevel();
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_USER_GET_LEVEL_RANK)
+    Observable<GetLevelRankResponse> getLevelRank();
+
+
+
 }

@@ -11,10 +11,13 @@ import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
 import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
 import com.aries.smart.retrofit.response.CheckFirstUpdateNicknameResponse;
+import com.aries.smart.retrofit.response.GetLevelRankResponse;
+import com.aries.smart.retrofit.response.GetLevelResponse;
 import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.aries.smart.retrofit.response.InfoResponse;
 import com.aries.smart.retrofit.response.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
+import com.aries.smart.retrofit.response.QueryDayIncomeResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
@@ -22,6 +25,7 @@ import com.aries.smart.retrofit.response.UpdateNicknameResponse;
 import com.aries.smart.retrofit.response.VerificationCodeResponse;
 import com.aries.smart.retrofit.service.AuthService;
 
+import io.reactivex.Completable;
 import io.reactivex.Observable;
 
 /**
@@ -168,5 +172,36 @@ public class AuthRepository extends BaseRepository {
     public Observable<CheckFirstUpdateNicknameResponse> checkFirstUpdateNickname() {
 
         return FastTransformer.switchSchedulers(getAuthService().checkFirstUpdateNickname().retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 获取用户当前每日可获得松果
+     *
+     * @return
+     */
+    public Observable<QueryDayIncomeResponse> queryDayIncome() {
+
+        return FastTransformer.switchSchedulers(getAuthService().queryDayIncome().retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 获取用户当前等级
+     *
+     * @return
+     */
+    public Observable<GetLevelResponse> getLevel() {
+
+        return FastTransformer.switchSchedulers(getAuthService().getLevel().retryWhen(new FastRetryWhen()));
+    }
+
+
+    /**
+     * 获取用户当前排行
+     *
+     * @return
+     */
+    public Observable<GetLevelRankResponse> getLevelRank() {
+
+        return FastTransformer.switchSchedulers(getAuthService().getLevelRank().retryWhen(new FastRetryWhen()));
     }
 }

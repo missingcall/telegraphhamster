@@ -66,6 +66,15 @@
     <string name="nickname_current">0/8</string>
     <string name="nickname_available">我可用的 99999</string>
     <string name="purchase_successful">购买成功</string>
+    <string name="cleaning_hamster">清洗仓鼠</string>
+    <string name="resurrection_hamster">复活仓鼠</string>
+    <string name="feed_hamster">喂养仓鼠</string>
+    <string name="game_center">游戏中心</string>
+    <string name="game_center_describe">在游戏中心游玩各类游戏可以获得大量的金仓鼠奖励</string>
+    <string name="coming_soon">敬请期待</string>
+    <string name="receive">领取</string>
+    <string name="currency_conversion">货币转换</string>
+    <string name="give_away">赠送</string>
 
 
 </resources>

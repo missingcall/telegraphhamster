@@ -41,11 +41,16 @@ public class ApiConstant {
     /* 用户接口 */
     public static final String API_USER_INFO = "/hamster-user/user/info"; //获取会员信息
     public static final String API_USER_UPDATE_NICKNAME = "/hamster-user/user/updateNickname"; //修改昵称
+    public static final String API_USER_GET_LEVEL = "/hamster-user/user/level/getLevel"; //获取用户当前等级
+    public static final String API_USER_GET_LEVEL_RANK = "/hamster-user/user/level/getLevelRank"; //获取用户当前排行
 
 
     /* 钱包 */
     public static final String API_USER_GET_MY_MONEY_BAG = "/hamster-user/userNum/getMyMoneyBag"; //我的钱包
     public static final String API_USER_CHECK_FIRST_UPDATE_NICKNAME = "/hamster-user/user/checkFirstUpdateNickname"; //
+
+    /* 仓鼠市场 */
+    public static final String API_CENTER_QUERY_DAY_INCOME = "/hamster-center/hamsterMarket/queryDayIncome"; //获取用户当前每日可获得松果
 
 
 

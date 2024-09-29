@@ -29,7 +29,7 @@
 
     </LinearLayout>
 
-    <com.aries.smart.module.login.widget.ClearEditText
+    <com.aries.smart.module.widget.ClearEditText
         android:id="@+id/cet_phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
 
     </LinearLayout>
 
-    <com.aries.smart.module.login.widget.ClearEditText
+    <com.aries.smart.module.widget.ClearEditText
         android:id="@+id/et_verify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

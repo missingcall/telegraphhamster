@@ -35,7 +35,7 @@
         app:sLeftViewGravity="left_center"
         app:sLeftViewMarginLeft="12dp"
         app:sLeftViewMarginRight="0dp"
-        app:sShapeCornersRadius="8dp"
+        app:sShapeCornersRadius="10dp"
         app:sShapeSolidColor="@color/black"
         app:sUseShape="true" />
 

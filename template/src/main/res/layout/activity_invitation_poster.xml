@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/poster_bg_1"
+    tools:context=".module.quest.InviteActivity">
+
+    <include layout="@layout/fast_layout_title_bar" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+
+    <com.allen.library.CircleImageView
+        android:id="@+id/btn_wechat"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_invite_firend_bg"
+        android:padding="10dp"
+        android:src="@drawable/icon_wechat"
+        app:layout_constraintBottom_toBottomOf="@id/btn_save"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btn_save"
+        app:layout_constraintTop_toTopOf="@id/btn_save" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_invite_firend_bg"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/save_poster"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/btn_wechat"
+        app:layout_constraintRight_toLeftOf="@id/btn_wechat_friends"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal"
+
+        />
+
+    <com.allen.library.CircleImageView
+        android:id="@+id/btn_wechat_friends"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_invite_firend_bg"
+        android:padding="10dp"
+        android:src="@drawable/icon_wechat"
+        app:layout_constraintBottom_toBottomOf="@id/btn_save"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/btn_save"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_save" />
+
+
+    <ImageView
+        android:id="@+id/iv_poster_main"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/bg_poster_main"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+
+        />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="56dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/icon"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal"
+        app:layout_constraintLeft_toLeftOf="@id/iv_poster_main" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:text="@string/nickname"
+        android:textColor="@color/gray_33"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toTopOf="@id/tv_uid"
+        app:layout_constraintLeft_toRightOf="@id/iv_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_icon" />
+
+    <TextView
+        android:id="@+id/tv_uid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:text="@string/nickname"
+        android:textColor="@color/gray_33"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintLeft_toRightOf="@id/iv_icon"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <ImageView
+        android:id="@+id/iv_qr_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintRight_toRightOf="@id/btn_wechat_friends" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

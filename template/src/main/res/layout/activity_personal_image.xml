@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    android:orientation="vertical">
+    android:background="@color/black">
 
 
     <include layout="@layout/fast_layout_title_bar" />
@@ -35,7 +34,7 @@
         app:sLeftViewGravity="left_center"
         app:sLeftViewMarginLeft="12dp"
         app:sLeftViewMarginRight="0dp"
-        app:sShapeCornersRadius="8dp"
+        app:sShapeCornersRadius="10dp"
         app:sShapeSolidColor="@color/black"
         app:sUseShape="true" />
 
@@ -128,7 +127,7 @@
 
             tl:tl_bar_color="@color/gray"
             tl:tl_indicator_color="@color/gray_s"
-            tl:tl_indicator_corner_radius="8dp" />
+            tl:tl_indicator_corner_radius="10dp" />
 
     </LinearLayout>
 

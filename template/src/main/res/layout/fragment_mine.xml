@@ -22,7 +22,7 @@
 
     <include layout="@layout/fast_layout_title_bar" />
 
-    <com.aries.smart.module.login.widget.OverScrollView
+    <com.aries.smart.module.widget.OverScrollView
         android:id="@+id/sv_containerMine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 app:sLeftViewGravity="left_center"
                 app:sLeftViewMarginLeft="12dp"
                 app:sLeftViewMarginRight="0dp"
-                app:sShapeCornersRadius="8dp"
+                app:sShapeCornersRadius="10dp"
                 app:sShapeSolidColor="@color/black"
                 app:sUseShape="true" />
 
@@ -190,7 +190,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/selector_btn_get_pine"
+                android:background="@drawable/selector_btn_blue_gray_radius"
                 android:gravity="center"
                 android:text="@string/receive"
 
@@ -273,7 +273,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.aries.smart.module.login.widget.OverScrollView>
+    </com.aries.smart.module.widget.OverScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

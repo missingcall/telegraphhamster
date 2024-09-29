@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_quick_jump_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_micro"
+    android:background="@drawable/shape_bg_achievement_item"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_quest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/margin_micro"
+        android:layout_marginBottom="@dimen/margin_micro"
+        android:text="观看视频"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tv_quest_details"
+        app:layout_constraintLeft_toRightOf="@id/iv_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_quest_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/margin_micro"
+        android:layout_marginBottom="@dimen/margin_micro"
+        android:text="(0/4)"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_big"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tv_quest"
+        app:layout_constraintLeft_toRightOf="@id/tv_quest"
+        app:layout_constraintTop_toTopOf="@id/tv_quest"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_quest_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_micro"
+        android:layout_marginBottom="@dimen/margin_micro"
+        android:text="观看视频30S获得产能奖励"
+        android:textColor="@color/gray_99"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/tv_quest"
+        app:layout_constraintTop_toBottomOf="@id/tv_quest" />
+
+
+    <ImageView
+        android:id="@+id/iv_reward"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+
+        android:src="@drawable/unlock_pinecone"
+        app:layout_constraintRight_toLeftOf="@id/tv_reward_num"
+        app:layout_constraintBottom_toTopOf="@id/btn_finish"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_reward_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="+20200"
+        android:textColor="@color/yellow_deep"
+
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toBottomOf="@id/iv_reward"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_reward" />
+
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="去完成"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="bold"
+        android:background="@drawable/selector_btn_blue_gray_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/tv_reward_num"
+        app:layout_constraintTop_toBottomOf="@id/tv_reward_num" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

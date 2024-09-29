@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <include layout="@layout/fast_layout_title_bar" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_level_ranking_daily_output"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar_headFastLib">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_rank"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/cl_level_ranking_daily_output"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/gl_vertical"
+            app:layout_constraintTop_toTopOf="@id/cl_level_ranking_daily_output">
+
+            <ProgressBar
+                android:id="@+id/pb_exp"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="30"
+                android:progressDrawable="@drawable/progress_get_level_exp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_micro"
+                android:text="青铜"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_9"
+                app:layout_constraintBottom_toTopOf="@id/pb_exp"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_exp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_micro"
+                android:text="1/6"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_9"
+                app:layout_constraintBottom_toTopOf="@id/pb_exp"
+                app:layout_constraintRight_toRightOf="@id/pb_exp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/stv_daily"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_big"
+            android:padding="2dp"
+            app:layout_constraintLeft_toLeftOf="@id/gl_vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:sBackgroundDrawableRes="@drawable/shape_output_bg"
+            app:sCenterBottomTextColor="@color/white"
+            app:sCenterBottomTextSize="@dimen/text_size_9"
+            app:sCenterBottomTextString="9999999999"
+            app:sCenterTopTextColor="@color/white_9"
+            app:sCenterTopTextSize="@dimen/text_size_8"
+            app:sCenterTopTextString="每日可获得"
+            app:sDividerLineType="none"
+            app:sLeftIconRes="@drawable/tab_main_default"
+            app:sRightIconRes="@drawable/icon_setting" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_top"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="-15dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/top_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_level_ranking_daily_output" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_top" />
+
+    <com.aries.ui.view.tab.SegmentTabLayout
+        android:id="@+id/stl_orchard_bank"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+
+        android:padding="2dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/cl_level_ranking_daily_output"
+        app:layout_constraintRight_toRightOf="@id/cl_level_ranking_daily_output"
+        app:layout_constraintTop_toBottomOf="@id/iv_top"
+        app:tl_textSelectColor="@color/white"
+        app:tl_textSize="@dimen/text_size_10"
+        app:tl_textUnSelectColor="@color/white"
+        tl:tl_bar_color="@color/gray"
+        tl:tl_indicator_color="@color/gray_s"
+        tl:tl_indicator_corner_radius="8dp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_orchard_bank"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stl_orchard_bank"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-96dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

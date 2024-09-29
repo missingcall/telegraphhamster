@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -16,17 +15,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.allen.library.SuperTextView;
 import com.aries.library.fast.i.IFastRefreshView;
-import com.aries.library.fast.manager.GlideManager;
 import com.aries.library.fast.manager.LoggerManager;
 import com.aries.library.fast.module.fragment.FastTitleFragment;
 import com.aries.library.fast.retrofit.FastUploadRequestBody;
 import com.aries.library.fast.retrofit.FastUploadRequestListener;
 import com.aries.library.fast.util.SizeUtil;
-import com.aries.smart.App;
 import com.aries.smart.R;
 import com.aries.smart.WebViewActivity;
 import com.aries.smart.module.adapter.LoginAdapter;
-import com.aries.smart.module.login.widget.OverScrollView;
+import com.aries.smart.module.widget.OverScrollView;
 import com.aries.smart.module.widget.MarqueeFactory;
 import com.aries.smart.module.widget.MarqueeView;
 import com.aries.smart.module.widget.SimpleNoticeMF;
@@ -41,7 +38,6 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

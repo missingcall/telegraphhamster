@@ -81,7 +81,7 @@ dependencies {
     //页面事件交互-androideventbus-停止维护-按需导入
 //    implementation 'org.simple:androideventbus:1.0.5.1'
     //页面事件交互-eventbus-按需导入
-//    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'org.greenrobot:eventbus:3.2.0'
     //万能适配器--一般都需要吧
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:'.concat(BRVAHVersion)
     //webView库 继承FastWebActivity需要,不需要内置WebView可以不implementation
@@ -93,6 +93,8 @@ dependencies {
     implementation 'com.scwang.smart:refresh-header-material:'.concat(smartRefreshLayoutVersion)
     //Glide图片加载
     implementation 'com.github.bumptech.glide:glide:'.concat(glideVersion)
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.4.+'
 
     annotationProcessor 'com.github.bumptech.glide:compiler:'.concat(glideVersion)
     annotationProcessor 'com.jakewharton:butterknife-compiler:'.concat(butterknifeVersion)
@@ -103,6 +105,11 @@ dependencies {
     //文件选择器
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.6.1'
 //    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1'
+    //协程
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation "androidx.core:core-ktx:1.8.0"
+    implementation "androidx.activity:activity-ktx:1.5.0"
+    implementation "androidx.fragment:fragment-ktx:1.5.5"
 
     //沉浸式状态栏
 //    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
@@ -110,4 +117,13 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.31.1'
     //水滴progress
 //    implementation 'me.itangqi.waveloadingview:library:0.3.5'
+    //二维码
+    implementation 'com.king.zxing:zxing-lite:1.1.7-androidx'
+    //微信分享
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:+'
+    //友盟
+    implementation "com.umeng.umsdk:common:9.5.6"
+    implementation "com.umeng.umsdk:share-core:7.2.2"
+    implementation "com.umeng.umsdk:share-wx:7.2.2"
+    //rxjava android
 }

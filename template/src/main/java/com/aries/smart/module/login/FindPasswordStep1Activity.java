@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.smart.R;
-import com.aries.smart.module.login.widget.ClearEditText;
+import com.aries.smart.module.widget.ClearEditText;
 import com.aries.ui.view.title.TitleBarView;
 
 import butterknife.BindView;

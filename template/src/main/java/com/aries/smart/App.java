@@ -2,6 +2,7 @@ package com.aries.smart;
 
 import android.content.Context;
 import android.os.Build;
+import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.multidex.MultiDexApplication;
@@ -10,13 +11,21 @@ import com.aries.library.fast.FastManager;
 import com.aries.library.fast.manager.LoggerManager;
 import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.library.fast.util.SizeUtil;
+import com.aries.smart.constant.ConstantsKey;
 import com.aries.smart.impl.ActivityControlImpl;
 import com.aries.smart.impl.AppImpl;
 import com.aries.smart.impl.HttpRequestControlImpl;
 import com.aries.smart.module.viewmodel.WalletModel;
-import com.aries.smart.utils.ConstantUtils;
+import com.aries.smart.constant.ConstantUtils;
 import com.aries.smart.utils.PreferenceUtil;
+import com.aries.smart.utils.flowbus.Event;
+import com.blankj.utilcode.util.LogUtils;
 import com.orhanobut.logger.PrettyFormatStrategy;
+import com.umeng.commonsdk.UMConfigure;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * @Author: AriesHoo on 2018/7/31 10:43
@@ -118,6 +127,8 @@ public class App extends MultiDexApplication {
         //其它初始化
         // 获取ViewModel实例
         mWalletModel = new ViewModelProvider.AndroidViewModelFactory(this).create(WalletModel.class);
+
+
     }
 
     public WalletModel getViewModel() {
@@ -151,4 +162,9 @@ public class App extends MultiDexApplication {
         imageHeight = (int) (SizeUtil.getScreenWidth() * 0.55);
         return imageHeight;
     }
+
+    public void initWxShare() {
+
+    }
+
 }

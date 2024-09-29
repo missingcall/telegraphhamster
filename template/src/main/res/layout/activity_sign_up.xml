@@ -92,7 +92,7 @@
         app:layout_constraintBottom_toBottomOf="@id/ll_phone"
         />
 
-    <com.aries.smart.module.login.widget.ClearEditText
+    <com.aries.smart.module.widget.ClearEditText
         android:id="@+id/cet_phone"
         android:layout_marginLeft="@dimen/margin_large"
         android:inputType="number"
@@ -146,7 +146,7 @@
         app:layout_constraintBottom_toBottomOf="@id/ll_password"
         />
 
-    <com.aries.smart.module.login.widget.ClearEditText
+    <com.aries.smart.module.widget.ClearEditText
         android:id="@+id/cet_password"
         android:inputType="number"
         android:textSize="@dimen/text_size_big"
@@ -249,7 +249,7 @@
         app:layout_constraintBottom_toBottomOf="@id/ll_invite_code"
         />
 
-    <com.aries.smart.module.login.widget.ClearEditText
+    <com.aries.smart.module.widget.ClearEditText
         android:id="@+id/cet_invite"
         android:layout_width="200dp"
         android:layout_height="wrap_content"

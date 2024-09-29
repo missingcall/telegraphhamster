@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aries.library.fast.manager.LoggerManager;
 import com.aries.library.fast.util.SizeUtil;
-import com.aries.smart.module.login.widget.OverScrollView;
+import com.aries.smart.module.widget.OverScrollView;
 import com.aries.ui.util.StatusBarUtil;
 import com.aries.ui.view.title.TitleBarView;
 

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".module.quest.InviteActivity">
+
+    <include layout="@layout/fast_layout_title_bar" />
+
+    <TextView
+        android:id="@+id/tv_invite_friends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/invite_friends"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar_headFastLib" />
+
+    <TextView
+        android:id="@+id/tv_invite_friends_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/invite_friends_detail_2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_middle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_invite_friends"
+
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_friend_reward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/shape_bg_achievement_item"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_invite_friends_detail">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_gift"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_friend_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/margin_micro"
+            android:layout_marginBottom="@dimen/margin_micro"
+            android:text="@string/friend_rewards"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_big"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_quest_details"
+            app:layout_constraintLeft_toRightOf="@id/iv_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_friend_reward_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_micro"
+            android:layout_marginBottom="@dimen/margin_micro"
+            android:text="@string/invite_friends_detail_3"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/tv_friend_reward"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_friend_reward" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_my_reward_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_bg_achievement_item"
+        android:padding="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/cl_friend_reward"
+        app:layout_constraintRight_toRightOf="@id/cl_friend_reward"
+        app:layout_constraintTop_toBottomOf="@id/cl_friend_reward">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_gift_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_friend_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/margin_micro"
+            android:layout_marginBottom="@dimen/margin_micro"
+            android:text="@string/my_rewards_code"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_big"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_quest_details"
+            app:layout_constraintLeft_toRightOf="@id/iv_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_friend_reward_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_micro"
+            android:layout_marginBottom="@dimen/margin_micro"
+            android:text="邀请码：CANGSHU"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/tv_friend_reward"
+            app:layout_constraintTop_toBottomOf="@id/tv_friend_reward" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_friends_i_invited"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_big"
+        android:text="@string/friends_i_invited"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/cl_friend_reward"
+        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_code" />
+
+    <ImageView
+        android:id="@+id/iv_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/icon_refresh"
+        app:layout_constraintBottom_toBottomOf="@id/tv_friends_i_invited"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_friends_i_invited" />
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/smartLayout_rootFastLib"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_friends_i_invited"
+        app:layout_constraintBottom_toTopOf="@id/btn_invitation_poster"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/rv_contentFastLib"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_invited_firends" />
+
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    <Button
+        android:id="@+id/btn_invitation_poster"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/selector_skin_unlock_use_bg"
+        android:padding="15dp"
+        android:text="@string/invite_friends"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintLeft_toLeftOf="@id/cl_friend_reward"
+        app:layout_constraintRight_toLeftOf="@id/btn_copy" />
+
+    <ImageButton
+        android:id="@+id/btn_copy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/selector_skin_unlock_use_bg"
+        android:src="@drawable/icon_copy"
+        android:text="@string/invite_friends"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/btn_invitation_poster"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/btn_invitation_poster"
+        app:layout_constraintRight_toRightOf="@id/cl_friend_reward"
+
+        app:layout_constraintTop_toTopOf="@id/btn_invitation_poster"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

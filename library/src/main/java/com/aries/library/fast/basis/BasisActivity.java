@@ -127,6 +127,8 @@ public abstract class BasisActivity extends RxAppCompatActivity implements IBasi
         mSavedInstanceState = null;
         mQuitAppControl = null;
         TAG = null;
+
+
     }
 
     @Override

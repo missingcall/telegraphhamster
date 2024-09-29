@@ -15,8 +15,10 @@ import com.aries.smart.retrofit.response.InfoResponse;
 import com.aries.smart.retrofit.response.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
 import com.aries.smart.retrofit.response.QueryDayIncomeResponse;
+import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
+import com.aries.smart.retrofit.response.SelectTaskInfoListResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
 import com.aries.smart.retrofit.response.UpdateNicknameResponse;
 import com.aries.smart.retrofit.response.VerificationCodeResponse;
@@ -148,6 +150,21 @@ public interface AuthService {
     @GET(ApiConstant.API_USER_GET_LEVEL_RANK)
     Observable<GetLevelRankResponse> getLevelRank();
 
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_TASK_SELECT_TASK_INFO_LIST)
+    Observable<SelectTaskInfoListResponse> selectTaskInfoList();
 
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_CENTER_QUERY_MARKET_LIST)
+    Observable<QueryMarketListResponse> queryMarketList(@Query("type") String type);
 
 }

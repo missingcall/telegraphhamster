@@ -73,7 +73,7 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
     @Override
     public void setTitleBar(TitleBarView titleBar) {
         titleBar
-//                .setLeftTextDrawable(R.drawable.btn_left_white_m)
+                .setLeftTextDrawable(R.drawable.btn_left_white_m)
                 .setTitleMainText(R.string.personal_image)
                 .setTitleMainTextColor(Color.WHITE)
                 .setBgColor(0)

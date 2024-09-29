@@ -11,17 +11,27 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.library.fast.util.FastUtil;
+import com.aries.smart.App;
 import com.aries.smart.R;
 import com.aries.smart.WebViewActivity;
+import com.aries.smart.constant.ConstantsKey;
 import com.aries.smart.module.widget.dialog.AgreePrivacyDialog;
 import com.aries.smart.module.widget.dialog.LoginDialog;
 import com.aries.smart.utils.RxTextTool;
+import com.aries.smart.utils.flowbus.Event;
+import com.aries.smart.utils.flowbus.FlowBus;
 import com.aries.ui.view.title.TitleBarView;
+import com.umeng.commonsdk.UMConfigure;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -103,7 +113,9 @@ public class LoginActivity extends FastTitleActivity {
         mCbAgree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //同意协议 开始初始化
                 isAgreeProtocol = isChecked;
+                EventBus.getDefault().post(Event.InitApplicationTaskEvent.INSTANCE);
             }
         });
 
@@ -127,7 +139,7 @@ public class LoginActivity extends FastTitleActivity {
 //                    FastUtil.startActivity(this ,SignInActivity.class);
                     //弹出登录页面 DialogFragment
                     LoginDialog loginDialog = new LoginDialog();
-                    loginDialog.show(getSupportFragmentManager(),"tag");
+                    loginDialog.show(getSupportFragmentManager(), "tag");
                 } else {
                     //弹窗提示
                     agreeToPrivacy();
@@ -153,5 +165,11 @@ public class LoginActivity extends FastTitleActivity {
     protected void onResume() {
         super.onResume();
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(Event.InitApplicationTaskEvent event) {
+        //同意协议后初始化sdk
+        UMConfigure.init(this, ConstantsKey.UMENGKEY_RELEASE_KEY, "umeng",UMConfigure.DEVICE_TYPE_PHONE,"");
     }
 }

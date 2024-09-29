@@ -1,6 +1,4 @@
-<!DOCTYPE resources [
-    <!ENTITY app_text "松鼠">
-    ]>
+<!DOCTYPE resources [<!ENTITY app_text "松鼠">]>
 
 <resources>
     <string name="app_name">电报仓鼠</string>
@@ -69,6 +67,7 @@
     <string name="cleaning_hamster">清洗仓鼠</string>
     <string name="resurrection_hamster">复活仓鼠</string>
     <string name="feed_hamster">喂养仓鼠</string>
+    <string name="hamster_strategy">仓鼠攻略</string>
     <string name="game_center">游戏中心</string>
     <string name="game_center_describe">在游戏中心游玩各类游戏可以获得大量的金仓鼠奖励</string>
     <string name="coming_soon">敬请期待</string>
@@ -76,5 +75,31 @@
     <string name="currency_conversion">货币转换</string>
     <string name="give_away">赠送</string>
 
+    <string name="hamster_strategy_details">1、使用松果直接饲养仓鼠，您将成为它们最好的朋友，可以喂养它们，和它们一起玩耍\n
+        2、每隔几个小时，它们就会感到饥饿，您需要使用松果喂养它们；及时的清洁喂养，能使仓鼠保持健康\n
+        3、如果饱食度或清洁度将为0，仓鼠将无法参与各种玩法，您需要在7日内花费松果将它复活，否则将永远失去您的仓鼠
+    </string>
 
+    <string name="i_see">我知道了</string>
+    <string name="get_more_rewards">获取更多奖励</string>
+    <string name="daily_quest">每日任务</string>
+    <string name="invite_friends">邀请好友</string>
+    <string name="daily_quest_detail">完成任务获得更多产能奖励</string>
+    <string name="invite_friends_detail">你和你的朋友都将获得奖励</string>
+    <string name="invite_friends_detail_2">成功邀请好友可以领取一定数量的松果～</string>
+    <string name="invite_friends_detail_3">您邀请好友且激活可以获得松果奖励，每邀请1人返25%松果，间接邀请返3%</string>
+    <string name="total_pine_awarded">共奖励松果</string>
+    <string name="go_finish">去完成</string>
+    <string name="wait_to_reward">待领取</string>
+    <string name="finished">已完成</string>
+    <string name="friend_rewards">好友奖励</string>
+    <string name="my_rewards_code">我的邀请码</string>
+    <string name="friends_i_invited">我邀请的好友</string>
+    <string name="have_no_friends_now">您现在暂时还没有好友哦</string>
+    <string name="save_poster">保存到相册</string>
+    <string name="hamster_orchard">仓鼠果园</string>
+    <string name="Squirrel_bank">松鼠银行</string>
+    <string name="to_be_activated">待激活</string>
+    <string name="sold_out">已售罄</string>
+    <string name="electronic_hamsters">电子仓鼠</string>
 </resources>

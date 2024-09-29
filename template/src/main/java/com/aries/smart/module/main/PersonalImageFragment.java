@@ -17,7 +17,6 @@ import com.aries.smart.R;
 import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.adapter.AchievementDisplayAdapter;
 import com.aries.smart.module.entity.AchievementDisplayEntity;
-import com.aries.smart.module.mine.AvatarFragment;
 import com.aries.smart.module.mine.AccessoriesFragment;
 import com.aries.smart.utils.TitleBarViewHelper;
 import com.aries.ui.view.tab.SegmentTabLayout;

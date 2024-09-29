@@ -18,8 +18,10 @@ import com.aries.smart.retrofit.response.InfoResponse;
 import com.aries.smart.retrofit.response.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
 import com.aries.smart.retrofit.response.QueryDayIncomeResponse;
+import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
+import com.aries.smart.retrofit.response.SelectTaskInfoListResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
 import com.aries.smart.retrofit.response.UpdateNicknameResponse;
 import com.aries.smart.retrofit.response.VerificationCodeResponse;
@@ -203,5 +205,25 @@ public class AuthRepository extends BaseRepository {
     public Observable<GetLevelRankResponse> getLevelRank() {
 
         return FastTransformer.switchSchedulers(getAuthService().getLevelRank().retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 获取任务列表
+       /hamster-task/taskInfo/selectTaskInfoList
+     * @return
+     */
+    public Observable<SelectTaskInfoListResponse> selectTaskInfoList() {
+
+        return FastTransformer.switchSchedulers(getAuthService().selectTaskInfoList().retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 获取领养仓鼠&仓鼠果园-松果银行列表 商品类型(001-基础仓鼠&仓鼠庄园,003-仓鼠银行)
+     /hamster-task/taskInfo/queryMarketList
+     * @return
+     */
+    public Observable<QueryMarketListResponse> queryMarketList(String type) {
+
+        return FastTransformer.switchSchedulers(getAuthService().queryMarketList(type).retryWhen(new FastRetryWhen()));
     }
 }

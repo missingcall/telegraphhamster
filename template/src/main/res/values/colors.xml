@@ -17,6 +17,12 @@
     <color name="green_light">#80F68D</color>
     <color name="yellow_deep">#FDC120</color>
     <color name="gray_99">#999999</color>
+    <color name="gray_33">#333333</color>
+    <color name="white_d8">#44D8D8D8</color>
+    <color name="mask_99">#99000000</color>
+    <color name="mask_b3">#B3000000</color>
+    <color name="black_05">#050505</color>
+
 
     <!--  >>>  tab相关  >>>-->
     <color name="tab_main_bg">#262A2E</color>
@@ -45,6 +51,7 @@
     <color name="transparent_aa">#aa000000</color>
     <color name="transparent_cc">#aa000000</color>
     <color name="transparent_dd">#dd000000</color>
+    <color name="color_activation">#80F68D</color>
 
 
     <!--  <<<  其他组件  <<<-->

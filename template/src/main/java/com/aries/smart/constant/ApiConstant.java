@@ -12,8 +12,8 @@ public class ApiConstant {
     public static final String TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID = "0";
 
     /* /hamster-user/sms  sendCode type
-    * 类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
-    * */
+     * 类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
+     * */
     public static final String SMS_TYPE_LOGIN = "2"; //登录
     public static final String SMS_TYPE_REGISTER = "3"; //注册
     public static final String SMS_TYPE_LOG_OUT = "4"; //注销
@@ -21,6 +21,30 @@ public class ApiConstant {
 
     public static final String ACCESSORIES_TYPE_SKIN = "001"; //皮肤
     public static final String ACCESSORIES_TYPE_AVATAR = "002"; //头像
+
+    /*
+     *  /hamster-center/hamsterMarket/queryMarketList
+     *  商品类型(001-基础仓鼠&仓鼠庄园,003-仓鼠银行)
+     */
+
+    public static final String API_HAMSTER_MARKET_TYPE_001 = "001"; //基础仓鼠&仓鼠庄园
+    public static final String API_HAMSTER_MARKET_TYPE_003 = "003"; //仓鼠银行
+
+    /**
+     * 商品状态 001 商品可购买 002 商品已售磬 003 用户未解锁 004 用户已拥有(待激活) 005 用户已拥有(生效中)
+     */
+    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_001 = "001";
+    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_002 = "002";
+    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_003 = "003";
+    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_004 = "004";
+    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_005 = "005";
+
+    /**
+     * 支付类型 001 松果支付 002 松子支付 003 第三方支付
+     */
+    public static final String API_HAMSTER_MARKET_PAY_TYPE_001 = "001";
+    public static final String API_HAMSTER_MARKET_PAY_TYPE_002 = "002";
+    public static final String API_HAMSTER_MARKET_PAY_TYPE_003 = "003";
 
 
     /* 登录接口 */
@@ -51,7 +75,8 @@ public class ApiConstant {
 
     /* 仓鼠市场 */
     public static final String API_CENTER_QUERY_DAY_INCOME = "/hamster-center/hamsterMarket/queryDayIncome"; //获取用户当前每日可获得松果
+    public static final String API_CENTER_QUERY_MARKET_LIST = "/hamster-center/hamsterMarket/queryMarketList"; //获取领养仓鼠&仓鼠果园-松果银行列表
 
-
-
+    /* 任务 */
+    public static final String API_TASK_SELECT_TASK_INFO_LIST = "/hamster-task/taskInfo/selectTaskInfoList"; //获取任务列表
 }

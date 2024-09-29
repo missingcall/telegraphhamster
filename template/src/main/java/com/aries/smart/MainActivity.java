@@ -1,5 +1,6 @@
 package com.aries.smart;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 
@@ -21,9 +22,7 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * @Author: AriesHoo on 2018/7/23 10:00
- * @E-Mail: AriesHoo@126.com
- * Function: 示例主页面
+ * Function: 主页面
  * Description:
  */
 public class MainActivity extends FastMainActivity {
@@ -75,7 +74,7 @@ public class MainActivity extends FastMainActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        
+        mTabLayout.getDelegate().setUnderlineHeight(0);
     }
 
     @Override

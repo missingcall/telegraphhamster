@@ -82,7 +82,9 @@ public class SkinPurchaseDialog extends CommonDialog {
 
         GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getViewModel().getDataBean().getValue();
         LogUtils.d("dataBean : " + dataBean);
-        assert dataBean != null;
+        if (dataBean == null) {
+            return;
+        }
         String s = "我拥有的 " + dataBean.getDiamond();
         SpannableString spannableString = new SpannableString(s);
         ImageSpan image = new ImageSpan(context, R.drawable.unlock_pinecone, DynamicDrawableSpan.ALIGN_BOTTOM);

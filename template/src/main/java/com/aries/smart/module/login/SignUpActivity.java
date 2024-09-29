@@ -20,7 +20,7 @@ import com.aries.library.fast.util.ToastUtil;
 import com.aries.smart.R;
 import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.constant.ApiConstant;
-import com.aries.smart.module.login.widget.ClearEditText;
+import com.aries.smart.module.widget.ClearEditText;
 import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.request.AccountCreateTo;
 import com.aries.ui.view.title.TitleBarView;

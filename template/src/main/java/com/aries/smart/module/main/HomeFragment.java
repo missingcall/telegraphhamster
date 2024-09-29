@@ -30,6 +30,7 @@ import com.aries.smart.module.widget.RoundImageView;
 import com.aries.smart.module.widget.WaveLoadingView;
 import com.aries.smart.module.widget.dialog.CleanDialog;
 import com.aries.smart.module.widget.dialog.FeedDialog;
+import com.aries.smart.module.widget.dialog.HowToPlayDialog;
 import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.response.QuickJumpResponse;
@@ -198,7 +199,11 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
     }
 
 
-    @OnClick({R.id.riv_buy_skin_bg, R.id.riv_avatar, R.id.tv_buy_skin, R.id.iv_copy_uid, R.id.cl_rank, R.id.stv_daily, R.id.iv_hamster_development, R.id.wlv_clean, R.id.wlv_food, R.id.iv_cleanliness, R.id.iv_satiety, R.id.iv_quest})
+    @OnClick({R.id.riv_buy_skin_bg, R.id.riv_avatar,
+            R.id.tv_buy_skin, R.id.iv_copy_uid,
+            R.id.cl_rank, R.id.stv_daily, R.id.iv_hamster_development,
+            R.id.wlv_clean, R.id.wlv_food, R.id.iv_cleanliness,
+            R.id.iv_satiety, R.id.iv_quest, R.id.stv_assets})
     void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.riv_buy_skin_bg:
@@ -244,6 +249,12 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
 
             case R.id.iv_quest:
 
+                break;
+
+            case R.id.stv_assets:
+                //弹出玩法说明Dialog
+                HowToPlayDialog howToPlayDialog = new HowToPlayDialog(getActivity());
+                howToPlayDialog.show();
                 break;
 
         }

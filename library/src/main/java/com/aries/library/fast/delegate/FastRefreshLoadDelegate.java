@@ -164,6 +164,65 @@ public class FastRefreshLoadDelegate<T> {
         mStatusManager.showLoadingLayout();
     }
 
+    public void setStatusManager(View emptyView) {
+        //优先使用当前配置
+        View contentView = mIFastRefreshLoadView.getMultiStatusContentView();
+        if (contentView == null) {
+            contentView = mRefreshLayout;
+        }
+        if (contentView == null) {
+            contentView = mRecyclerView;
+        }
+        if (contentView == null) {
+            contentView = mRootView;
+        }
+        if (contentView == null) {
+            return;
+        }
+        StatusLayoutManager.Builder builder = new StatusLayoutManager.Builder(contentView)
+                .setEmptyLayout(emptyView)
+                .setDefaultLayoutsBackgroundColor(android.R.color.transparent)
+                .setDefaultLoadingText(R.string.fast_multi_loading)
+                .setDefaultErrorText(R.string.fast_multi_error)
+                .setOnStatusChildClickListener(new OnStatusChildClickListener() {
+                    @Override
+                    public void onEmptyChildClick(View view) {
+                        if (mIFastRefreshLoadView.getEmptyClickListener() != null) {
+                            mIFastRefreshLoadView.getEmptyClickListener().onClick(view);
+                            return;
+                        }
+                        mStatusManager.showLoadingLayout();
+                        mIFastRefreshLoadView.onRefresh(mRefreshLayout);
+                    }
+
+                    @Override
+                    public void onErrorChildClick(View view) {
+                        if (mIFastRefreshLoadView.getErrorClickListener() != null) {
+                            mIFastRefreshLoadView.getErrorClickListener().onClick(view);
+                            return;
+                        }
+                        mStatusManager.showLoadingLayout();
+                        mIFastRefreshLoadView.onRefresh(mRefreshLayout);
+                    }
+
+                    @Override
+                    public void onCustomerChildClick(View view) {
+                        if (mIFastRefreshLoadView.getCustomerClickListener() != null) {
+                            mIFastRefreshLoadView.getCustomerClickListener().onClick(view);
+                            return;
+                        }
+                        mStatusManager.showLoadingLayout();
+                        mIFastRefreshLoadView.onRefresh(mRefreshLayout);
+                    }
+                });
+        if (mManager != null && mManager.getMultiStatusView() != null) {
+            mManager.getMultiStatusView().setMultiStatusView(builder, mIFastRefreshLoadView);
+        }
+        mIFastRefreshLoadView.setMultiStatusView(builder);
+        mStatusManager = builder.build();
+        mStatusManager.showLoadingLayout();
+    }
+
     /**
      * 获取布局RecyclerView
      *

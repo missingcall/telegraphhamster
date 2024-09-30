@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.aries.library.fast.FastManager;
 import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.smart.R;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.UpdateNicknameTo;
@@ -70,7 +71,7 @@ public class UpdateNicknameDialog extends CommonDialog {
 
         //获取钱包中松果
         /*AuthRepository.getInstance().getMyMoneyBag().subscribe(getMyMoneyBagResponse -> {
-            if (StringUtils.equals(getMyMoneyBagResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(getMyMoneyBagResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 int diamond = getMyMoneyBagResponse.getData().getDiamond();
 
                 SpannableString spannableString = new SpannableString("我可用的 " + diamond);
@@ -90,7 +91,7 @@ public class UpdateNicknameDialog extends CommonDialog {
 
         //验证是否首次修改昵称
         AuthRepository.getInstance().checkFirstUpdateNickname().subscribe(updateNicknameResponse -> {
-            if (StringUtils.equals(updateNicknameResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(updateNicknameResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //首次修改
                 SpannableString spannableString = new SpannableString("确认\n" + "首次免费 ");
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.GREEN);
@@ -144,7 +145,7 @@ public class UpdateNicknameDialog extends CommonDialog {
                 UpdateNicknameTo updateNicknameTo = new UpdateNicknameTo();
                 updateNicknameTo.setNickname(et_nickname.getText().toString());
                 AuthRepository.getInstance().updateNickname(updateNicknameTo).subscribe(updateNicknameResponse -> {
-                    if (StringUtils.equals(updateNicknameResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                    if (StringUtils.equals(updateNicknameResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                         ToastUtils.showShort("昵称修改成功,等待审核...");
                     }
                 }, throwable -> {

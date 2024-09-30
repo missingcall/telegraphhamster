@@ -8,6 +8,10 @@ package com.aries.smart.constant;
  */
 public class ApiConstant {
 
+    /* responseCode */
+    public static final String RESPONSE_OK = "200";
+    public static final String RESPONSE_FAILED_TO_PASS_REAL_NAME_AUTHENTICATION = "53430";
+
     /* 	accessFlags 访问标识 0：代表Android；1：代表IOS；可为空 android平台 */
     public static final String TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID = "0";
 
@@ -76,6 +80,8 @@ public class ApiConstant {
     /* 仓鼠市场 */
     public static final String API_CENTER_QUERY_DAY_INCOME = "/hamster-center/hamsterMarket/queryDayIncome"; //获取用户当前每日可获得松果
     public static final String API_CENTER_QUERY_MARKET_LIST = "/hamster-center/hamsterMarket/queryMarketList"; //获取领养仓鼠&仓鼠果园-松果银行列表
+    public static final String API_CENTER_MARKET_ACTIVATION = "/hamster-center/hamsterMarket/activation"; //背包物品激活
+    public static final String API_CENTER_MARKET_BUY = "/hamster-center/hamsterMarket/buy"; //购买商品
 
     /* 任务 */
     public static final String API_TASK_SELECT_TASK_INFO_LIST = "/hamster-task/taskInfo/selectTaskInfoList"; //获取任务列表

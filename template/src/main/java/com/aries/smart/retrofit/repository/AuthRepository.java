@@ -5,11 +5,14 @@ import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.library.fast.retrofit.FastRetryWhen;
 import com.aries.library.fast.retrofit.FastTransformer;
 import com.aries.smart.retrofit.request.AccountCreateTo;
+import com.aries.smart.retrofit.request.ActivationPropIdTo;
 import com.aries.smart.retrofit.request.LoginTo;
+import com.aries.smart.retrofit.request.MarketBuyTo;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
 import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
 import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
+import com.aries.smart.retrofit.response.BaseResponse;
 import com.aries.smart.retrofit.response.CheckFirstUpdateNicknameResponse;
 import com.aries.smart.retrofit.response.GetLevelRankResponse;
 import com.aries.smart.retrofit.response.GetLevelResponse;
@@ -226,4 +229,28 @@ public class AuthRepository extends BaseRepository {
 
         return FastTransformer.switchSchedulers(getAuthService().queryMarketList(type).retryWhen(new FastRetryWhen()));
     }
+
+    /**
+     * 背包物品激活
+     *
+     * /hamster-center/hamsterMarket/activation
+     * @return
+     */
+    public Observable<BaseResponse> activation(ActivationPropIdTo activationPropIdTo) {
+
+        return FastTransformer.switchSchedulers(getAuthService().activation(activationPropIdTo).retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 购买商品
+     *
+     * /hamster-center/hamsterMarket/activation
+     * @return
+     */
+    public Observable<BaseResponse> buy(MarketBuyTo marketBuyTo) {
+
+        return FastTransformer.switchSchedulers(getAuthService().buy(marketBuyTo).retryWhen(new FastRetryWhen()));
+    }
+
+
 }

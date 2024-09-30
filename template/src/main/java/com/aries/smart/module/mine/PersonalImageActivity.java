@@ -17,6 +17,7 @@ import com.aries.library.fast.manager.GlideManager;
 import com.aries.library.fast.module.activity.FastRefreshLoadActivity;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.AchievementDisplayAdapter;
 import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.entity.AchievementDisplayEntity;
@@ -109,7 +110,7 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
 /*                UpdateNicknameTo updateNicknameTo = new UpdateNicknameTo();
                 updateNicknameTo.setNickname();
                 AuthRepository.getInstance().updateNickname(updateNicknameTo).subscribe(updateNicknameResponse -> {
-                    if (StringUtils.equals(updateNicknameResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                    if (StringUtils.equals(updateNicknameResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                         //修改成功
 
                     }
@@ -160,7 +161,7 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
 
         //请求头像,昵称
         AuthRepository.getInstance().info().subscribe(infoResponse -> {
-            if (StringUtils.equals(infoResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(infoResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //头像
                 GlideManager.loadCircleImg(infoResponse.getData().getProfilePath(), mStvPersonInfo.getLeftIconIV());
                 //昵称

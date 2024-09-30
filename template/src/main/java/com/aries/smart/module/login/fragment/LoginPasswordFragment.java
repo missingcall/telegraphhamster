@@ -13,6 +13,7 @@ import com.aries.library.fast.module.fragment.FastTitleFragment;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.MainActivity;
 import com.aries.smart.R;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.login.FindPasswordStep2Activity;
 import com.aries.smart.module.widget.ClearEditText;
 import com.aries.smart.retrofit.repository.AuthRepository;
@@ -115,7 +116,7 @@ public class LoginPasswordFragment extends FastTitleFragment {
                 LogUtils.d(passwordLoginTo);
                 AuthRepository.getInstance().passwordLogin(passwordLoginTo).subscribe(passwordLoginResponse -> {
                     LogUtils.d(passwordLoginResponse);
-                    if (StringUtils.equals(passwordLoginResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                    if (StringUtils.equals(passwordLoginResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                         //TODO yhd 登录成功 进入首页 将用户数据记录
 //                        LogUtils.d("TOKEN_HEAD" + passwordLoginResponse.getData().getTokenHead());
 //                        LogUtils.d("AUTHORIZATION_TOKEN" + passwordLoginResponse.getData().getToken());

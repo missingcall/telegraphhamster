@@ -4,11 +4,13 @@ package com.aries.smart.retrofit.repository;
 import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.library.fast.retrofit.FastRetryWhen;
 import com.aries.library.fast.retrofit.FastTransformer;
+import com.aries.smart.retrofit.request.ActivationPropIdTo;
 import com.aries.smart.retrofit.request.UnlockSkinTo;
 import com.aries.smart.retrofit.request.WearSkinTo;
 import com.aries.smart.retrofit.response.AccessoriesInfoListResponse;
 import com.aries.smart.retrofit.request.AccessoriesInfoListTo;
 import com.aries.smart.retrofit.request.CurrentlyUseSkinTo;
+import com.aries.smart.retrofit.response.BaseResponse;
 import com.aries.smart.retrofit.response.CurrentlyUseSkinResponse;
 import com.aries.smart.retrofit.response.UnlockSkinResponse;
 import com.aries.smart.retrofit.response.WearSkinResponse;
@@ -85,5 +87,7 @@ public class AccessoriesRepository extends BaseRepository {
 
         return FastTransformer.switchSchedulers(getAccessoriesService().wearSkin(wearSkinTo).retryWhen(new FastRetryWhen()));
     }
+
+
 
 }

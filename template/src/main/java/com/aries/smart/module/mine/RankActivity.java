@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.smart.R;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.ui.view.title.TitleBarView;
@@ -23,7 +24,7 @@ public class RankActivity extends FastTitleActivity {
     public void initView(Bundle savedInstanceState) {
         //获取当前用户排行
         AuthRepository.getInstance().getLevelRank().subscribe(getLevelRankResponse -> {
-            if (StringUtils.equals(getLevelRankResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(getLevelRankResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
 
 
             }

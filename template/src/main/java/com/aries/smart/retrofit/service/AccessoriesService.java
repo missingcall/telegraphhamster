@@ -1,11 +1,13 @@
 package com.aries.smart.retrofit.service;
 
 import com.aries.smart.constant.ApiConstant;
+import com.aries.smart.retrofit.request.ActivationPropIdTo;
 import com.aries.smart.retrofit.request.CurrentlyUseSkinTo;
 import com.aries.smart.retrofit.request.UnlockSkinTo;
 import com.aries.smart.retrofit.request.WearSkinTo;
 import com.aries.smart.retrofit.response.AccessoriesInfoListResponse;
 import com.aries.smart.retrofit.request.AccessoriesInfoListTo;
+import com.aries.smart.retrofit.response.BaseResponse;
 import com.aries.smart.retrofit.response.CurrentlyUseSkinResponse;
 import com.aries.smart.retrofit.response.UnlockSkinResponse;
 import com.aries.smart.retrofit.response.WearSkinResponse;
@@ -51,6 +53,7 @@ public interface AccessoriesService {
      */
     @POST(ApiConstant.API_ACCESSORIES_WEAR_SKIN)
     Observable<WearSkinResponse> wearSkin(@Body WearSkinTo wearSkinTo);
+
 
 
 }

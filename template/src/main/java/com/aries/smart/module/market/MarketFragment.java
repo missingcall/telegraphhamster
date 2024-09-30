@@ -23,6 +23,7 @@ import com.aries.library.fast.module.fragment.FastTitleRefreshLoadFragment;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.App;
 import com.aries.smart.R;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.QuickJumpAdapter;
 import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.main.HomeFragment;
@@ -123,7 +124,7 @@ public class MarketFragment extends FastTitleFragment {
 
         //获取每日可获得松果
         AuthRepository.getInstance().queryDayIncome().subscribe(queryDayIncomeResponse -> {
-            if (StringUtils.equals(queryDayIncomeResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(queryDayIncomeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //TODO yhd 接口数据不全
                 mStvDaily.getCenterBottomTextView().setText(queryDayIncomeResponse.getData());
 
@@ -134,7 +135,7 @@ public class MarketFragment extends FastTitleFragment {
 
         //TODO yhd 获取等级数据
         AuthRepository.getInstance().getLevel().subscribe(getLevelResponse -> {
-            if (StringUtils.equals(getLevelResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(getLevelResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //等级
                 mTvRank.setText(getLevelResponse.getData().getLevel().toString());
                 //进度条

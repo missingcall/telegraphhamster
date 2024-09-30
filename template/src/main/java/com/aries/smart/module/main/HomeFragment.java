@@ -21,6 +21,7 @@ import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.App;
 import com.aries.smart.R;
 
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.QuickJumpAdapter;
 
 import com.aries.smart.module.mine.RankActivity;
@@ -144,7 +145,7 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
 
         //获取info
         AuthRepository.getInstance().info().subscribe(infoResponse -> {
-            if (StringUtils.equals(infoResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(infoResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //头像
                 GlideManager.loadCircleImg(infoResponse.getData().getProfilePath(), mRivAvatar);
                 //昵称
@@ -160,7 +161,7 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
 
         //获取每日可获得松果
         AuthRepository.getInstance().queryDayIncome().subscribe(queryDayIncomeResponse -> {
-            if (StringUtils.equals(queryDayIncomeResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(queryDayIncomeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //TODO yhd 接口数据不全
                 mStvDaily.getCenterBottomTextView().setText(queryDayIncomeResponse.getData());
 
@@ -171,7 +172,7 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
 
         //TODO yhd 获取等级数据
         AuthRepository.getInstance().getLevel().subscribe(getLevelResponse -> {
-            if (StringUtils.equals(getLevelResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(getLevelResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //等级
                 mTvRank.setText(getLevelResponse.getData().getLevel().toString());
                 //进度条
@@ -269,7 +270,7 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
 
         //获取钱包信息
         AuthRepository.getInstance().getMyMoneyBag().subscribe(getMyMoneyBagResponse -> {
-            if (StringUtils.equals(getMyMoneyBagResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(getMyMoneyBagResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //测试数据
 //                getMyMoneyBagResponse.getData().setDiamond(99999);
                 App.getApp().getViewModel().setDataBean(getMyMoneyBagResponse.getData());

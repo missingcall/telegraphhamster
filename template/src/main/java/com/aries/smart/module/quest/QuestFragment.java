@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.aries.library.fast.module.fragment.FastTitleRefreshLoadFragment;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.DailyTaskInfoAdapter;
 import com.aries.smart.module.widget.OverScrollView;
 import com.aries.smart.retrofit.repository.AuthRepository;
@@ -119,7 +120,7 @@ public class QuestFragment extends FastTitleRefreshLoadFragment<SelectTaskInfoLi
     @Override
     public void loadData(int page) {
         AuthRepository.getInstance().selectTaskInfoList().subscribe(selectTaskInfoListResponse -> {
-            if (StringUtils.equals(selectTaskInfoListResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(selectTaskInfoListResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //TODO yhd 后台返回的日常任务里有数据 先用来展示 后面再换成日常任务
                 mAdapter.setList(selectTaskInfoListResponse.getData().getNoviceTaskInfoList());
 

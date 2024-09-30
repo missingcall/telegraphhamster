@@ -16,17 +16,15 @@ import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.widget.NiceImageView;
 import com.aries.smart.module.widget.RoundImageView;
+import com.aries.smart.module.widget.dialog.BuyHamstersDialog;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
-import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.StringUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 
-import org.jetbrains.annotations.NotNull;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * @Author: AriesHoo on 2018/8/10 9:51
@@ -118,6 +116,7 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
         }
 
 
+        //设置点击事件
         switch (dataBean.getGoodsStatue()) {
             //001 商品可购买
             case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_001:
@@ -178,5 +177,36 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
 
     }
 
+    @Override
+    protected void setOnItemClick(@NonNull View v, int position) {
+        super.setOnItemClick(v, position);
 
+        QueryMarketListResponse.DataBean dataBean = getData().get(position);
+        switch (dataBean.getGoodsStatue()) {
+              //001 商品可购买
+            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_001:
+                //004 用户已拥有(待激活)
+            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_004:
+                //005 用户已拥有(生效中)
+            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_005:
+                BuyHamstersDialog buyHamstersDialog = new BuyHamstersDialog(getContext(), dataBean);
+                buyHamstersDialog.show();
+
+                break;
+
+            //002 商品已售磬
+            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_002:
+                ToastUtils.showShort(R.string.sold_out);
+                break;
+
+            // 003 用户未解锁
+            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_003:
+                ToastUtils.showShort(StringUtils.getString(R.string.please_activate_first) + dataBean.getPreconditionsName());
+                break;
+
+
+        }
+
+
+    }
 }

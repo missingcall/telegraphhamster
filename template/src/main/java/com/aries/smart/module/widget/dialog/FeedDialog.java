@@ -100,7 +100,7 @@ public class FeedDialog extends CommonDialog {
                 UnlockSkinTo unlockSkinTo = new UnlockSkinTo();
                 unlockSkinTo.setType(ApiConstant.ACCESSORIES_TYPE_SKIN);
                 AccessoriesRepository.getInstance().unlockSkin(unlockSkinTo).subscribe(unlockSkinResponse -> {
-                    if (StringUtils.equals(unlockSkinResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                    if (StringUtils.equals(unlockSkinResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                         ToastUtils.showShort(R.string.purchase_successful);
                     }else {
                         ToastUtils.showShort(unlockSkinResponse.getResponseMessage());

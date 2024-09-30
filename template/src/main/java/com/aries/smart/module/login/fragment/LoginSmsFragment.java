@@ -178,7 +178,7 @@ public class LoginSmsFragment extends FastTitleFragment {
     private void toConfirm() {
         //第二步 验证手机号和验证码是否匹配,先调短信验证码校验接口/hamster-user/sms/verificationCode 再调登录接口/hamster-user/user/login
         AuthRepository.getInstance().verificationCode(getVerify(), getPhone(), ApiConstant.SMS_TYPE_LOGIN).subscribe(verificationCodeResponse -> {
-            if (StringUtils.equals(verificationCodeResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+            if (StringUtils.equals(verificationCodeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //校验通过 调登录接口
                 LoginTo loginTo = new LoginTo();
                 loginTo.setMobile(getPhone());
@@ -188,7 +188,7 @@ public class LoginSmsFragment extends FastTitleFragment {
 
                 AuthRepository.getInstance().login(loginTo).subscribe(loginResponse -> {
                     //验证通过
-                    if (StringUtils.equals(loginResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                    if (StringUtils.equals(loginResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                         //登录成功存入token
                         PreferenceUtil.put(ConstantUtils.TOKEN_HEAD, loginResponse.getData().getTokenHead());
                         PreferenceUtil.put(ConstantUtils.AUTHORIZATION_TOKEN, loginResponse.getData().getToken());
@@ -223,7 +223,7 @@ public class LoginSmsFragment extends FastTitleFragment {
                         LoggerManager.d("startVerify", smsSendResponse.getResponseCode());
                         LoggerManager.d("startVerify", smsSendResponse.getResponseMessage());
 
-                        if (StringUtils.equals(smsSendResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                        if (StringUtils.equals(smsSendResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                             ToastUtils.showShort(R.string.wait_sms);
                         } else {
                             ToastUtils.showShort(R.string.wrong_phonenum);

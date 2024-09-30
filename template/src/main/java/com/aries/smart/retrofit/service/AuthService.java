@@ -2,11 +2,14 @@ package com.aries.smart.retrofit.service;
 
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.retrofit.request.AccountCreateTo;
+import com.aries.smart.retrofit.request.ActivationPropIdTo;
 import com.aries.smart.retrofit.request.LoginTo;
+import com.aries.smart.retrofit.request.MarketBuyTo;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
 import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
 import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
+import com.aries.smart.retrofit.response.BaseResponse;
 import com.aries.smart.retrofit.response.CheckFirstUpdateNicknameResponse;
 import com.aries.smart.retrofit.response.GetLevelRankResponse;
 import com.aries.smart.retrofit.response.GetLevelResponse;
@@ -166,5 +169,24 @@ public interface AuthService {
      */
     @GET(ApiConstant.API_CENTER_QUERY_MARKET_LIST)
     Observable<QueryMarketListResponse> queryMarketList(@Query("type") String type);
+
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @POST(ApiConstant.API_CENTER_MARKET_ACTIVATION)
+    Observable<BaseResponse> activation(@Body ActivationPropIdTo activationPropIdTo);
+
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @POST(ApiConstant.API_CENTER_MARKET_BUY)
+    Observable<BaseResponse> buy(@Body MarketBuyTo marketBuyTo);
+
 
 }

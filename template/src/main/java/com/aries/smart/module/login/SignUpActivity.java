@@ -229,7 +229,7 @@ public class SignUpActivity extends FastTitleActivity {
                 .subscribe(smsVerificationResponse -> {
                     LoggerManager.d("smsVerificationResponse", smsVerificationResponse.getResponseCode());
                     LoggerManager.d("smsVerificationResponse", smsVerificationResponse.getResponseMessage());
-                    if (StringUtils.equals(smsVerificationResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                    if (StringUtils.equals(smsVerificationResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                         //校验成功 创建用户
                         AccountCreateTo accountCreateTo = new AccountCreateTo();
                         accountCreateTo.setAccessFlags(ApiConstant.TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID); //访问标识 0：代表Android；1：代表IOS；可为空
@@ -243,7 +243,7 @@ public class SignUpActivity extends FastTitleActivity {
                         AuthRepository.getInstance().accountCreate(accountCreateTo).subscribe(accountCreateResponse -> {
                             LoggerManager.d("accountCreateResponse", accountCreateResponse.getResponseCode());
                             LoggerManager.d("accountCreateResponse", accountCreateResponse.getResponseMessage());
-                            if (StringUtils.equals(accountCreateResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                            if (StringUtils.equals(accountCreateResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                                 //创建成功,返回登录页面
                                 ToastUtils.showShort("注册成功");
                                 finish();
@@ -277,7 +277,7 @@ public class SignUpActivity extends FastTitleActivity {
                         LoggerManager.d("startVerify", smsSendResponse.getResponseCode());
                         LoggerManager.d("startVerify", smsSendResponse.getResponseMessage());
 
-                        if (StringUtils.equals(smsSendResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                        if (StringUtils.equals(smsSendResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                             ToastUtils.showShort(R.string.wait_sms);
                         } else {
                             ToastUtils.showShort(R.string.wrong_phonenum);

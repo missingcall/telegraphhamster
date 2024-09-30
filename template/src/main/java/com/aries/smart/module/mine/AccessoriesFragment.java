@@ -22,6 +22,7 @@ import com.aries.library.fast.manager.GlideManager;
 import com.aries.library.fast.module.fragment.FastTitleRefreshLoadFragment;
 import com.aries.library.fast.retrofit.FastObserver;
 import com.aries.smart.R;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.AccessoriesRecordsAdapter;
 import com.aries.smart.module.widget.dialog.SkinPurchaseDialog;
 import com.aries.smart.retrofit.repository.BaseRepository;
@@ -139,7 +140,7 @@ public class AccessoriesFragment extends FastTitleRefreshLoadFragment<Accessorie
                     CurrentlyUseSkinTo currentlyUseSkinTo = new CurrentlyUseSkinTo();
                     currentlyUseSkinTo.setType(mType);
                     AccessoriesRepository.getInstance().currentlyUseSkin(currentlyUseSkinTo).subscribe(currentlyUseSkinResponse -> {
-                        if (StringUtils.equals(currentlyUseSkinResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                        if (StringUtils.equals(currentlyUseSkinResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                             //使用成功 刷新列表 同时设置左边状态
                             ToastUtils.showShort("使用成功");
                             mBtnUnlock.setText("已使用");
@@ -230,7 +231,7 @@ public class AccessoriesFragment extends FastTitleRefreshLoadFragment<Accessorie
 
         AccessoriesRepository.getInstance().infoList(accessoriesInfoListTo)
                 .subscribe(accessoriesInfoListResponse -> {
-                    if (StringUtils.equals(accessoriesInfoListResponse.getResponseCode(), BaseRepository.RESPONSE_OK)) {
+                    if (StringUtils.equals(accessoriesInfoListResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                         //测试数据
                        /* AccessoriesInfoListResponse.DataBean.RecordsBean recordsBean1 = new AccessoriesInfoListResponse.DataBean.RecordsBean();
                         recordsBean1.setIcon("https://fastly.picsum.photos/id/562/200/200.jpg?hmac=F4ylYRNFPH6rDzYo48_NUieJXXI2yaMl9ElwGeFQHZo");

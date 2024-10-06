@@ -21,11 +21,11 @@ import com.aries.smart.App;
 import com.aries.smart.R;
 import com.aries.smart.WebViewActivity;
 import com.aries.smart.constant.ConstantsKey;
+import com.aries.smart.constant.Event;
 import com.aries.smart.module.widget.dialog.AgreePrivacyDialog;
 import com.aries.smart.module.widget.dialog.LoginDialog;
 import com.aries.smart.utils.RxTextTool;
-import com.aries.smart.utils.flowbus.Event;
-import com.aries.smart.utils.flowbus.FlowBus;
+
 import com.aries.ui.view.title.TitleBarView;
 import com.umeng.commonsdk.UMConfigure;
 

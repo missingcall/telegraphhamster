@@ -18,7 +18,7 @@ import com.aries.smart.impl.HttpRequestControlImpl;
 import com.aries.smart.module.viewmodel.WalletModel;
 import com.aries.smart.constant.ConstantUtils;
 import com.aries.smart.utils.PreferenceUtil;
-import com.aries.smart.utils.flowbus.Event;
+
 import com.blankj.utilcode.util.LogUtils;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.umeng.commonsdk.UMConfigure;

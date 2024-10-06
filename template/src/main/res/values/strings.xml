@@ -51,6 +51,7 @@
     <string name="personal_image">个人形象</string>
     <string name="medal_achievement">成就勋章</string>
     <string name="nickname">昵称</string>
+    <string name="uid">uid</string>
     <string name="achievement">成就</string>
     <string name="view_all">查看全部</string>
     <string name="skin">皮肤</string>
@@ -90,6 +91,7 @@
     <string name="invite_friends_detail_2">成功邀请好友可以领取一定数量的松果～</string>
     <string name="invite_friends_detail_3">您邀请好友且激活可以获得松果奖励，每邀请1人返25%松果，间接邀请返3%</string>
     <string name="total_pine_awarded">共奖励松果</string>
+    <string name="total_number_of_invited_people">共邀请人数</string>
     <string name="go_finish">去完成</string>
     <string name="wait_to_reward">待领取</string>
     <string name="finished">已完成</string>
@@ -110,5 +112,8 @@
     <string name="activate_now">立即激活</string>
     <string name="activation_successful">激活成功</string>
     <string name="collecting_in_progress">采集中...</string>
+    <string name="go_to_real_name">去实名</string>
+    <string name="my_warehouse">我的仓库</string>
+    <string name="health_game_advice">抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。</string>
 
 </resources>

@@ -121,7 +121,6 @@ public class MarketFragment extends FastTitleFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
 
-
         //获取每日可获得松果
         AuthRepository.getInstance().queryDayIncome().subscribe(queryDayIncomeResponse -> {
             if (StringUtils.equals(queryDayIncomeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {

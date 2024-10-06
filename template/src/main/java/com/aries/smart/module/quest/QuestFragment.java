@@ -92,7 +92,7 @@ public class QuestFragment extends FastTitleRefreshLoadFragment<SelectTaskInfoLi
                 .setTitleMainTextColor(Color.WHITE)
                 .setBgColor(0)
                 .setStatusBarLightMode(false)
-                .setVisibility(View.VISIBLE);
+                .setVisibility(View.GONE);
 
     }
 

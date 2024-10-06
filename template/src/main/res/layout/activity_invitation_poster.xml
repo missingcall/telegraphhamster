@@ -19,8 +19,8 @@
 
     <com.allen.library.CircleImageView
         android:id="@+id/btn_wechat"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:background="@drawable/shape_invite_firend_bg"
         android:padding="10dp"
         android:src="@drawable/icon_wechat"
@@ -33,14 +33,14 @@
     <Button
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/shape_invite_firend_bg"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:text="@string/save_poster"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_large"
+        android:textSize="@dimen/text_size_15"
         android:textStyle="bold"
         app:layout_constraintHorizontal_weight="3"
         app:layout_constraintLeft_toRightOf="@id/btn_wechat"
@@ -51,8 +51,8 @@
 
     <com.allen.library.CircleImageView
         android:id="@+id/btn_wechat_friends"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:background="@drawable/shape_invite_firend_bg"
         android:padding="10dp"
         android:src="@drawable/icon_wechat"
@@ -79,8 +79,8 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="56dp"
-        android:layout_height="64dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
         android:src="@drawable/icon"
@@ -94,7 +94,7 @@
         android:layout_marginLeft="@dimen/margin_small"
         android:text="@string/nickname"
         android:textColor="@color/gray_33"
-        android:textSize="@dimen/text_size_small"
+        android:textSize="@dimen/text_size_11"
         app:layout_constraintBottom_toTopOf="@id/tv_uid"
         app:layout_constraintLeft_toRightOf="@id/iv_icon"
         app:layout_constraintTop_toTopOf="@id/iv_icon" />
@@ -104,9 +104,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_small"
-        android:text="@string/nickname"
+        android:text="@string/uid"
         android:textColor="@color/gray_33"
-        android:textSize="@dimen/text_size_small"
+        android:textSize="@dimen/text_size_11"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/iv_icon"
         app:layout_constraintLeft_toRightOf="@id/iv_icon"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />

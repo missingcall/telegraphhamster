@@ -57,7 +57,7 @@
                 app:sLeftLines="1"
                 app:sLeftMaxEms="2000"
                 app:sLeftTextColor="@color/white"
-                app:sLeftTextSize="@dimen/text_size_big"
+                app:sLeftTextSize="@dimen/text_size_15"
                 app:sLeftTextString="@string/nickname"
                 app:sLeftTvDrawableRight="@drawable/edit"
                 app:sLeftViewGravity="left_center"
@@ -92,7 +92,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_receive_bg"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="190dp"
 
                 android:background="@drawable/shape_mine_receive_bg"
                 app:layout_constraintLeft_toLeftOf="@id/cl_wallet"
@@ -157,15 +157,15 @@
                 android:layout_marginLeft="15dp"
                 android:text="待领取松果"
                 android:textColor="@color/gray_99"
-                android:textSize="@dimen/text_size_small"
+                android:textSize="@dimen/text_size_10"
                 app:layout_constraintBottom_toBottomOf="@id/cl_receive_bg"
                 app:layout_constraintLeft_toLeftOf="@id/cl_wallet"
                 app:layout_constraintTop_toBottomOf="@id/cl_wallet" />
 
             <ImageView
                 android:id="@+id/iv_pine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="5dp"
                 android:src="@drawable/unlock_pinecone"
                 app:layout_constraintBottom_toBottomOf="@id/cl_receive_bg"
@@ -179,15 +179,15 @@
                 android:layout_marginLeft="5dp"
                 android:text="待领取松果"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_17"
+                android:textSize="@dimen/text_size_15"
                 app:layout_constraintBottom_toBottomOf="@id/cl_receive_bg"
                 app:layout_constraintLeft_toRightOf="@id/iv_pine"
                 app:layout_constraintTop_toBottomOf="@id/cl_wallet" />
 
             <Button
                 android:id="@+id/btn_receive"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_width="55dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/selector_btn_blue_gray_radius"
@@ -195,7 +195,7 @@
                 android:text="@string/receive"
 
                 android:textColor="@drawable/selector_verify_code_text_color"
-                android:textSize="@dimen/text_size_small"
+                android:textSize="@dimen/text_size_10"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/cl_receive_bg"
                 app:layout_constraintRight_toRightOf="@id/cl_wallet"
@@ -204,8 +204,8 @@
             <cn.bingoogolapple.bgabanner.BGABanner
                 android:id="@+id/bb"
                 android:layout_width="0dp"
-                android:layout_height="130dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintLeft_toLeftOf="@id/cl_receive_bg"
                 app:layout_constraintRight_toRightOf="@id/cl_receive_bg"
                 app:layout_constraintTop_toBottomOf="@id/cl_receive_bg" />
@@ -217,7 +217,6 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/shape_mine_receive_bg"
-
                 app:layout_constraintLeft_toLeftOf="@id/cl_wallet"
                 app:layout_constraintRight_toRightOf="@id/cl_wallet"
                 app:layout_constraintTop_toBottomOf="@id/bb"
@@ -226,9 +225,10 @@
 
                 <ImageView
                     android:id="@+id/iv_mine_warehouse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:src="@drawable/icon_mine_warehouse"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_weight="1"
@@ -238,8 +238,8 @@
 
                 <ImageView
                     android:id="@+id/iv_mine_invite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/icon_mine_invite"
                     app:layout_constraintBottom_toBottomOf="@id/iv_mine_warehouse"
                     app:layout_constraintHorizontal_weight="1"
@@ -249,8 +249,8 @@
 
                 <ImageView
                     android:id="@+id/iv_mine_achievement"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/icon_mine_achievement"
                     app:layout_constraintBottom_toBottomOf="@id/iv_mine_warehouse"
                     app:layout_constraintHorizontal_weight="1"
@@ -260,8 +260,8 @@
 
                 <ImageView
                     android:id="@+id/iv_mine_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/icon_mine_setting"
                     app:layout_constraintBottom_toBottomOf="@id/iv_mine_warehouse"
                     app:layout_constraintHorizontal_weight="1"

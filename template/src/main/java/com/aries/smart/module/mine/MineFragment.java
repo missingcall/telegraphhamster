@@ -1,5 +1,6 @@
 package com.aries.smart.module.mine;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,18 +20,23 @@ import com.aries.library.fast.manager.LoggerManager;
 import com.aries.library.fast.module.fragment.FastTitleFragment;
 import com.aries.library.fast.retrofit.FastUploadRequestBody;
 import com.aries.library.fast.retrofit.FastUploadRequestListener;
+import com.aries.library.fast.util.FastUtil;
 import com.aries.library.fast.util.SizeUtil;
 import com.aries.smart.R;
 import com.aries.smart.WebViewActivity;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.LoginAdapter;
 import com.aries.smart.module.widget.OverScrollView;
 import com.aries.smart.module.widget.MarqueeFactory;
 import com.aries.smart.module.widget.MarqueeView;
 import com.aries.smart.module.widget.SimpleNoticeMF;
+import com.aries.smart.retrofit.repository.AuthRepository;
+import com.aries.smart.retrofit.response.BaseResponse;
 import com.aries.smart.utils.ImagePickerHelper;
 import com.aries.smart.utils.TitleBarViewHelper;
 import com.aries.ui.util.StatusBarUtil;
 import com.aries.ui.view.title.TitleBarView;
+import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
@@ -271,7 +277,8 @@ public class MineFragment extends FastTitleFragment implements IFastRefreshView 
                 break;
 
             case R.id.iv_mine_warehouse:
-
+                //跳转我的仓库
+                FastUtil.startActivity(getActivity(), MyWarehouseActivity.class);
                 break;
 
             case R.id.iv_mine_invite:
@@ -287,5 +294,19 @@ public class MineFragment extends FastTitleFragment implements IFastRefreshView 
                 break;
 
         }
+    }
+
+    @SuppressLint("CheckResult")
+    @Override
+    public void loadData() {
+        AuthRepository.getInstance().queryWaitPinecone().subscribe(queryWaitPineconeResponse -> {
+            if (StringUtils.equals(queryWaitPineconeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
+                //获取当前用户待领取松果数量
+                mTvToBeCollectedNum.setText("" + queryWaitPineconeResponse.getData());
+            }
+        }, throwable -> {
+
+        });
+
     }
 }

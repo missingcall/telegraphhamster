@@ -20,6 +20,7 @@ import com.aries.smart.retrofit.response.PasswordLoginResponse;
 import com.aries.smart.retrofit.response.QueryDayIncomeResponse;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
+import com.aries.smart.retrofit.response.QueryWaitPineconeResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SelectTaskInfoListResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
@@ -188,5 +189,13 @@ public interface AuthService {
     @POST(ApiConstant.API_CENTER_MARKET_BUY)
     Observable<BaseResponse> buy(@Body MarketBuyTo marketBuyTo);
 
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_CENTER_MARKET_QUERYWAITPINECONE)
+    Observable<QueryWaitPineconeResponse> queryWaitPinecone();
 
 }

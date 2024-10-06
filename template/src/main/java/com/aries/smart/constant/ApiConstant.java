@@ -82,6 +82,7 @@ public class ApiConstant {
     public static final String API_CENTER_QUERY_MARKET_LIST = "/hamster-center/hamsterMarket/queryMarketList"; //获取领养仓鼠&仓鼠果园-松果银行列表
     public static final String API_CENTER_MARKET_ACTIVATION = "/hamster-center/hamsterMarket/activation"; //背包物品激活
     public static final String API_CENTER_MARKET_BUY = "/hamster-center/hamsterMarket/buy"; //购买商品
+    public static final String API_CENTER_MARKET_QUERYWAITPINECONE = "/hamster-center/hamsterMarket/queryWaitPinecone"; //获取当前用户待领取松果数量
 
     /* 任务 */
     public static final String API_TASK_SELECT_TASK_INFO_LIST = "/hamster-task/taskInfo/selectTaskInfoList"; //获取任务列表

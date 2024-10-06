@@ -1,5 +1,4 @@
-package com.aries.smart.utils.flowbus
-
+package com.aries.smart.constant
 
 import java.util.HashMap
 
@@ -25,6 +24,7 @@ sealed class Event {
 
     //刷新未读消息数量
     object RefreshUnReadMsgCount : Event()
+
 
     //application任务
     object InitApplicationTaskEvent : Event()
@@ -75,7 +75,6 @@ sealed class Event {
 
     //重置礼物选择状态
     data class ClearGiftChecked(var tabId: String) : Event()
-
 
     //潮播房主开播消息
     object AnchorStartLivestreamEvent : Event()

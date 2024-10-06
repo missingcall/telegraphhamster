@@ -45,6 +45,7 @@ public class RealNameDialog extends CommonDialog {
             @Override
             public void onClick(View view) {
                 //去实名
+
                 dismiss();
             }
         });

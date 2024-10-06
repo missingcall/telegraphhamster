@@ -23,6 +23,7 @@ import com.aries.smart.retrofit.response.PasswordLoginResponse;
 import com.aries.smart.retrofit.response.QueryDayIncomeResponse;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
+import com.aries.smart.retrofit.response.QueryWaitPineconeResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SelectTaskInfoListResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
@@ -250,6 +251,17 @@ public class AuthRepository extends BaseRepository {
     public Observable<BaseResponse> buy(MarketBuyTo marketBuyTo) {
 
         return FastTransformer.switchSchedulers(getAuthService().buy(marketBuyTo).retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 获取当前用户待领取松果数量
+     *
+     * /hamster-center/hamsterMarket/queryWaitPinecone
+     * @return
+     */
+    public Observable<QueryWaitPineconeResponse> queryWaitPinecone() {
+
+        return FastTransformer.switchSchedulers(getAuthService().queryWaitPinecone().retryWhen(new FastRetryWhen()));
     }
 
 

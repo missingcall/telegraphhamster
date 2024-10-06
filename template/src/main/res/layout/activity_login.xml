@@ -19,7 +19,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cd_sign_in"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_common"
             android:layout_marginLeft="@dimen/margin_large"
             android:layout_marginRight="@dimen/margin_large"
@@ -70,7 +70,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cd_sign_up"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_common"
             android:layout_marginLeft="@dimen/margin_large"
             android:layout_marginRight="@dimen/margin_large"
@@ -137,7 +137,7 @@
                 android:text="@string/i_agree"
                 android:buttonTint="@color/cb_login"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_small"
+                android:textSize="@dimen/text_size_10"
                 android:layout_height="wrap_content" />
 
             <TextView
@@ -147,7 +147,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:textColor="@color/text_white"
-                android:textSize="@dimen/text_size_small"
+                android:textSize="@dimen/text_size_10"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -157,6 +157,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.85" />
+        
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/health_game_advice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="@dimen/text_size_8"
+            android:textColor="@color/white_d0"
+            android:layout_marginBottom="20dp"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

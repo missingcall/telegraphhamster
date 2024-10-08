@@ -49,16 +49,23 @@
         android:id="@+id/stl_orchard_bank"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        android:padding="2dp"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_top"
+        app:tl_bar_color="@color/gray"
+        app:tl_bar_stroke_width="0dp"
+        app:tl_indicator_color="@color/tab_unit_bg"
+        app:tl_indicator_corner_radius="5dp"
+        app:tl_indicator_margin_bottom="3dp"
+        app:tl_indicator_margin_left="3dp"
+        app:tl_indicator_margin_right="3dp"
+        app:tl_indicator_margin_top="3dp"
+        app:tl_textBold="BOTH"
         app:tl_textSelectColor="@color/white"
+        app:tl_textSelectSize="@dimen/text_size_10"
         app:tl_textSize="@dimen/text_size_10"
-        app:tl_textUnSelectColor="@color/white"
-        tl:tl_bar_color="@color/gray"
-        tl:tl_indicator_color="@color/gray_s"
-        tl:tl_indicator_corner_radius="8dp" />
+        app:tl_textUnSelectColor="@color/white" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_orchard_bank"
@@ -66,9 +73,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stl_orchard_bank"
-        app:layout_constraintVertical_bias="1.0"
-        />
+        app:layout_constraintTop_toBottomOf="@id/stl_orchard_bank" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

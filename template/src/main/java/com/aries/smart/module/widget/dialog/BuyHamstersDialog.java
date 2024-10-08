@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -25,12 +24,9 @@ import com.aries.smart.App;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.widget.RoundImageView;
-import com.aries.smart.retrofit.repository.AccessoriesRepository;
 import com.aries.smart.retrofit.repository.AuthRepository;
-import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.ActivationPropIdTo;
 import com.aries.smart.retrofit.request.MarketBuyTo;
-import com.aries.smart.retrofit.request.UnlockSkinTo;
 import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.blankj.utilcode.util.LogUtils;
@@ -105,7 +101,6 @@ public class BuyHamstersDialog extends CommonDialog {
     private void initView(Context context) {
         this.getWindow().setWindowAnimations(R.style.DialogVerticalINOut);
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_buy_hamsters, null);
-        ButterKnife.bind(view);
         setContentView(view);
 
         ButterKnife.bind(this);
@@ -120,10 +115,10 @@ public class BuyHamstersDialog extends CommonDialog {
 
         switch (mDataBean.getGoodsStatue()) {
             //001 商品可购买
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_001:
+            case ApiConstant.GOODS_STATUE_TYPE_001:
                 mTvAvailable.setVisibility(View.VISIBLE);
 
-                GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getViewModel().getDataBean().getValue();
+                GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getWalletModel().getDataBean().getValue();
                 if (dataBean == null) {
                     return;
                 }
@@ -165,7 +160,7 @@ public class BuyHamstersDialog extends CommonDialog {
                 break;*/
 
             //004 用户已拥有(待激活)
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_004:
+            case ApiConstant.GOODS_STATUE_TYPE_004:
                 mTvAvailable.setVisibility(View.GONE);
                 mBtnConfirm.setText(R.string.activate_now);
                 mBtnConfirm.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +190,7 @@ public class BuyHamstersDialog extends CommonDialog {
                 break;
 
             //005 用户已拥有(生效中)
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_005:
+            case ApiConstant.GOODS_STATUE_TYPE_005:
                 mBtnConfirm.setText(R.string.collecting_in_progress);
                 mBtnConfirm.setEnabled(false);
                 mTvTimeRemaining.setTextColor(getContext().getResources().getColor(R.color.green_light));

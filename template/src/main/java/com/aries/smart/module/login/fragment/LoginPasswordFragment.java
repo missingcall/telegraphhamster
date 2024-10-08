@@ -10,21 +10,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.aries.library.fast.module.fragment.FastTitleFragment;
+import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.MainActivity;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
+import com.aries.smart.constant.ConstantUtils;
 import com.aries.smart.module.login.FindPasswordStep2Activity;
 import com.aries.smart.module.widget.ClearEditText;
 import com.aries.smart.retrofit.repository.AuthRepository;
-import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
-import com.aries.smart.constant.ConstantUtils;
-import com.aries.smart.utils.PreferenceUtil;
 import com.aries.ui.view.title.TitleBarView;
 import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.RegexUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
@@ -120,9 +120,15 @@ public class LoginPasswordFragment extends FastTitleFragment {
                         //TODO yhd 登录成功 进入首页 将用户数据记录
 //                        LogUtils.d("TOKEN_HEAD" + passwordLoginResponse.getData().getTokenHead());
 //                        LogUtils.d("AUTHORIZATION_TOKEN" + passwordLoginResponse.getData().getToken());
-                        PreferenceUtil.put(ConstantUtils.TOKEN_HEAD,passwordLoginResponse.getData().getTokenHead());
-                        PreferenceUtil.put(ConstantUtils.AUTHORIZATION_TOKEN,passwordLoginResponse.getData().getToken());
+                        SPUtils.getInstance().put(ConstantUtils.TOKEN_HEAD, passwordLoginResponse.getData().getTokenHead());
+                        SPUtils.getInstance().put(ConstantUtils.AUTHORIZATION_TOKEN, passwordLoginResponse.getData().getToken());
+
+
                         ToastUtils.showShort(getString(R.string.login_success));
+                        //将token添加到Header中
+                        FastRetrofit.getInstance().addHeader(ConstantUtils.AUTHORIZATION_TOKEN, SPUtils.getInstance().getString(ConstantUtils.TOKEN_HEAD, "")
+                                + SPUtils.getInstance().getString(ConstantUtils.AUTHORIZATION_TOKEN, ""));
+
                         FastUtil.startActivity(getActivity(), MainActivity.class);
                         getActivity().finish();
                     } else {

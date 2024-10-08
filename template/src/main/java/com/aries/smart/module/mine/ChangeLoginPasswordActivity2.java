@@ -1,4 +1,4 @@
-package com.aries.smart.module.login;
+package com.aries.smart.module.mine;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -20,7 +20,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class FindPasswordStep3Activity extends FastTitleActivity {
+public class ChangeLoginPasswordActivity2 extends FastTitleActivity {
     @BindView(R.id.titleBar_headFastLib)
     TitleBarView mTitleBarHeadFastLib;
     @BindView(R.id.tv_phone_verify)
@@ -34,7 +34,7 @@ public class FindPasswordStep3Activity extends FastTitleActivity {
 
     @Override
     public int getContentLayout() {
-        return R.layout.activity_find_password_step3;
+        return R.layout.activity_change_login_password_2;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class FindPasswordStep3Activity extends FastTitleActivity {
     @Override
     public void setTitleBar(TitleBarView titleBar) {
         titleBar.setLeftTextDrawable(R.drawable.btn_left_white_m)
-                .setTitleMainText(R.string.find_psw)
+                .setTitleMainText(R.string.change_login_psw)
                 .setTitleMainTextColor(Color.WHITE)
                 .setBgColor(0)
                 .setStatusBarLightMode(false)

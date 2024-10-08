@@ -24,6 +24,7 @@ import com.aries.smart.retrofit.response.QueryWaitPineconeResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SelectTaskInfoListResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
+import com.aries.smart.retrofit.response.UpdateMobileResponse;
 import com.aries.smart.retrofit.response.UpdateNicknameResponse;
 import com.aries.smart.retrofit.response.VerificationCodeResponse;
 
@@ -197,5 +198,13 @@ public interface AuthService {
      */
     @GET(ApiConstant.API_CENTER_MARKET_QUERYWAITPINECONE)
     Observable<QueryWaitPineconeResponse> queryWaitPinecone();
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_USER_UPDATE_MOBILE)
+    Observable<UpdateMobileResponse> updateMobile(@Query("phone") String phone);
 
 }

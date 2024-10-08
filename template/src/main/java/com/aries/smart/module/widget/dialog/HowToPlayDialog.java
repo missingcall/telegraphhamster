@@ -28,9 +28,7 @@ import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
 public class HowToPlayDialog extends CommonDialog {
-/*    private static final String DEVELOP_TYPE_CLEAN = "清洗仓鼠";
-    private static final String DEVELOP_TYPE_REBORN = "复活仓鼠";
-    private static final String DEVELOP_TYPE_FEED = "喂养仓鼠";*/
+
 
     public HowToPlayDialog(Context context) {
         super(context);

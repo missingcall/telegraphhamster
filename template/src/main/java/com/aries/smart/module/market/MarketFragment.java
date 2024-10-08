@@ -18,6 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.allen.library.SuperTextView;
 import com.aries.library.fast.manager.GlideManager;
+import com.aries.library.fast.manager.TabLayoutManager;
 import com.aries.library.fast.module.fragment.FastTitleFragment;
 import com.aries.library.fast.module.fragment.FastTitleRefreshLoadFragment;
 import com.aries.library.fast.util.FastUtil;
@@ -90,8 +91,8 @@ public class MarketFragment extends FastTitleFragment {
     SegmentTabLayout mStlOrchardBank;
     @BindView(R.id.vp_orchard_bank)
     ViewPager mVpOrchardBank;
-    private Fragment[] fragments;
-    private String[] mTitles = {"仓鼠果园", "松果银行"};
+
+    private List<Fragment> listFragment = new ArrayList<>();
 
     public static MarketFragment newInstance() {
         Bundle args = new Bundle();
@@ -146,28 +147,16 @@ public class MarketFragment extends FastTitleFragment {
         });
 
 
-        fragments = new Fragment[mTitles.length];
-        fragments[0] = OrchardFragment.getInstance();
-        fragments[1] = OrchardFragment.getInstance();
+        listFragment.clear();
+        listFragment.add(OrchardFragment.getInstance());
+        listFragment.add(OrchardFragment.getInstance());
+        TabLayoutManager.getInstance().setSegmentTabData(this, mStlOrchardBank, mVpOrchardBank,
+                getTitles(R.array.arrays_tab_squirrel_orchard_bank), listFragment);
 
-        SkinAvatarAdapter skinAvatarAdapter = new SkinAvatarAdapter(getChildFragmentManager(), fragments, mTitles, getActivity());
-        mVpOrchardBank.setAdapter(skinAvatarAdapter);
+    }
 
-        mStlOrchardBank.setTabData(mTitles);
-        mStlOrchardBank.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelect(int position) {
-                //改变下面fragment页面
-                mVpOrchardBank.setCurrentItem(position);
-            }
-
-            @Override
-            public void onTabReselect(int position) {
-
-            }
-        });
-
-
+    private String[] getTitles(int array) {
+        return getResources().getStringArray(array);
     }
 
     @Override
@@ -180,7 +169,6 @@ public class MarketFragment extends FastTitleFragment {
 
 
     @OnClick({R.id.cl_rank, R.id.stv_daily})
-
     void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.cl_rank:

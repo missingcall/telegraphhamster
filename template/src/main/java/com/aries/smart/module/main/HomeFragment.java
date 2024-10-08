@@ -22,6 +22,7 @@ import com.aries.smart.App;
 import com.aries.smart.R;
 
 import com.aries.smart.constant.ApiConstant;
+import com.aries.smart.constant.Event;
 import com.aries.smart.module.adapter.QuickJumpAdapter;
 
 import com.aries.smart.module.mine.RankActivity;
@@ -33,15 +34,18 @@ import com.aries.smart.module.widget.dialog.CleanDialog;
 import com.aries.smart.module.widget.dialog.FeedDialog;
 import com.aries.smart.module.widget.dialog.HowToPlayDialog;
 import com.aries.smart.retrofit.repository.AuthRepository;
-import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.response.QuickJumpResponse;
 import com.aries.smart.utils.TitleBarViewHelper;
 import com.aries.ui.view.title.TitleBarView;
 import com.blankj.utilcode.util.ClipboardUtils;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,22 +146,6 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 4);
         mRecyclerView.setLayoutManager(layoutManager);
 
-
-        //获取info
-        AuthRepository.getInstance().info().subscribe(infoResponse -> {
-            if (StringUtils.equals(infoResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
-                //头像
-                GlideManager.loadCircleImg(infoResponse.getData().getProfilePath(), mRivAvatar);
-                //昵称
-                mTvNickname.setText(infoResponse.getData().getNickname());
-                //uid
-                mTvUid.setText(infoResponse.getData().getDisplayId());
-
-            }
-        }, throwable -> {
-            ToastUtils.showShort("获取用户信息失败 : " + throwable);
-            LogUtils.d(throwable);
-        });
 
         //获取每日可获得松果
         AuthRepository.getInstance().queryDayIncome().subscribe(queryDayIncomeResponse -> {
@@ -273,7 +261,7 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
             if (StringUtils.equals(getMyMoneyBagResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                 //测试数据
 //                getMyMoneyBagResponse.getData().setDiamond(99999);
-                App.getApp().getViewModel().setDataBean(getMyMoneyBagResponse.getData());
+                App.getApp().getWalletModel().setDataBean(getMyMoneyBagResponse.getData());
                 mStvAssets.getCenterTextView().setText(getMyMoneyBagResponse.getData().getDiamond());
 
             }
@@ -291,14 +279,34 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
         return mAdapter;
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void loadData(int page) {
+
+        //获取info
+        AuthRepository.getInstance().info().subscribe(infoResponse -> {
+            if (StringUtils.equals(infoResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
+                //头像
+                GlideManager.loadCircleImg(infoResponse.getData().getProfilePath(), mRivAvatar);
+                //昵称
+                mTvNickname.setText(infoResponse.getData().getNickname());
+                //uid
+                mTvUid.setText(infoResponse.getData().getDisplayId());
+
+                //将InfoBean保存
+                App.getApp().getInfoModel().setDataBean(infoResponse.getData());
+            }
+        }, throwable -> {
+            ToastUtils.showShort("获取用户信息失败 : " + throwable);
+            LogUtils.d(throwable);
+        });
+
         QuickJumpResponse achievementDisplayEntity1 = new QuickJumpResponse(true, "最佳新人1", "https://fastly.picsum.photos/id/452/200/200.jpg?hmac=f5vORXpRW2GF7jaYrCkzX3EwDowO7OXgUaVYM2NNRXY");
         QuickJumpResponse achievementDisplayEntity2 = new QuickJumpResponse(false, "最佳新人2", "https://fastly.picsum.photos/id/562/200/200.jpg?hmac=F4ylYRNFPH6rDzYo48_NUieJXXI2yaMl9ElwGeFQHZo");
         QuickJumpResponse achievementDisplayEntity3 = new QuickJumpResponse(true, "最佳新人3", "https://fastly.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0");
         QuickJumpResponse achievementDisplayEntity4 = new QuickJumpResponse(true, "最佳新人4", "https://fastly.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0");
 
-
+        list.clear();
         list.add(achievementDisplayEntity1);
         list.add(achievementDisplayEntity2);
         list.add(achievementDisplayEntity3);
@@ -316,5 +324,11 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
                         FastManager.getInstance().getHttpRequestControl().httpRequestSuccess(getIHttpRequestControl(), entity, null);
                     }
                 });*/
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(Event.InfoEvent event) {
+        //重新请求Info接口
+        loadData();
     }
 }

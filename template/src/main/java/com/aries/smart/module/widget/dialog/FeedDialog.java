@@ -20,7 +20,6 @@ import com.aries.smart.App;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.retrofit.repository.AccessoriesRepository;
-import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.UnlockSkinTo;
 import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.blankj.utilcode.util.LogUtils;
@@ -28,9 +27,7 @@ import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
 public class FeedDialog extends CommonDialog {
-/*    private static final String DEVELOP_TYPE_CLEAN = "清洗仓鼠";
-    private static final String DEVELOP_TYPE_REBORN = "复活仓鼠";
-    private static final String DEVELOP_TYPE_FEED = "喂养仓鼠";*/
+
 
     public FeedDialog(Context context) {
         super(context);
@@ -73,7 +70,7 @@ public class FeedDialog extends CommonDialog {
         Button btnExit = view.findViewById(R.id.btn_exit);
 
 
-        GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getViewModel().getDataBean().getValue();
+        GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getWalletModel().getDataBean().getValue();
         LogUtils.d("dataBean : " + dataBean);
         if (dataBean == null ){
             return;

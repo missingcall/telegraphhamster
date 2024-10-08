@@ -9,11 +9,11 @@
     <include layout="@layout/fast_layout_title_bar" />
 
     <TextView
-        android:id="@+id/tv_setting"
+        android:id="@+id/tv_account_security"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/setting"
+        android:text="@string/account_security"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_large"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,54 +21,39 @@
         app:layout_constraintTop_toBottomOf="@id/titleBar_headFastLib" />
 
     <com.allen.library.SuperTextView
-        android:id="@+id/stv_account_security"
+        android:id="@+id/stv_change_phone_number"
         style="@style/SupperTextStyleItem"
         android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_setting"
-        app:sLeftTextString="@string/account_security" />
+        app:layout_constraintTop_toBottomOf="@id/tv_account_security"
+        app:sLeftTextString="@string/change_phone_number" />
 
     <com.allen.library.SuperTextView
-        android:id="@+id/stv_personal_information_collection_checklist"
+        android:id="@+id/stv_login_password"
         style="@style/SupperTextStyleItem"
         android:layout_marginTop="7dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stv_account_security"
-        app:sLeftTextString="@string/personal_information_collection_checklist" />
+        app:layout_constraintTop_toBottomOf="@id/stv_change_phone_number"
+        app:sLeftTextString="@string/password_login" />
 
     <com.allen.library.SuperTextView
-        android:id="@+id/stv_list_of_third_party_information_sharing"
+        android:id="@+id/stv_real_name_authentication"
         style="@style/SupperTextStyleItem"
         android:layout_marginTop="7dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stv_personal_information_collection_checklist"
-        app:sLeftTextString="@string/list_of_third_party_information_sharing" />
+        app:layout_constraintTop_toBottomOf="@id/stv_login_password"
+        app:sLeftTextString="@string/real_name_authentication" />
 
     <com.allen.library.SuperTextView
-        android:id="@+id/stv_about_us"
+        android:id="@+id/stv_cancel_account"
         style="@style/SupperTextStyleItem"
         android:layout_marginTop="7dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stv_list_of_third_party_information_sharing"
-        app:sLeftTextString="@string/about_us" />
-
-    <Button
-        android:id="@+id/btn_exit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/selector_verify_bg"
-        android:gravity="center"
-        android:text="@string/logout"
-        android:textColor="@drawable/selector_verify_code_text_color"
-        android:textSize="@dimen/text_size_15"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/stv_account_security"
-        app:layout_constraintRight_toRightOf="@id/stv_account_security" />
+        app:layout_constraintTop_toBottomOf="@id/stv_real_name_authentication"
+        app:sLeftTextString="@string/cancel_account" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,17 +3,23 @@ package com.aries.smart.module.mine;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
+import androidx.constraintlayout.widget.Guideline;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.aries.library.fast.manager.TabLayoutManager;
 import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.smart.R;
 import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.market.OrchardFragment;
 import com.aries.ui.view.tab.SegmentTabLayout;
-import com.aries.ui.view.tab.listener.OnTabSelectListener;
 import com.aries.ui.view.title.TitleBarView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -23,8 +29,16 @@ public class MyWarehouseActivity extends FastTitleActivity {
     SegmentTabLayout mStlOrchardBank;
     @BindView(R.id.vp_orchard_bank)
     ViewPager mVpOrchardBank;
-    private Fragment[] fragments;
-    private String[] mTitles = {"仓鼠果园", "松果银行"};
+    @BindView(R.id.titleBar_headFastLib)
+    TitleBarView mTitleBarHeadFastLib;
+    @BindView(R.id.guideline_h)
+    Guideline mGuidelineH;
+    @BindView(R.id.iv_top)
+    ImageView mIvTop;
+    @BindView(R.id.imageView2)
+    ImageView mImageView2;
+
+    private List<Fragment> listFragment = new ArrayList<>();
 
     @Override
     public int getContentLayout() {
@@ -33,27 +47,19 @@ public class MyWarehouseActivity extends FastTitleActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        fragments = new Fragment[mTitles.length];
-        fragments[0] = OrchardFragment.getInstance();
-        fragments[1] = OrchardFragment.getInstance();
 
-        SkinAvatarAdapter skinAvatarAdapter = new SkinAvatarAdapter(getSupportFragmentManager(), fragments, mTitles, this);
-        mVpOrchardBank.setAdapter(skinAvatarAdapter);
+        listFragment.clear();
+        listFragment.add(WarehouseOrchardFragment.getInstance());
+        listFragment.add(WarehouseOrchardFragment.getInstance());
+        TabLayoutManager.getInstance().setSegmentTabData(this, mStlOrchardBank, mVpOrchardBank,
+                getTitles(R.array.arrays_tab_squirrel_orchard_bank), listFragment);
 
-        mStlOrchardBank.setTabData(mTitles);
-        mStlOrchardBank.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelect(int position) {
-                //改变下面fragment页面
-                mVpOrchardBank.setCurrentItem(position);
-            }
+        mStlOrchardBank.setCurrentTab(0);
 
-            @Override
-            public void onTabReselect(int position) {
+    }
 
-            }
-        });
-
+    private String[] getTitles(int array) {
+        return getResources().getStringArray(array);
     }
 
     @Override

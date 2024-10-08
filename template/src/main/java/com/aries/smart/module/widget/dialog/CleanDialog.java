@@ -13,31 +13,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.aries.library.fast.manager.GlideManager;
 import com.aries.smart.App;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.retrofit.repository.AccessoriesRepository;
-import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.UnlockSkinTo;
-import com.aries.smart.retrofit.response.AccessoriesInfoListResponse;
 import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
 public class CleanDialog extends CommonDialog {
-/*    private static final String DEVELOP_TYPE_CLEAN = "清洗仓鼠";
-    private static final String DEVELOP_TYPE_REBORN = "复活仓鼠";
-    private static final String DEVELOP_TYPE_FEED = "喂养仓鼠";*/
+
 
     public CleanDialog(Context context) {
         super(context);
-
         initView(context);
     }
 
@@ -76,7 +69,7 @@ public class CleanDialog extends CommonDialog {
         Button btnExit = view.findViewById(R.id.btn_exit);
 
 
-        GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getViewModel().getDataBean().getValue();
+        GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getWalletModel().getDataBean().getValue();
         if(dataBean == null){
             return;
         }

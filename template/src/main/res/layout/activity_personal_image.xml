@@ -21,14 +21,14 @@
         android:paddingTop="@dimen/margin_micro"
         android:paddingBottom="@dimen/margin_micro"
         app:layout_constraintTop_toBottomOf="@id/titleBar_headFastLib"
-        app:sLeftIconHeight="@dimen/height_50"
+        app:sLeftIconHeight="@dimen/width_large"
         app:sLeftIconMarginLeft="12dp"
         app:sLeftIconRes="@color/colorPlaceholder"
-        app:sLeftIconWidth="@dimen/width_50"
+        app:sLeftIconWidth="@dimen/width_large"
         app:sLeftLines="1"
         app:sLeftMaxEms="2000"
         app:sLeftTextColor="@color/white"
-        app:sLeftTextSize="@dimen/text_size_big"
+        app:sLeftTextSize="@dimen/text_size_15"
         app:sLeftTextString="@string/nickname"
         app:sLeftTvDrawableRight="@drawable/edit"
         app:sLeftViewGravity="left_center"
@@ -64,11 +64,11 @@
             app:layout_constraintTop_toBottomOf="@id/stv_person_info"
             app:sDividerLineType="none"
             app:sLeftTextColor="@color/white"
-            app:sLeftTextSize="@dimen/text_size_big"
+            app:sLeftTextSize="@dimen/text_size_15"
             app:sLeftTextString="@string/achievement"
             app:sRightTextBackground="@drawable/shape_view_all"
             app:sRightTextColor="@color/white"
-            app:sRightTextSize="@dimen/text_size_small"
+            app:sRightTextSize="@dimen/text_size_10"
             app:sRightTextString="@string/view_all" />
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -121,13 +121,19 @@
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_weight="1"
+            app:tl_bar_color="@color/gray"
+            app:tl_bar_stroke_width="0dp"
+            app:tl_indicator_color="@color/tab_unit_bg"
+            app:tl_indicator_corner_radius="5dp"
+            app:tl_indicator_margin_bottom="3dp"
+            app:tl_indicator_margin_left="3dp"
+            app:tl_indicator_margin_right="3dp"
+            app:tl_indicator_margin_top="3dp"
+            app:tl_textBold="BOTH"
             app:tl_textSelectColor="@color/white"
-            app:tl_textSize="@dimen/text_size_middle"
-            app:tl_textUnSelectColor="@color/white"
-
-            tl:tl_bar_color="@color/gray"
-            tl:tl_indicator_color="@color/gray_s"
-            tl:tl_indicator_corner_radius="10dp" />
+            app:tl_textSelectSize="@dimen/text_size_10"
+            app:tl_textSize="@dimen/text_size_10"
+            app:tl_textUnSelectColor="@color/white"  />
 
     </LinearLayout>
 

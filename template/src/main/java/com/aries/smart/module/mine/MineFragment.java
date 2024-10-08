@@ -26,6 +26,7 @@ import com.aries.smart.R;
 import com.aries.smart.WebViewActivity;
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.LoginAdapter;
+import com.aries.smart.module.quest.InviteActivity;
 import com.aries.smart.module.widget.OverScrollView;
 import com.aries.smart.module.widget.MarqueeFactory;
 import com.aries.smart.module.widget.MarqueeView;
@@ -282,15 +283,18 @@ public class MineFragment extends FastTitleFragment implements IFastRefreshView 
                 break;
 
             case R.id.iv_mine_invite:
-
+                //跳转邀请详情
+                FastUtil.startActivity(getActivity(), InviteActivity.class);
                 break;
 
             case R.id.iv_mine_achievement:
-
+                //跳转至个人形象界面
+                FastUtil.startActivity(getActivity(), PersonalImageActivity.class);
                 break;
 
             case R.id.iv_mine_setting:
-
+                //跳转设置
+                FastUtil.startActivity(getActivity(), SettingActivity.class);
                 break;
 
         }

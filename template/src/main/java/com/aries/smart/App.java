@@ -2,7 +2,6 @@ package com.aries.smart;
 
 import android.content.Context;
 import android.os.Build;
-import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.multidex.MultiDexApplication;
@@ -11,21 +10,14 @@ import com.aries.library.fast.FastManager;
 import com.aries.library.fast.manager.LoggerManager;
 import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.library.fast.util.SizeUtil;
-import com.aries.smart.constant.ConstantsKey;
+import com.aries.smart.constant.ConstantUtils;
 import com.aries.smart.impl.ActivityControlImpl;
 import com.aries.smart.impl.AppImpl;
 import com.aries.smart.impl.HttpRequestControlImpl;
+import com.aries.smart.module.viewmodel.InfoModel;
 import com.aries.smart.module.viewmodel.WalletModel;
-import com.aries.smart.constant.ConstantUtils;
-import com.aries.smart.utils.PreferenceUtil;
-
-import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.orhanobut.logger.PrettyFormatStrategy;
-import com.umeng.commonsdk.UMConfigure;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * @Author: AriesHoo on 2018/7/31 10:43
@@ -41,6 +33,7 @@ public class App extends MultiDexApplication {
     private static String TAG = "FastTemplate";
 
     private WalletModel mWalletModel;
+    private InfoModel mInfoModel;
 
     @Override
     public void onCreate() {
@@ -97,8 +90,8 @@ public class App extends MultiDexApplication {
                 .setCertificates()
                 //设置统一请求头
 //                .addHeader(header)
-                .addHeader(ConstantUtils.AUTHORIZATION_TOKEN, PreferenceUtil.getString(ConstantUtils.TOKEN_HEAD, "")
-                        + PreferenceUtil.getString(ConstantUtils.AUTHORIZATION_TOKEN, ""))
+                .addHeader(ConstantUtils.AUTHORIZATION_TOKEN, SPUtils.getInstance().getString(ConstantUtils.TOKEN_HEAD, "")
+                        + SPUtils.getInstance().getString(ConstantUtils.AUTHORIZATION_TOKEN, ""))
                 //设置请求全局log-可设置tag及Level类型
                 .setLogEnable(true)
 //                .setLogEnable(BuildConfig.DEBUG, TAG, HttpLoggingInterceptor.Level.BODY)
@@ -127,12 +120,17 @@ public class App extends MultiDexApplication {
         //其它初始化
         // 获取ViewModel实例
         mWalletModel = new ViewModelProvider.AndroidViewModelFactory(this).create(WalletModel.class);
+        mInfoModel = new ViewModelProvider.AndroidViewModelFactory(this).create(InfoModel.class);
 
 
     }
 
-    public WalletModel getViewModel() {
+    public WalletModel getWalletModel() {
         return mWalletModel;
+    }
+
+    public InfoModel getInfoModel() {
+        return mInfoModel;
     }
 
     public static Context getInstance() {

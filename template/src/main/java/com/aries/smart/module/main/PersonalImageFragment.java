@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.allen.library.SuperTextView;
+import com.aries.library.fast.manager.TabLayoutManager;
 import com.aries.library.fast.module.fragment.FastTitleRefreshLoadFragment;
 import com.aries.smart.R;
 import com.aries.smart.module.adapter.SkinAvatarAdapter;
@@ -60,11 +61,10 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
     @BindView(R.id.vp_skin_avatar)
     ViewPager mVpContentFastLib;
 
+    private List<Fragment> listFragment = new ArrayList<>();
+
 
     private TitleBarViewHelper mTitleBarViewHelper;
-
-    private String[] mTitles = {"皮肤", "头像"};
-    private Fragment[] fragments;
 
     public static PersonalImageFragment newInstance() {
         Bundle args = new Bundle();
@@ -100,14 +100,12 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
                 .setRecyclerView(mRecyclerView)
                 .setMinHeight(0);
 
-        fragments = new Fragment[mTitles.length];
-        fragments[0] = AccessoriesFragment.getInstance("001");
-        fragments[1] = AccessoriesFragment.getInstance("002");
 
-        SkinAvatarAdapter skinAvatarAdapter = new SkinAvatarAdapter(getChildFragmentManager(), fragments, mTitles, getActivity());
-        mVpContentFastLib.setAdapter(skinAvatarAdapter);
+        listFragment.add(AccessoriesFragment.getInstance("001"));
+        listFragment.add(AccessoriesFragment.getInstance("002"));
+        TabLayoutManager.getInstance().setSegmentTabData(this, mStlSkinAvatar, mVpContentFastLib,
+                getTitles(R.array.arrays_tab_skin_avatar), listFragment);
 
-        mStlSkinAvatar.setTabData(mTitles);
         mStlSkinAvatar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
@@ -129,6 +127,10 @@ public class PersonalImageFragment extends FastTitleRefreshLoadFragment<Achievem
         });
 
         mStatusManager.showSuccessLayout();
+    }
+
+    private String[] getTitles(int array) {
+        return getResources().getStringArray(array);
     }
 
     @Override

@@ -13,23 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.lifecycle.LiveData;
 
 import com.aries.library.fast.manager.GlideManager;
 import com.aries.smart.App;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.retrofit.repository.AccessoriesRepository;
-import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.UnlockSkinTo;
 import com.aries.smart.retrofit.response.AccessoriesInfoListResponse;
 import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.blankj.utilcode.util.LogUtils;
-import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
@@ -80,7 +75,7 @@ public class SkinPurchaseDialog extends CommonDialog {
             GlideManager.loadImg(mRecordsBean.getIcon(), rivImage);
         }
 
-        GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getViewModel().getDataBean().getValue();
+        GetMyMoneyBagResponse.DataBean dataBean = App.getApp().getWalletModel().getDataBean().getValue();
         LogUtils.d("dataBean : " + dataBean);
         if (dataBean == null) {
             return;

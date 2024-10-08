@@ -170,6 +170,6 @@ public class LoginActivity extends FastTitleActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(Event.InitApplicationTaskEvent event) {
         //同意协议后初始化sdk
-        UMConfigure.init(this, ConstantsKey.UMENGKEY_RELEASE_KEY, "umeng",UMConfigure.DEVICE_TYPE_PHONE,"");
+//        UMConfigure.init(this, ConstantsKey.UMENGKEY_RELEASE_KEY, "umeng",UMConfigure.DEVICE_TYPE_PHONE,"");
     }
 }

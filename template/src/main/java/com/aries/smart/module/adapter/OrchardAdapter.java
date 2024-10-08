@@ -119,7 +119,7 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
         //设置点击事件
         switch (dataBean.getGoodsStatue()) {
             //001 商品可购买
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_001:
+            case ApiConstant.GOODS_STATUE_TYPE_001:
                 mTvSoldOut.setVisibility(View.GONE);
                 mRivBgMask.setVisibility(View.GONE);
                 mRivCommodityIconMask.setVisibility(View.GONE);
@@ -130,7 +130,7 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
                 break;
 
             //002 商品已售磬
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_002:
+            case ApiConstant.GOODS_STATUE_TYPE_002:
                 mTvSoldOut.setVisibility(View.VISIBLE);
                 mRivBgMask.setVisibility(View.VISIBLE);
                 mRivCommodityIconMask.setVisibility(View.GONE);
@@ -141,7 +141,7 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
                 break;
 
             // 003 用户未解锁
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_003:
+            case ApiConstant.GOODS_STATUE_TYPE_003:
                 mTvSoldOut.setVisibility(View.GONE);
                 mRivBgMask.setVisibility(View.GONE);
                 mRivCommodityIconMask.setVisibility(View.VISIBLE);
@@ -152,7 +152,7 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
                 break;
 
             //004 用户已拥有(待激活)
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_004:
+            case ApiConstant.GOODS_STATUE_TYPE_004:
                 mTvSoldOut.setVisibility(View.GONE);
                 mRivBgMask.setVisibility(View.GONE);
                 mRivCommodityIconMask.setVisibility(View.GONE);
@@ -163,7 +163,7 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
                 break;
 
             //005 用户已拥有(生效中)
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_005:
+            case ApiConstant.GOODS_STATUE_TYPE_005:
                 mTvSoldOut.setVisibility(View.GONE);
                 mRivBgMask.setVisibility(View.GONE);
                 mRivCommodityIconMask.setVisibility(View.GONE);
@@ -184,23 +184,23 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
         QueryMarketListResponse.DataBean dataBean = getData().get(position);
         switch (dataBean.getGoodsStatue()) {
               //001 商品可购买
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_001:
+            case ApiConstant.GOODS_STATUE_TYPE_001:
                 //004 用户已拥有(待激活)
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_004:
+            case ApiConstant.GOODS_STATUE_TYPE_004:
                 //005 用户已拥有(生效中)
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_005:
+            case ApiConstant.GOODS_STATUE_TYPE_005:
                 BuyHamstersDialog buyHamstersDialog = new BuyHamstersDialog(getContext(), dataBean);
                 buyHamstersDialog.show();
 
                 break;
 
             //002 商品已售磬
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_002:
+            case ApiConstant.GOODS_STATUE_TYPE_002:
                 ToastUtils.showShort(R.string.sold_out);
                 break;
 
             // 003 用户未解锁
-            case ApiConstant.API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_003:
+            case ApiConstant.GOODS_STATUE_TYPE_003:
                 ToastUtils.showShort(StringUtils.getString(R.string.please_activate_first) + dataBean.getPreconditionsName());
                 break;
 

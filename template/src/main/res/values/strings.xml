@@ -9,6 +9,8 @@
     <string name="mine">我的</string>
     <string name="sign_in">登录</string>
     <string name="sign_up">注册</string>
+    <string name="setting">设置</string>
+    <string name="logout">退出登录</string>
     <string name="app_content">&app_text;</string>
     <string name="i_agree">我已阅读并同意</string>
     <string name="account_registration">账号注册</string>
@@ -29,7 +31,7 @@
     <string name="toast_password_too_short">登录密码过短</string>
     <string name="wrong_sms_verify">验证码有误</string>
     <string name="recommended_to_agree">为了更好的保障您的合法权益，请您阅读并同意《用户使用协议》和《隐私协议》</string>
-    <string name="real_name_authentication">为了您的账户安全\n请先实名认证绑定账号</string>
+    <string name="real_name_authentication_des">为了您的账户安全\n请先实名认证绑定账号</string>
     <string name="login_password">密码登录</string>
     <string name="login_sms">验证码登录</string>
     <string name="forget_password">忘记密码?</string>
@@ -48,6 +50,7 @@
     <string name="set_psw_success">密码修改成功</string>
     <string name="set_psw_fail">密码修改失败</string>
     <string name="worng_phonenum_or_verifycode">手机号或验证码错误</string>
+    <string name="worng_verifycode">验证码错误</string>
     <string name="personal_image">个人形象</string>
     <string name="medal_achievement">成就勋章</string>
     <string name="nickname">昵称</string>
@@ -115,5 +118,23 @@
     <string name="go_to_real_name">去实名</string>
     <string name="my_warehouse">我的仓库</string>
     <string name="health_game_advice">抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。</string>
+
+    <string name="account_security">账号安全</string>
+    <string name="personal_information_collection_checklist">个人信息收集清单</string>
+    <string name="list_of_third_party_information_sharing">第三方信息共享清单</string>
+    <string name="about_us">关于我们</string>
+    <string name="check_logout">您确定要退出登录吗？</string>
+    <string name="change_phone_number">更换手机号</string>
+    <string name="password_login">登录密码</string>
+    <string name="real_name_authentication">实名认证</string>
+    <string name="cancel_account">注销账号</string>
+
+    <string name="current_bound_phone_number">当前绑定手机号</string>
+    <string name="pls_enter_new_phone_num">为了提高账号安全 请输入新手机号进行绑定</string>
+    <string name="enter_new_phone_num">请输入新的手机号</string>
+    <string name="change_phone_num">该手机号已注册绑定，请更换其他手机号</string>
+    <string name="change_phone_num_success">手机号更换成功</string>
+    <string name="change_login_psw">修改登录密码</string>
+    <string name="verify_binding_phone_number">验证绑定手机号</string>
 
 </resources>

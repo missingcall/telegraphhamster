@@ -4,4 +4,14 @@
         <item>https://fastly.picsum.photos/id/452/200/200.jpg?hmac=f5vORXpRW2GF7jaYrCkzX3EwDowO7OXgUaVYM2NNRXY</item>
         <item>https://fastly.picsum.photos/id/562/200/200.jpg?hmac=F4ylYRNFPH6rDzYo48_NUieJXXI2yaMl9ElwGeFQHZo</item>
     </array>
+
+    <string-array name="arrays_tab_squirrel_orchard_bank">
+        <item>仓鼠果园</item>
+        <item>松果银行</item>
+    </string-array>
+
+    <string-array name="arrays_tab_skin_avatar">
+        <item>皮肤</item>
+        <item>头像</item>
+    </string-array>
 </resources>

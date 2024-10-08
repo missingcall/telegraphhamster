@@ -22,6 +22,8 @@ public class ApiConstant {
     public static final String SMS_TYPE_REGISTER = "3"; //注册
     public static final String SMS_TYPE_LOG_OUT = "4"; //注销
     public static final String SMS_TYPE_RETRIEVE_PASSWORD = "5"; //找回密码
+    public static final String SMS_TYPE_BIND_MOBILE_PHONE_NUMBER= "6"; //绑定手机号码
+    public static final String SMS_TYPE_VERIFY_OLD_PHONE= "11"; //验证旧手机
 
     public static final String ACCESSORIES_TYPE_SKIN = "001"; //皮肤
     public static final String ACCESSORIES_TYPE_AVATAR = "002"; //头像
@@ -35,13 +37,13 @@ public class ApiConstant {
     public static final String API_HAMSTER_MARKET_TYPE_003 = "003"; //仓鼠银行
 
     /**
-     * 商品状态 001 商品可购买 002 商品已售磬 003 用户未解锁 004 用户已拥有(待激活) 005 用户已拥有(生效中)
+     * goodsStatue 商品状态 001 商品可购买 002 商品已售磬 003 用户未解锁 004 用户已拥有(待激活) 005 用户已拥有(生效中)
      */
-    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_001 = "001";
-    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_002 = "002";
-    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_003 = "003";
-    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_004 = "004";
-    public static final String API_HAMSTER_MARKET_QUERYMARKETLIST_GOODSSTATUE_TYPE_005 = "005";
+    public static final String GOODS_STATUE_TYPE_001 = "001";
+    public static final String GOODS_STATUE_TYPE_002 = "002";
+    public static final String GOODS_STATUE_TYPE_003 = "003";
+    public static final String GOODS_STATUE_TYPE_004 = "004";
+    public static final String GOODS_STATUE_TYPE_005 = "005";
 
     /**
      * 支付类型 001 松果支付 002 松子支付 003 第三方支付
@@ -59,6 +61,8 @@ public class ApiConstant {
     public static final String API_USER_QUERY_PHONE_EXIST = "/hamster-user/user/queryPhoneExist"; //查询号码是否存在
     public static final String API_USER_RESET_USER_LOGIN_PASSWORD = "/hamster-user/user/resetUserLoginPassword"; //忘记用户登录密码
     public static final String API_LOGIN = "/hamster-user/user/login"; //手机号验证码登录(老版本)
+    public static final String API_USER_UPDATE_MOBILE = "/hamster-user/user/updateMobile"; //修改手机号绑定
+
 
     /* 配件接口 */
     public static final String API_ACCESSORIES_INFO_LIST = "/hamster-user/accessories/infoList"; //用户查看饰品头像皮肤首页

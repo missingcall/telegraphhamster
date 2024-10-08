@@ -137,7 +137,7 @@ public class InviteActivity extends FastRefreshLoadActivity {
                 break;
 
             case R.id.btn_copy:
-                //复制uid
+                //TODO yhd 生成邀请链接
                 ClipboardUtils.copyText(mTvFriendRewardDetail.getText());
                 ToastUtils.showShort("复制成功 : " + ClipboardUtils.getText());
                 break;

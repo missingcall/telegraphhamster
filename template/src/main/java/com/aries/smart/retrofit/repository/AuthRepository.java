@@ -27,6 +27,7 @@ import com.aries.smart.retrofit.response.QueryWaitPineconeResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
 import com.aries.smart.retrofit.response.SelectTaskInfoListResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
+import com.aries.smart.retrofit.response.UpdateMobileResponse;
 import com.aries.smart.retrofit.response.UpdateNicknameResponse;
 import com.aries.smart.retrofit.response.VerificationCodeResponse;
 import com.aries.smart.retrofit.service.AuthService;
@@ -265,4 +266,14 @@ public class AuthRepository extends BaseRepository {
     }
 
 
+    /**
+     * 获取当前用户待领取松果数量
+     *
+     * /hamster-user/user/updateMobile
+     * @return
+     */
+    public Observable<UpdateMobileResponse> updateMobile(String phone) {
+
+        return FastTransformer.switchSchedulers(getAuthService().updateMobile(phone).retryWhen(new FastRetryWhen()));
+    }
 }

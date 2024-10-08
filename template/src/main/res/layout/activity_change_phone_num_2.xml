@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <include layout="@layout/fast_layout_title_bar" />
+
+    <TextView
+        android:id="@+id/tv_new_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/pls_enter_new_phone_num"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar_headFastLib" />
+
+    <com.aries.smart.module.widget.ClearEditText
+        android:id="@+id/et_phone_num"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_50"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_marginRight="@dimen/margin_15"
+        android:background="@drawable/shape_btn_bg"
+        android:gravity="center|left"
+        android:hint="@string/enter_new_phone_num"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/margin_15"
+        android:singleLine="true"
+        android:textColor="@color/text_white"
+        android:textColorHint="@color/text_gray_aaa"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_new_phone" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_sign_up_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <LinearLayout
+        android:id="@+id/ll_verify"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_50"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/shape_btn_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline_sign_up_2"
+        app:layout_constraintTop_toBottomOf="@id/et_phone_num">
+
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:background="@null"
+        android:gravity="center|left"
+        android:hint="@string/hint_input_verify"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/text_white"
+        android:textColorHint="@color/text_gray_aaa"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toBottomOf="@id/ll_verify"
+        app:layout_constraintLeft_toLeftOf="@id/ll_verify"
+        app:layout_constraintTop_toTopOf="@id/ll_verify" />
+
+    <Button
+        android:id="@+id/btn_verify"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_50"
+        android:layout_marginRight="@dimen/margin_15"
+        android:background="@drawable/selector_verify_bg"
+        android:enabled="true"
+        android:gravity="center"
+        android:text="@string/receive_identity_code"
+        android:textColor="@drawable/selector_verify_code_text_color"
+        android:textSize="@dimen/text_size_15"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/ll_verify"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_sign_up_2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ll_verify" />
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginRight="@dimen/margin_15"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:background="@drawable/selector_verify_confirm_bg"
+        android:enabled="true"
+        android:text="@string/confirm"
+        android:textColor="@drawable/selector_verify_code_text_color"
+        android:textSize="@dimen/text_size_15"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

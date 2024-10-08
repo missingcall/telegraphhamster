@@ -14,15 +14,14 @@ import com.aries.library.fast.util.FastUtil;
 import com.aries.library.fast.util.ToastUtil;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
+import com.aries.smart.constant.ConstantUtils;
 import com.aries.smart.module.widget.ClearEditText;
 import com.aries.smart.retrofit.repository.AuthRepository;
-import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.LoginTo;
-import com.aries.smart.constant.ConstantUtils;
-import com.aries.smart.utils.PreferenceUtil;
 import com.aries.ui.view.title.TitleBarView;
 import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
@@ -145,8 +144,8 @@ public class FindPasswordStep2Activity extends FastTitleActivity {
                                 //验证通过
                                 if (StringUtils.equals(loginResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                                     //登录成功存入token
-                                    PreferenceUtil.put(ConstantUtils.TOKEN_HEAD,loginResponse.getData().getTokenHead());
-                                    PreferenceUtil.put(ConstantUtils.AUTHORIZATION_TOKEN,loginResponse.getData().getToken());
+                                    SPUtils.getInstance().put(ConstantUtils.TOKEN_HEAD,loginResponse.getData().getTokenHead());
+                                    SPUtils.getInstance().put(ConstantUtils.AUTHORIZATION_TOKEN,loginResponse.getData().getToken());
                                     FastUtil.startActivity(this, FindPasswordStep3Activity.class);
                                     finish();
                                 } else {

@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.allen.library.SuperTextView;
 import com.aries.library.fast.manager.GlideManager;
+import com.aries.library.fast.manager.TabLayoutManager;
 import com.aries.library.fast.module.activity.FastRefreshLoadActivity;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
@@ -64,11 +65,9 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
     @BindView(R.id.vp_skin_avatar)
     ViewPager mVpContentFastLib;
 
-
+    private List<Fragment> listFragment = new ArrayList<>();
     private TitleBarViewHelper mTitleBarViewHelper;
 
-    private String[] mTitles = {"皮肤", "头像"};
-    private Fragment[] fragments;
 
 
     @Override
@@ -129,35 +128,13 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
                 .setRecyclerView(mRecyclerView)
                 .setMinHeight(0);
 
-        fragments = new Fragment[mTitles.length];
-        fragments[0] = AccessoriesFragment.getInstance("001");
-        fragments[1] = AccessoriesFragment.getInstance("002");
-
         //这里两句居然把状态栏文字颜色给改了 我惊了! 并且怎么改都改不回来 (查了半天原来是因为新建Fragment的时候重新执行了setTitleBar 要重写才能好
-        SkinAvatarAdapter skinAvatarAdapter = new SkinAvatarAdapter(getSupportFragmentManager(), fragments, mTitles, this);
-        mVpContentFastLib.setAdapter(skinAvatarAdapter);
 
+        listFragment.add(AccessoriesFragment.getInstance("001"));
+        listFragment.add(AccessoriesFragment.getInstance("002"));
+        TabLayoutManager.getInstance().setSegmentTabData(this, mStlSkinAvatar, mVpContentFastLib,
+                getTitles(R.array.arrays_tab_skin_avatar), listFragment);
 
-        mStlSkinAvatar.setTabData(mTitles);
-        mStlSkinAvatar.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelect(int position) {
-                //切换文字 , 改变下面fragment页面
-                if (position == 0) {
-                    mTvSkinAvatar.setText(R.string.skin);
-
-                } else {
-                    mTvSkinAvatar.setText(R.string.avatar);
-
-                }
-                mVpContentFastLib.setCurrentItem(position);
-            }
-
-            @Override
-            public void onTabReselect(int position) {
-
-            }
-        });
 
         //请求头像,昵称
         AuthRepository.getInstance().info().subscribe(infoResponse -> {
@@ -173,6 +150,10 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
             ToastUtils.showShort("获取用户信息失败 : " + throwable);
             LogUtils.d(throwable);
         });
+    }
+
+    private String[] getTitles(int array) {
+        return getResources().getStringArray(array);
     }
 
     @Override

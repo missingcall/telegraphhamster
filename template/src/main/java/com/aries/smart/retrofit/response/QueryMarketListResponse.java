@@ -8,11 +8,22 @@ import java.util.List;
  */
 public class QueryMarketListResponse {
 
+    @Override
+    public String toString() {
+        return "QueryMarketListResponse{" +
+                "responseCode='" + responseCode + '\'' +
+                ", responseMessage='" + responseMessage + '\'' +
+                ", data=" + data +
+                '}';
+    }
+
     /**
      * data : [{"coinPrice":0,"commodityIcon":"","commodityInfoId":"","commodityMark":"","commodityName":"","dayIncome":0,"description":"","goodsStatue":"","payType":"","preconditionsId":"","preconditionsName":"","propId":"","timeLimit":0,"totalIncome":0}]
      * responseCode :
      * responseMessage :
      */
+
+
 
     private String responseCode;
     private String responseMessage;
@@ -43,6 +54,26 @@ public class QueryMarketListResponse {
     }
 
     public static class DataBean {
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "coinPrice=" + coinPrice +
+                    ", commodityIcon='" + commodityIcon + '\'' +
+                    ", commodityInfoId='" + commodityInfoId + '\'' +
+                    ", commodityMark='" + commodityMark + '\'' +
+                    ", commodityName='" + commodityName + '\'' +
+                    ", dayIncome=" + dayIncome +
+                    ", description='" + description + '\'' +
+                    ", goodsStatue='" + goodsStatue + '\'' +
+                    ", payType='" + payType + '\'' +
+                    ", preconditionsId='" + preconditionsId + '\'' +
+                    ", preconditionsName='" + preconditionsName + '\'' +
+                    ", propId='" + propId + '\'' +
+                    ", timeLimit=" + timeLimit +
+                    ", totalIncome=" + totalIncome +
+                    '}';
+        }
+
         /**
          * coinPrice : 0
          * commodityIcon :
@@ -59,6 +90,8 @@ public class QueryMarketListResponse {
          * timeLimit : 0
          * totalIncome : 0
          */
+
+
 
         private int coinPrice;
         private String commodityIcon;

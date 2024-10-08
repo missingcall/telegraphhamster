@@ -39,4 +39,13 @@ public class VerificationCodeResponse {
     public void setData(boolean data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "VerificationCodeResponse{" +
+                "responseCode='" + responseCode + '\'' +
+                ", responseMessage='" + responseMessage + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

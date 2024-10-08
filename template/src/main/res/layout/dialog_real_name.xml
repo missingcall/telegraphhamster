@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="@string/real_name_authentication"
+        android:text="@string/real_name_authentication_des"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_small" />
 

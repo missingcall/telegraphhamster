@@ -10,6 +10,22 @@ import java.util.HashMap
  *
  */
 sealed class Event {
+
+    /* ==============================              松鼠   start             =================================*/
+    //application任务
+    object InitApplicationTaskEvent : Event()
+
+    object LogOutEvent : Event()
+    object InfoEvent : Event()
+
+    /* ==============================              松鼠    end            =================================*/
+
+
+
+
+
+
+
     //显示房间浮窗
     data class ShowRoomFloating(var crId: String, var roomCover: String) : Event()
 
@@ -26,8 +42,7 @@ sealed class Event {
     object RefreshUnReadMsgCount : Event()
 
 
-    //application任务
-    object InitApplicationTaskEvent : Event()
+
 
     //一键登录通知
     object InitOnKeyLoginEvent : Event()
@@ -126,4 +141,8 @@ sealed class Event {
 
     //通知权限是否开启
     object NotificationEventOpen  : Event()
+
+
+
+
 }

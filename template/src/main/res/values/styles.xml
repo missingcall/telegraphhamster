@@ -75,5 +75,19 @@
     </style>
 
 
+    <style name="SupperTextStyleItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">53dp</item>
+        <item name="sLeftTextSize">14sp</item>
+        <item name="sDividerLineType">none</item>
+        <item name="sLeftTextColor">@color/white</item>
+        <item name="sRightIconRes">@drawable/icon_right</item>
+        <item name="sRightTextColor">@color/colorTextGray</item>
+        <item name="sRightTextSize">14dp</item>
+        <item name="sBackgroundDrawableRes">@drawable/shape_btn_bg</item>
+        <item name="android:layout_marginLeft">@dimen/margin_common</item>
+        <item name="android:layout_marginRight">@dimen/margin_common</item>
+    </style>
 
 </resources>

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,12 +11,11 @@ import com.aries.library.fast.FastManager;
 import com.aries.library.fast.module.fragment.FastTitleRefreshLoadFragment;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
-import com.aries.smart.module.adapter.OrchardAdapter;
 import com.aries.smart.module.adapter.WarehouseOrchardAdapter;
+import com.aries.smart.module.market.OrchardFragment;
 import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.aries.ui.view.title.TitleBarView;
-import com.blankj.utilcode.util.CollectionUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -46,10 +44,22 @@ public class WarehouseOrchardFragment extends FastTitleRefreshLoadFragment<Query
     //生效中的list
     List<QueryMarketListResponse.DataBean> mInEffectList = new ArrayList<>();
 
-    public static WarehouseOrchardFragment getInstance() {
+    private String mType = ApiConstant.API_HAMSTER_MARKET_TYPE_001;
+
+    public static WarehouseOrchardFragment getInstance(String type) {
+        Bundle args = new Bundle();
         WarehouseOrchardFragment fragment = new WarehouseOrchardFragment();
+        args.putString("type", type);
+        fragment.setArguments(args);
         return fragment;
     }
+
+    @Override
+    public void beforeSetContentView() {
+        super.beforeSetContentView();
+        mType = getArguments().getString("type");
+    }
+
 
     @Override
     public int getContentLayout() {
@@ -84,7 +94,7 @@ public class WarehouseOrchardFragment extends FastTitleRefreshLoadFragment<Query
     @SuppressLint("CheckResult")
     @Override
     public void loadData(int page) {
-        AuthRepository.getInstance().queryMarketList(ApiConstant.API_HAMSTER_MARKET_TYPE_001).subscribe(queryMarketListResponse -> {
+        AuthRepository.getInstance().queryMarketList(mType).subscribe(queryMarketListResponse -> {
             if (StringUtils.equals(queryMarketListResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
 
                 //筛选生效中的

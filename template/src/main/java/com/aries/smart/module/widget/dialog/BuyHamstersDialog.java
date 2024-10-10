@@ -109,9 +109,13 @@ public class BuyHamstersDialog extends CommonDialog {
         mLayoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         mLayoutParams.gravity = Gravity.BOTTOM;
 
+        if (mDataBean == null) {
+            return;
+        }
+
         GlideManager.loadImg(mDataBean.getCommodityIcon(), mRivCommodityIcon);
         mTvTimeRemaining.setText(mDataBean.getTimeLimit() + "天");
-
+        mTvProductionNum.setText("每天产出" + mDataBean.getDayIncome() + "松果，松果可参与到各种玩法");
 
         switch (mDataBean.getGoodsStatue()) {
             //001 商品可购买
@@ -198,8 +202,6 @@ public class BuyHamstersDialog extends CommonDialog {
                 break;
         }
 
-
-        //TODO 获取清洗接口
         String config = "确认购买 " + "123";
         SpannableString spannableStringConfig = new SpannableString(config);
         ImageSpan imageConfig = new ImageSpan(context, R.drawable.unlock_pinecone, DynamicDrawableSpan.ALIGN_BOTTOM);

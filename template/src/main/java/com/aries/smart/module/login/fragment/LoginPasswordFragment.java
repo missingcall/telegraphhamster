@@ -18,6 +18,7 @@ import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.constant.ConstantUtils;
 import com.aries.smart.module.login.FindPasswordStep2Activity;
 import com.aries.smart.module.widget.ClearEditText;
+import com.aries.smart.module.widget.dialog.AccountRecoveryDialog;
 import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
 import com.aries.ui.view.title.TitleBarView;
@@ -131,8 +132,13 @@ public class LoginPasswordFragment extends FastTitleFragment {
 
                         FastUtil.startActivity(getActivity(), MainActivity.class);
                         getActivity().finish();
-                    } else {
-                        ToastUtils.showShort(getString(R.string.worng_pn_or_psw));
+                        //账号已冻结
+                    } else if(StringUtils.equals(passwordLoginResponse.getResponseCode(), ApiConstant.RESPONSE_ACCOUNT_FROZEN)){
+                        //TODO yhd 弹出账号已冻结弹窗
+                        AccountRecoveryDialog accountRecoveryDialog = new AccountRecoveryDialog(getContext(),passwordLoginResponse.getData());
+                        accountRecoveryDialog.show();
+                    }else {
+                        ToastUtils.showShort(passwordLoginResponse.getResponseMessage());
                     }
                 }, throwable -> {
                     ToastUtils.showShort(getString(R.string.worng_pn_or_psw));

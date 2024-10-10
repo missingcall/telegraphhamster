@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_5"
+    android:background="@drawable/shape_bg_achievement_item">
+
+
+    <TextView
+        android:id="@+id/tv_flow_kind_coin_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_10"
+        android:text="转入-领取松果"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_15"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_coin_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_10"
+        android:text="+999.9"
+        android:textColor="@color/yellow_deep"
+        android:textSize="@dimen/text_size_15"
+        app:layout_constraintBottom_toBottomOf="@id/tv_flow_kind_coin_type"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_flow_kind_coin_type" />
+
+    <TextView
+        android:id="@+id/tv_flow_kind_coin_type_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:gravity="left"
+        android:text="详细消息"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10"
+        app:layout_constraintLeft_toLeftOf="@id/tv_flow_kind_coin_type"
+        app:layout_constraintRight_toRightOf="@id/tv_coin_number"
+        app:layout_constraintTop_toBottomOf="@id/tv_flow_kind_coin_type"
+
+        />
+
+
+    <TextView
+        android:id="@+id/tv_time_operation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginBottom="@dimen/margin_10"
+        android:gravity="left"
+        android:text="操作时间"
+        android:textColor="@color/gray_99"
+        android:textSize="@dimen/text_size_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="@id/tv_flow_kind_coin_type"
+        app:layout_constraintRight_toLeftOf="@id/tv_warehouse_balance"
+        app:layout_constraintTop_toBottomOf="@id/tv_flow_kind_coin_type_message" />
+
+
+    <TextView
+        android:id="@+id/tv_warehouse_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:text="余额"
+        android:textColor="@color/gray_99"
+        android:textSize="@dimen/text_size_8"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tv_time_operation"
+        app:layout_constraintLeft_toRightOf="@id/tv_time_operation"
+        app:layout_constraintRight_toRightOf="@id/tv_coin_number" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

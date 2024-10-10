@@ -19,6 +19,7 @@ import com.aries.library.fast.module.activity.FastRefreshLoadActivity;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
+import com.aries.smart.constant.Event;
 import com.aries.smart.module.adapter.AchievementDisplayAdapter;
 import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.entity.AchievementDisplayEntity;
@@ -34,6 +35,9 @@ import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +71,6 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
 
     private List<Fragment> listFragment = new ArrayList<>();
     private TitleBarViewHelper mTitleBarViewHelper;
-
 
 
     @Override
@@ -136,20 +139,6 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
                 getTitles(R.array.arrays_tab_skin_avatar), listFragment);
 
 
-        //请求头像,昵称
-        AuthRepository.getInstance().info().subscribe(infoResponse -> {
-            if (StringUtils.equals(infoResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
-                //头像
-                GlideManager.loadCircleImg(infoResponse.getData().getProfilePath(), mStvPersonInfo.getLeftIconIV());
-                //昵称
-                mStvPersonInfo.getLeftTextView().setText(infoResponse.getData().getNickname());
-
-
-            }
-        }, throwable -> {
-            ToastUtils.showShort("获取用户信息失败 : " + throwable);
-            LogUtils.d(throwable);
-        });
     }
 
     private String[] getTitles(int array) {
@@ -184,8 +173,26 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
         return mAdapter;
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void loadData(int page) {
+
+        //请求头像,昵称
+        AuthRepository.getInstance().info().subscribe(infoResponse -> {
+            if (StringUtils.equals(infoResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
+                //头像
+                GlideManager.loadCircleImg(infoResponse.getData().getProfilePath(), mStvPersonInfo.getLeftIconIV());
+                //昵称
+                mStvPersonInfo.getLeftTextView().setText(infoResponse.getData().getAuditingNickname() == null ? infoResponse.getData().getNickname() : infoResponse.getData().getAuditingNickname());
+
+
+            }
+        }, throwable -> {
+            ToastUtils.showShort("获取用户信息失败 : " + throwable);
+            LogUtils.d(throwable);
+        });
+
+
         AchievementDisplayEntity achievementDisplayEntity1 = new AchievementDisplayEntity(true, "最佳新人1", "https://fastly.picsum.photos/id/452/200/200.jpg?hmac=f5vORXpRW2GF7jaYrCkzX3EwDowO7OXgUaVYM2NNRXY");
         AchievementDisplayEntity achievementDisplayEntity2 = new AchievementDisplayEntity(false, "最佳新人2", "https://fastly.picsum.photos/id/562/200/200.jpg?hmac=F4ylYRNFPH6rDzYo48_NUieJXXI2yaMl9ElwGeFQHZo");
         AchievementDisplayEntity achievementDisplayEntity3 = new AchievementDisplayEntity(true, "最佳新人3", "https://fastly.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0");
@@ -218,5 +225,11 @@ public class PersonalImageActivity extends FastRefreshLoadActivity {
                 FastUtil.startActivity(this, MedalAchievementActivity.class);
                 break;
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(Event.InfoEvent event) {
+        //重新请求Info接口
+        loadData();
     }
 }

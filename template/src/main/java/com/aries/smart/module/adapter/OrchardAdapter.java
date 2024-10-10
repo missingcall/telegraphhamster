@@ -17,6 +17,7 @@ import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.widget.NiceImageView;
 import com.aries.smart.module.widget.RoundImageView;
 import com.aries.smart.module.widget.dialog.BuyHamstersDialog;
+import com.aries.smart.module.widget.dialog.PineconePassbookDialog;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
@@ -72,9 +73,11 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
     @BindView(R.id.cl_quick_jump_item)
     ConstraintLayout mClQuickJumpItem;
 
-    public OrchardAdapter(View view) {
-        super(R.layout.item_orchard);
+    private String mType = ApiConstant.API_HAMSTER_MARKET_TYPE_001;
 
+    public OrchardAdapter(View view, String type) {
+        super(R.layout.item_orchard);
+        mType = type;
     }
 
     @NonNull
@@ -183,14 +186,24 @@ public class OrchardAdapter extends BaseQuickAdapter<QueryMarketListResponse.Dat
 
         QueryMarketListResponse.DataBean dataBean = getData().get(position);
         switch (dataBean.getGoodsStatue()) {
-              //001 商品可购买
+            //001 商品可购买
             case ApiConstant.GOODS_STATUE_TYPE_001:
                 //004 用户已拥有(待激活)
             case ApiConstant.GOODS_STATUE_TYPE_004:
                 //005 用户已拥有(生效中)
             case ApiConstant.GOODS_STATUE_TYPE_005:
-                BuyHamstersDialog buyHamstersDialog = new BuyHamstersDialog(getContext(), dataBean);
-                buyHamstersDialog.show();
+                //松鼠果园
+                if (StringUtils.equals(mType, ApiConstant.API_HAMSTER_MARKET_TYPE_001)) {
+                    BuyHamstersDialog buyHamstersDialog = new BuyHamstersDialog(getContext(), dataBean);
+                    buyHamstersDialog.show();
+                } else if (StringUtils.equals(mType, ApiConstant.API_HAMSTER_MARKET_TYPE_003)) {
+                    //松果银行
+                    PineconePassbookDialog pineconePassbookDialog = new PineconePassbookDialog(getContext(), dataBean);
+                    pineconePassbookDialog.show();
+                } else {
+
+                }
+
 
                 break;
 

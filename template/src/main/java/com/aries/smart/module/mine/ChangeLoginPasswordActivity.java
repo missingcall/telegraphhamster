@@ -134,7 +134,7 @@ public class ChangeLoginPasswordActivity extends FastTitleActivity {
         mBtnVerify.setEnabled(false);
         if (clickable) {
             // 请求验证码
-            AuthRepository.getInstance().smsSendCode(mMobile, ApiConstant.SMS_TYPE_BIND_MOBILE_PHONE_NUMBER)
+            AuthRepository.getInstance().smsSendCode(mMobile, ApiConstant.SMS_TYPE_RETRIEVE_PASSWORD)
                     .subscribe(smsSendResponse -> {
 
                         if (StringUtils.equals(smsSendResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
@@ -173,5 +173,10 @@ public class ChangeLoginPasswordActivity extends FastTitleActivity {
         }
     };
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
+    }
 
 }

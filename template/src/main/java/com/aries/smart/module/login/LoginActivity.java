@@ -19,6 +19,7 @@ import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.App;
 import com.aries.smart.R;
+import com.aries.smart.WebAppActivity;
 import com.aries.smart.WebViewActivity;
 import com.aries.smart.constant.ConstantsKey;
 import com.aries.smart.constant.Event;
@@ -75,7 +76,8 @@ public class LoginActivity extends FastTitleActivity {
         RxTextTool.Builder builder = RxTextTool.getBuilder("").setAlign(Layout.Alignment.ALIGN_OPPOSITE);
 //        int titleColor = getResources().getColor(R.color.half_opacity_white);
 //        int urlColor = getResources().getColor(R.color.half_opacity_white);
-        int titleColor = getResources().getColor(R.color.text_white);
+        int titleColor = getResources()
+                .getColor(R.color.text_white);
         int urlColor = getResources().getColor(R.color.text_hyperlink);
         builder.append(" ").setForegroundColor(titleColor)
                 .append(" "/*+getResources().getString(R.string.app_content)*/ + "《用户使用协议》")
@@ -84,7 +86,7 @@ public class LoginActivity extends FastTitleActivity {
                     @Override
                     public void onClick(@NonNull View widget) {
                         //TODO yhd 打开服务协议
-                        WebViewActivity.start(LoginActivity.this, "https://m.baidu.com");
+                        WebAppActivity.start(LoginActivity.this, "https://m.baidu.com");
                     }
 
                     @Override
@@ -99,7 +101,7 @@ public class LoginActivity extends FastTitleActivity {
                     @Override
                     public void onClick(@NonNull View widget) {
                         //TODO yhd 打开隐私协议
-                        WebViewActivity.start(LoginActivity.this, "https://m.baidu.com");
+                        WebAppActivity.start(LoginActivity.this, "https://m.baidu.com");
                     }
 
                     @Override

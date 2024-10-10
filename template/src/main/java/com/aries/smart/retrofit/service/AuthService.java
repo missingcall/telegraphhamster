@@ -2,26 +2,33 @@ package com.aries.smart.retrofit.service;
 
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.retrofit.request.AccountCreateTo;
+import com.aries.smart.retrofit.request.AccountRecoveryTo;
 import com.aries.smart.retrofit.request.ActivationPropIdTo;
+import com.aries.smart.retrofit.request.InsertUserAuthenticationTo;
 import com.aries.smart.retrofit.request.LoginTo;
 import com.aries.smart.retrofit.request.MarketBuyTo;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
 import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
 import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
+import com.aries.smart.retrofit.response.AccountRecoveryResponse;
 import com.aries.smart.retrofit.response.BaseResponse;
 import com.aries.smart.retrofit.response.CheckFirstUpdateNicknameResponse;
 import com.aries.smart.retrofit.response.GetLevelRankResponse;
 import com.aries.smart.retrofit.response.GetLevelResponse;
 import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.aries.smart.retrofit.response.InfoResponse;
+import com.aries.smart.retrofit.response.InsertUserAuthenticationResponse;
+import com.aries.smart.retrofit.response.LogOffUserResponse;
 import com.aries.smart.retrofit.response.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
+import com.aries.smart.retrofit.response.QueryColletRecordListResponse;
 import com.aries.smart.retrofit.response.QueryDayIncomeResponse;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
 import com.aries.smart.retrofit.response.QueryWaitPineconeResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
+import com.aries.smart.retrofit.response.SelectByUserIdResponse;
 import com.aries.smart.retrofit.response.SelectTaskInfoListResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
 import com.aries.smart.retrofit.response.UpdateMobileResponse;
@@ -38,9 +45,10 @@ public interface AuthService {
 
 
     /**
-     *发送验证码
+     * 发送验证码
+     *
      * @param mobile
-     * @param type 类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
+     * @param type   类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
      * @return
      */
     @GET(ApiConstant.API_USER_SMS_SEND_CODE)
@@ -49,9 +57,10 @@ public interface AuthService {
 
     /**
      * 短信验证
-     * @param code 验证码
+     *
+     * @param code   验证码
      * @param mobile 手机号
-     * @param type 类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
+     * @param type   类型：2-登录 3-注册 4-注销 5-找回密码 6-绑定手机号码 7-设置二级密码 8-绑定银行卡 9-找回账号 11-验证旧手机 12-快捷认证 13-人工认证 14-转账认证 15-绑定支付宝
      * @return
      */
     @GET(ApiConstant.API_USER_SMS_VERIFICATION_CODE)
@@ -59,6 +68,7 @@ public interface AuthService {
 
     /**
      * 创建账号
+     *
      * @param
      * @return
      */
@@ -67,6 +77,7 @@ public interface AuthService {
 
     /**
      * 密码登录
+     *
      * @param
      * @return
      */
@@ -75,6 +86,7 @@ public interface AuthService {
 
     /**
      * 查询号码是否存在
+     *
      * @param
      * @return
      */
@@ -82,7 +94,6 @@ public interface AuthService {
     Observable<QueryPhoneExistResponse> queryPhoneExist(@Query("phone") String phone);
 
     /**
-     *
      * @param
      * @return
      */
@@ -90,7 +101,6 @@ public interface AuthService {
     Observable<ResetUserLoginPasswordResponse> resetUserLoginPassword(@Body ResetUserLoginPasswordTo queryPhoneExistTo);
 
     /**
-     *
      * @param
      * @return
      */
@@ -98,7 +108,6 @@ public interface AuthService {
     Observable<LoginResponse> login(@Body LoginTo loginTo);
 
     /**
-     *
      * @param
      * @return
      */
@@ -106,7 +115,6 @@ public interface AuthService {
     Observable<InfoResponse> info();
 
     /**
-     *
      * @param
      * @return
      */
@@ -114,7 +122,6 @@ public interface AuthService {
     Observable<UpdateNicknameResponse> updateNickname(@Body UpdateNicknameTo updateNicknameTo);
 
     /**
-     *
      * @param
      * @return
      */
@@ -123,7 +130,6 @@ public interface AuthService {
 
 
     /**
-     *
      * @param
      * @return
      */
@@ -132,7 +138,6 @@ public interface AuthService {
 
 
     /**
-     *
      * @param
      * @return
      */
@@ -140,7 +145,6 @@ public interface AuthService {
     Observable<QueryDayIncomeResponse> queryDayIncome();
 
     /**
-     *
      * @param
      * @return
      */
@@ -148,7 +152,6 @@ public interface AuthService {
     Observable<GetLevelResponse> getLevel();
 
     /**
-     *
      * @param
      * @return
      */
@@ -156,7 +159,6 @@ public interface AuthService {
     Observable<GetLevelRankResponse> getLevelRank();
 
     /**
-     *
      * @param
      * @return
      */
@@ -165,7 +167,6 @@ public interface AuthService {
 
 
     /**
-     *
      * @param
      * @return
      */
@@ -174,7 +175,6 @@ public interface AuthService {
 
 
     /**
-     *
      * @param
      * @return
      */
@@ -183,7 +183,6 @@ public interface AuthService {
 
 
     /**
-     *
      * @param
      * @return
      */
@@ -192,7 +191,6 @@ public interface AuthService {
 
 
     /**
-     *
      * @param
      * @return
      */
@@ -200,11 +198,47 @@ public interface AuthService {
     Observable<QueryWaitPineconeResponse> queryWaitPinecone();
 
     /**
-     *
      * @param
      * @return
      */
     @GET(ApiConstant.API_USER_UPDATE_MOBILE)
     Observable<UpdateMobileResponse> updateMobile(@Query("phone") String phone);
 
+    /**
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_AUTHENTICATION_SELECTBYUSERID)
+    Observable<SelectByUserIdResponse> selectByUserId(@Query("userId") String userId);
+
+
+    /**
+     * @param
+     * @return
+     */
+    @POST(ApiConstant.API_AUTHENTICATION_INSERTUSERAUTHENTICATION)
+    Observable<InsertUserAuthenticationResponse> insertUserAuthentication(@Body InsertUserAuthenticationTo insertUserAuthenticationTo);
+
+
+    /**
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_USER_LOGOFFUSER)
+    Observable<LogOffUserResponse> logOffUser(@Query("phone") String phone);
+
+    /**
+     * @param
+     * @return
+     */
+    @POST(ApiConstant.API_USER_ACCOUNTRECOVERY)
+    Observable<AccountRecoveryResponse> accountRecovery(AccountRecoveryTo accountRecoveryTo);
+
+
+    /**
+     * @param
+     * @return
+     */
+    @GET(ApiConstant.API_CENTER_MARKET_QUERY_COLLET_RECORD_LIST)
+    Observable<QueryColletRecordListResponse> queryColletRecordList(@Query("startTime") String startTime ,@Query("endTime") String endTime ,@Query("pageNum") int pageNum ,@Query("pageSize") int pageSize);
 }

@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/account_security"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_large"
+        android:textSize="@dimen/text_size_24"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleBar_headFastLib" />

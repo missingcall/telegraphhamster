@@ -205,7 +205,7 @@ public class AccessoriesFragment extends FastTitleRefreshLoadFragment<Accessorie
                 mBtnUnlock.setEnabled(true);
             } else {
                 //	解锁方式（001 购买 002 成就 003 升级） 如果是成就和升级 则显示解锁参数
-                mTvUnlockCost.setText(mRecordsBean.getUnlockParameters().toString());
+                mTvUnlockCost.setText(mRecordsBean.getUnlockParameters());
                 mBtnUnlock.setText("立即解锁");
                 mBtnUnlock.setEnabled(true);
             }
@@ -381,7 +381,10 @@ public class AccessoriesFragment extends FastTitleRefreshLoadFragment<Accessorie
                             return;
                         }
                         mRecordsBean = entity.getData().getRecords().get(0);
-                        setLeftStatus();
+                        if (mRecordsBean != null){
+                            LogUtils.d(mRecordsBean);
+                            setLeftStatus();
+                        }
 
                         FastManager.getInstance().getHttpRequestControl().httpRequestSuccess(getIHttpRequestControl(), entity == null || entity.getData().getRecords() == null ? new ArrayList<>() : entity.getData().getRecords(), null);
 

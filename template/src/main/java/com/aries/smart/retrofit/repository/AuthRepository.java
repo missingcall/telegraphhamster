@@ -5,26 +5,33 @@ import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.library.fast.retrofit.FastRetryWhen;
 import com.aries.library.fast.retrofit.FastTransformer;
 import com.aries.smart.retrofit.request.AccountCreateTo;
+import com.aries.smart.retrofit.request.AccountRecoveryTo;
 import com.aries.smart.retrofit.request.ActivationPropIdTo;
+import com.aries.smart.retrofit.request.InsertUserAuthenticationTo;
 import com.aries.smart.retrofit.request.LoginTo;
 import com.aries.smart.retrofit.request.MarketBuyTo;
 import com.aries.smart.retrofit.request.PasswordLoginTo;
 import com.aries.smart.retrofit.request.ResetUserLoginPasswordTo;
 import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.aries.smart.retrofit.response.AccountCreateResponse;
+import com.aries.smart.retrofit.response.AccountRecoveryResponse;
 import com.aries.smart.retrofit.response.BaseResponse;
 import com.aries.smart.retrofit.response.CheckFirstUpdateNicknameResponse;
 import com.aries.smart.retrofit.response.GetLevelRankResponse;
 import com.aries.smart.retrofit.response.GetLevelResponse;
 import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.aries.smart.retrofit.response.InfoResponse;
+import com.aries.smart.retrofit.response.InsertUserAuthenticationResponse;
+import com.aries.smart.retrofit.response.LogOffUserResponse;
 import com.aries.smart.retrofit.response.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
+import com.aries.smart.retrofit.response.QueryColletRecordListResponse;
 import com.aries.smart.retrofit.response.QueryDayIncomeResponse;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.aries.smart.retrofit.response.QueryPhoneExistResponse;
 import com.aries.smart.retrofit.response.QueryWaitPineconeResponse;
 import com.aries.smart.retrofit.response.ResetUserLoginPasswordResponse;
+import com.aries.smart.retrofit.response.SelectByUserIdResponse;
 import com.aries.smart.retrofit.response.SelectTaskInfoListResponse;
 import com.aries.smart.retrofit.response.SmsSendResponse;
 import com.aries.smart.retrofit.response.UpdateMobileResponse;
@@ -246,7 +253,7 @@ public class AuthRepository extends BaseRepository {
     /**
      * 购买商品
      *
-     * /hamster-center/hamsterMarket/activation
+     *
      * @return
      */
     public Observable<BaseResponse> buy(MarketBuyTo marketBuyTo) {
@@ -276,4 +283,63 @@ public class AuthRepository extends BaseRepository {
 
         return FastTransformer.switchSchedulers(getAuthService().updateMobile(phone).retryWhen(new FastRetryWhen()));
     }
+
+
+    /**
+     * 根据用户id获取用户认证信息
+     *
+     * /hamster-user/authentication/selectByUserId
+     * @return
+     */
+    public Observable<SelectByUserIdResponse> selectByUserId(String userId) {
+
+        return FastTransformer.switchSchedulers(getAuthService().selectByUserId(userId).retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 实名认证
+     *
+     * /hamster-user/authentication/insertUserAuthentication
+     * @return
+     */
+    public Observable<InsertUserAuthenticationResponse> insertUserAuthentication(InsertUserAuthenticationTo insertUserAuthenticationTo) {
+
+        return FastTransformer.switchSchedulers(getAuthService().insertUserAuthentication(insertUserAuthenticationTo).retryWhen(new FastRetryWhen()));
+    }
+
+
+    /**
+     * 注销账号
+     *
+     * /hamster-user/user/logOffUser
+     * @return
+     */
+    public Observable<LogOffUserResponse> logOffUser(String phone) {
+
+        return FastTransformer.switchSchedulers(getAuthService().logOffUser(phone).retryWhen(new FastRetryWhen()));
+    }
+
+    /**
+     * 恢复账号
+     *
+     * /hamster-user/user/accountRecovery
+     * @return
+     */
+    public Observable<AccountRecoveryResponse> accountRecovery(AccountRecoveryTo accountRecoveryTo) {
+
+        return FastTransformer.switchSchedulers(getAuthService().accountRecovery(accountRecoveryTo).retryWhen(new FastRetryWhen()));
+    }
+
+
+    /**
+     * 采集记录列表
+     /hamster-center/hamsterMarket/queryColletRecordList
+     * @return
+     */
+    public Observable<QueryColletRecordListResponse> queryColletRecordList(String startTime ,String endTime ,int pageNum ,int pageSize) {
+
+        return FastTransformer.switchSchedulers(getAuthService().queryColletRecordList(startTime,endTime,pageNum,pageSize).retryWhen(new FastRetryWhen()));
+    }
+
+
 }

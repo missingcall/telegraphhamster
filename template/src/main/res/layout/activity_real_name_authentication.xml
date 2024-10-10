@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <include layout="@layout/fast_layout_title_bar" />
+
+    <LinearLayout
+        android:id="@+id/ll_real_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_15"
+        android:background="@drawable/shape_btn_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar_headFastLib">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_real_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:text="@string/real_name"
+        android:textColor="@color/text_sign"
+        android:textSize="@dimen/text_size_15"
+        app:layout_constraintBottom_toBottomOf="@id/ll_real_name"
+        app:layout_constraintLeft_toLeftOf="@id/ll_real_name"
+        app:layout_constraintTop_toTopOf="@id/ll_real_name" />
+
+    <com.aries.smart.module.widget.ClearEditText
+        android:id="@+id/cet_real_name"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:background="@null"
+        android:gravity="center|left"
+        android:hint="@string/pls_enter_real_name"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/text_white"
+        android:textColorHint="@color/text_gray_aaa"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintBottom_toBottomOf="@id/ll_real_name"
+        app:layout_constraintLeft_toRightOf="@id/tv_real_name"
+        app:layout_constraintTop_toTopOf="@id/ll_real_name" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_card_id"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginRight="@dimen/margin_15"
+        android:background="@drawable/shape_btn_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_real_name">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_card_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:text="@string/card_id"
+        android:textColor="@color/text_sign"
+        android:textSize="@dimen/text_size_15"
+        app:layout_constraintBottom_toBottomOf="@id/ll_card_id"
+        app:layout_constraintLeft_toLeftOf="@id/ll_card_id"
+        app:layout_constraintTop_toTopOf="@id/ll_card_id" />
+
+    <com.aries.smart.module.widget.ClearEditText
+        android:id="@+id/cet_card_id"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:background="@null"
+        android:gravity="center|left"
+        android:hint="@string/pls_enter_card_id"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/text_white"
+        android:textColorHint="@color/text_gray_aaa"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintBottom_toBottomOf="@id/ll_card_id"
+        app:layout_constraintLeft_toRightOf="@id/tv_card_id"
+        app:layout_constraintTop_toTopOf="@id/ll_card_id" />
+
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/margin_60"
+        android:layout_marginBottom="@dimen/margin_30"
+        android:background="@drawable/shape_next_bg"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/ll_real_name"
+        app:layout_constraintRight_toRightOf="@id/ll_real_name" />
+
+    <LinearLayout
+        android:id="@+id/ll_authentication_status"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginRight="@dimen/margin_15"
+        android:background="@drawable/shape_btn_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_card_id">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_authentication_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:text="@string/authentication_status"
+        android:textColor="@color/text_sign"
+        android:textSize="@dimen/text_size_15"
+        app:layout_constraintBottom_toBottomOf="@id/ll_authentication_status"
+        app:layout_constraintLeft_toLeftOf="@id/ll_authentication_status"
+        app:layout_constraintTop_toTopOf="@id/ll_authentication_status" />
+
+    <TextView
+        android:id="@+id/tv_authentication_status_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:text="@string/not_authenticated"
+        android:textColor="@color/red_light"
+        android:textSize="@dimen/text_size_15"
+        app:layout_constraintBottom_toBottomOf="@id/ll_authentication_status"
+        app:layout_constraintLeft_toRightOf="@id/tv_authentication_status"
+        app:layout_constraintTop_toTopOf="@id/ll_authentication_status" />
+
+    <TextView
+        android:id="@+id/tv_authentication_status_detail_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
+        android:text="@string/real_name_authentication_detail_1"
+        android:textColor="@color/red_light"
+        android:textSize="@dimen/text_size_10"
+        app:layout_constraintLeft_toLeftOf="@id/ll_authentication_status"
+        app:layout_constraintTop_toBottomOf="@id/ll_authentication_status" />
+
+    <TextView
+        android:id="@+id/tv_authentication_status_detail_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_5"
+        android:text="@string/real_name_authentication_detail_2"
+        android:textColor="@color/red_light"
+        android:textSize="@dimen/text_size_10"
+        app:layout_constraintLeft_toLeftOf="@id/ll_authentication_status"
+        app:layout_constraintTop_toBottomOf="@id/tv_authentication_status_detail_1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

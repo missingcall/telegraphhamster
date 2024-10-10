@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.aries.library.fast.manager.TabLayoutManager;
 import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.smart.R;
+import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.SkinAvatarAdapter;
 import com.aries.smart.module.market.OrchardFragment;
 import com.aries.ui.view.tab.SegmentTabLayout;
@@ -49,8 +50,8 @@ public class MyWarehouseActivity extends FastTitleActivity {
     public void initView(Bundle savedInstanceState) {
 
         listFragment.clear();
-        listFragment.add(WarehouseOrchardFragment.getInstance());
-        listFragment.add(WarehouseOrchardFragment.getInstance());
+        listFragment.add(WarehouseOrchardFragment.getInstance(ApiConstant.API_HAMSTER_MARKET_TYPE_001));
+        listFragment.add(WarehouseOrchardFragment.getInstance(ApiConstant.API_HAMSTER_MARKET_TYPE_003));
         TabLayoutManager.getInstance().setSegmentTabData(this, mStlOrchardBank, mVpOrchardBank,
                 getTitles(R.array.arrays_tab_squirrel_orchard_bank), listFragment);
 

@@ -80,11 +80,11 @@ public class AccountSecurityActivity extends FastTitleActivity {
                 break;
 
             case R.id.stv_real_name_authentication:
-
+                FastUtil.startActivity(this, RealNameAuthenticationActivity.class);
                 break;
 
             case R.id.stv_cancel_account:
-
+                FastUtil.startActivity(this, CancelAccountActivity.class);
                 break;
         }
     }

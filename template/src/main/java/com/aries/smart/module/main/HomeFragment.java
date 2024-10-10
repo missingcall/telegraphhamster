@@ -147,31 +147,6 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
         mRecyclerView.setLayoutManager(layoutManager);
 
 
-        //获取每日可获得松果
-        AuthRepository.getInstance().queryDayIncome().subscribe(queryDayIncomeResponse -> {
-            if (StringUtils.equals(queryDayIncomeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
-                //TODO yhd 接口数据不全
-                mStvDaily.getCenterBottomTextView().setText(queryDayIncomeResponse.getData());
-
-            }
-        }, throwable -> {
-
-        });
-
-        //TODO yhd 获取等级数据
-        AuthRepository.getInstance().getLevel().subscribe(getLevelResponse -> {
-            if (StringUtils.equals(getLevelResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
-                //等级
-                mTvRank.setText(getLevelResponse.getData().getLevel().toString());
-                //进度条
-                mPbExp.setProgress(getLevelResponse.getData().getTotalAmount() % 100);
-
-            }
-        }, throwable -> {
-
-        });
-
-
     }
 
     @Override
@@ -269,6 +244,30 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
         }, throwable -> {
             LogUtils.d("getMyMoneyBagResponse : " + throwable);
         });
+
+        //获取每日可获得松果
+        AuthRepository.getInstance().queryDayIncome().subscribe(queryDayIncomeResponse -> {
+            if (StringUtils.equals(queryDayIncomeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
+                //TODO yhd 接口数据不全
+                mStvDaily.getCenterBottomTextView().setText(queryDayIncomeResponse.getData());
+
+            }
+        }, throwable -> {
+
+        });
+
+        //TODO yhd 获取等级数据
+        AuthRepository.getInstance().getLevel().subscribe(getLevelResponse -> {
+            if (StringUtils.equals(getLevelResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
+                //等级
+                mTvRank.setText(getLevelResponse.getData().getLevel().toString());
+                //进度条
+                mPbExp.setProgress(getLevelResponse.getData().getTotalAmount() % 100);
+
+            }
+        }, throwable -> {
+
+        });
     }
 
     private BaseQuickAdapter mAdapter;
@@ -289,7 +288,7 @@ public class HomeFragment extends FastTitleRefreshLoadFragment<QuickJumpResponse
                 //头像
                 GlideManager.loadCircleImg(infoResponse.getData().getProfilePath(), mRivAvatar);
                 //昵称
-                mTvNickname.setText(infoResponse.getData().getNickname());
+                mTvNickname.setText(infoResponse.getData().getAuditingNickname() == null? infoResponse.getData().getNickname() : infoResponse.getData().getAuditingNickname());
                 //uid
                 mTvUid.setText(infoResponse.getData().getDisplayId());
 

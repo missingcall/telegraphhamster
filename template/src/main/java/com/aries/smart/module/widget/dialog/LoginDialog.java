@@ -50,7 +50,6 @@ public class LoginDialog extends RxAppCompatDialogFragment {
         tlLogin.setupWithViewPager(vpLogin);
 
 
-
         //设置自定义tab
         for (int i = 0; i < tlLogin.getTabCount(); i++) {
             TabLayout.Tab tab = tlLogin.getTabAt(i);

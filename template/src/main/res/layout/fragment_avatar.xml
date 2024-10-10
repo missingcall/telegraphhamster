@@ -58,13 +58,13 @@
             android:gravity="center"
             android:text="经理鼠"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_middle" />
+            android:textSize="@dimen/text_size_16" />
 
         <TextView
             android:id="@+id/tv_describe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_micro"
+            android:layout_marginTop="@dimen/margin_5"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="4"
@@ -76,10 +76,10 @@
             android:id="@+id/tv_unlock_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_micro"
+            android:layout_marginTop="@dimen/margin_5"
             android:text="解锁花费"
             android:textColor="@color/red"
-            android:textSize="@dimen/text_size_micro" />
+            android:textSize="@dimen/text_size_12" />
 
         <Button
             android:id="@+id/btn_unlock"

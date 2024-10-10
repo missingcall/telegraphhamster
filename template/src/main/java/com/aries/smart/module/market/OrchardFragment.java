@@ -59,9 +59,20 @@ public class OrchardFragment extends FastTitleRefreshLoadFragment<QueryMarketLis
     SmartRefreshLayout mSmartLayoutRootFastLib;
     private BaseQuickAdapter mAdapter;
 
-    public static OrchardFragment getInstance() {
+    private String mType = ApiConstant.API_HAMSTER_MARKET_TYPE_001;
+
+    public static OrchardFragment getInstance(String type) {
+        Bundle args = new Bundle();
         OrchardFragment fragment = new OrchardFragment();
+        args.putString("type", type);
+        fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void beforeSetContentView() {
+        super.beforeSetContentView();
+        mType = getArguments().getString("type");
     }
 
     @Override
@@ -89,7 +100,7 @@ public class OrchardFragment extends FastTitleRefreshLoadFragment<QueryMarketLis
 
     @Override
     public BaseQuickAdapter<QueryMarketListResponse.DataBean, BaseViewHolder> getAdapter() {
-        mAdapter = new OrchardAdapter(mContentView);
+        mAdapter = new OrchardAdapter(mContentView ,mType);
 
         return mAdapter;
     }
@@ -97,7 +108,7 @@ public class OrchardFragment extends FastTitleRefreshLoadFragment<QueryMarketLis
     @SuppressLint("CheckResult")
     @Override
     public void loadData(int page) {
-        AuthRepository.getInstance().queryMarketList(ApiConstant.API_HAMSTER_MARKET_TYPE_001).subscribe(queryMarketListResponse -> {
+        AuthRepository.getInstance().queryMarketList(mType).subscribe(queryMarketListResponse -> {
             if (StringUtils.equals(queryMarketListResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
 //                mAdapter.setList(queryMarketListResponse.getData());
                 FastManager

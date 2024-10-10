@@ -7,15 +7,19 @@ import android.view.Gravity;
 import com.aries.library.fast.entity.FastTabEntity;
 import com.aries.library.fast.manager.LoggerManager;
 import com.aries.library.fast.module.activity.FastMainActivity;
+import com.aries.library.fast.util.FastUtil;
 import com.aries.library.fast.util.SizeUtil;
+import com.aries.smart.constant.ConstantUtils;
 import com.aries.smart.constant.Event;
 import com.aries.smart.module.game.GameFragment;
+import com.aries.smart.module.login.LoginActivity;
 import com.aries.smart.module.main.HomeFragment;
 
 import com.aries.smart.module.market.MarketFragment;
 import com.aries.smart.module.mine.MineFragment;
 import com.aries.smart.module.quest.QuestFragment;
 import com.aries.ui.view.tab.CommonTabLayout;
+import com.blankj.utilcode.util.SPUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -99,6 +103,10 @@ public class MainActivity extends FastMainActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(Event.LogOutEvent event) {
+        SPUtils.getInstance().remove(ConstantUtils.AUTHORIZATION_TOKEN);
+        SPUtils.getInstance().remove(ConstantUtils.TOKEN_HEAD);
+        SPUtils.getInstance().remove(ConstantUtils.IS_AGREE_PROTOCOL);
+        FastUtil.startActivity(this, LoginActivity.class);
         //退出登录
         finish();
     }

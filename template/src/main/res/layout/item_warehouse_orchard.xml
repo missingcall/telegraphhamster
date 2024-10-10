@@ -4,7 +4,7 @@
     android:id="@+id/cl_quick_jump_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_micro"
+    android:layout_margin="@dimen/margin_5"
     android:background="@drawable/shape_bg_achievement_item">
 
 
@@ -26,7 +26,7 @@
         android:id="@+id/tv_commodity_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginLeft="@dimen/margin_10"
         android:text="商品名称"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_10"

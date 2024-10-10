@@ -80,12 +80,6 @@ public class LogoutDialog extends CommonDialog {
                 break;
             case R.id.btn_confirm:
                 //退出当前登录账号，并返回登录页面
-                SPUtils.getInstance().remove(ConstantUtils.AUTHORIZATION_TOKEN);
-                SPUtils.getInstance().remove(ConstantUtils.TOKEN_HEAD);
-                SPUtils.getInstance().remove(ConstantUtils.IS_AGREE_PROTOCOL);
-                /*FastRetrofit.getInstance().addHeader(ConstantUtils.AUTHORIZATION_TOKEN, PreferenceUtil.getString(ConstantUtils.TOKEN_HEAD, "")
-                        + PreferenceUtil.getString(ConstantUtils.AUTHORIZATION_TOKEN, ""));*/
-                FastUtil.startActivity(getContext(), LoginActivity.class);
                 EventBus.getDefault().post(Event.LogOutEvent.INSTANCE);
                 dismiss();
                 break;

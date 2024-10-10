@@ -148,8 +148,8 @@ public class MarketFragment extends FastTitleFragment {
 
 
         listFragment.clear();
-        listFragment.add(OrchardFragment.getInstance());
-        listFragment.add(OrchardFragment.getInstance());
+        listFragment.add(OrchardFragment.getInstance(ApiConstant.API_HAMSTER_MARKET_TYPE_001));
+        listFragment.add(OrchardFragment.getInstance(ApiConstant.API_HAMSTER_MARKET_TYPE_003));
         TabLayoutManager.getInstance().setSegmentTabData(this, mStlOrchardBank, mVpOrchardBank,
                 getTitles(R.array.arrays_tab_squirrel_orchard_bank), listFragment);
 

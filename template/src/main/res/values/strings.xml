@@ -2,6 +2,7 @@
 
 <resources>
     <string name="app_name">电报仓鼠</string>
+    <string name="version_code">版本号</string>
     <string name="home">首页</string>
     <string name="market">市场</string>
     <string name="game">游戏</string>
@@ -108,13 +109,18 @@
     <string name="to_be_activated">待激活</string>
     <string name="sold_out">已售罄</string>
     <string name="electronic_hamsters">电子仓鼠</string>
+    <string name="pinecone_passbook">迷你松果存折</string>
+    <string name="collect_daily">每日采集</string>
+    <string name="wind_interest">利息</string>
     <string name="card_production_of_pine_cones">卡片生产的松果</string>
+    <string name="activate_hamster_cultivation_new_gameplay">激活仓鼠养成新玩法</string>
 
     <string name="please_activate_first">未解锁，请先激活</string>
     <string name="confirm_activation">确认激活</string>
     <string name="activate_now">立即激活</string>
     <string name="activation_successful">激活成功</string>
     <string name="collecting_in_progress">采集中...</string>
+    <string name="in_effect">生效中...</string>
     <string name="go_to_real_name">去实名</string>
     <string name="my_warehouse">我的仓库</string>
     <string name="health_game_advice">抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。</string>
@@ -127,7 +133,6 @@
     <string name="change_phone_number">更换手机号</string>
     <string name="password_login">登录密码</string>
     <string name="real_name_authentication">实名认证</string>
-    <string name="cancel_account">注销账号</string>
 
     <string name="current_bound_phone_number">当前绑定手机号</string>
     <string name="pls_enter_new_phone_num">为了提高账号安全 请输入新手机号进行绑定</string>
@@ -136,5 +141,36 @@
     <string name="change_phone_num_success">手机号更换成功</string>
     <string name="change_login_psw">修改登录密码</string>
     <string name="verify_binding_phone_number">验证绑定手机号</string>
+    <string name="real_name">真实姓名</string>
+    <string name="card_id">身份证号</string>
+    <string name="authentication_status">认证状态</string>
+    <string name="pls_enter_card_id">请输入身份证号</string>
+    <string name="pls_enter_real_name">请输入真实姓名</string>
+    <string name="not_authenticated">未认证</string>
+    <string name="verified">已认证</string>
+    <string name="real_name_authentication_detail_1">*请填写真实有效的身份信息，否则无法使用部分服务</string>
+    <string name="real_name_authentication_detail_2">*若身份信息填写错误，请联系客服处理</string>
+    <string name="real_name_authentication_success">实名认证成功</string>
+    <string name="real_name_authentication_failed">实名认证失败</string>
+
+    <string name="cancel_account">注销账号</string>
+    <string name="cancel_account_des">为保证你的账号安全，在你提交的注销申请生效前，需同时满足以下条件：</string>
+    <string name="cancel_account_des_1">1、账号注销不是退出登录，注销后将清空所有数据且不可恢复</string>
+    <string name="cancel_account_des_2">2、账号财产已清算</string>
+    <string name="cancel_account_des_2_sub">没有资产，未结清的资产和虚拟权益，本账号及通过本账号接入第三方中没有未完成或存在争议的服务</string>
+    <string name="cancel_account_des_3">3、账号权限解除</string>
+    <string name="cancel_account_des_3_sub">账号已解除与其他从的授权登录或绑定关系</string>
+    <string name="agree">同意</string>
+    <string name="please_check_the_agreement">请勾选协议</string>
+    <string name="privacy_agreement">隐私协议</string>
+    <string name="software_usage_agreement">软件使用协议</string>
+    <string name="account_has_been_applied_for_cancellation">账号（UID：XXXXX）于XXXX年X月X日申请注销，7天内可以撤销申请，过期则自动注销账号</string>
+    <string name="recover_account">恢复账号</string>
+    <string name="think_again">再想想</string>
+    <string name="account_recovery_successful">账号恢复成功</string>
+    <string name="account_recovery_fail">账号恢复失败</string>
+    <string name="collection_instructions">采集说明</string>
+    <string name="collection_instructions_describe">采集周期7天，每天采集0.1松果，到期预计总采集松果0.7个</string>
+    <string name="pinecone_transfer_in_out_records">松果转入/转出记录</string>
 
 </resources>

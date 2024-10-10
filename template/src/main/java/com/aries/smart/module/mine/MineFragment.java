@@ -23,6 +23,7 @@ import com.aries.library.fast.retrofit.FastUploadRequestListener;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.library.fast.util.SizeUtil;
 import com.aries.smart.R;
+import com.aries.smart.WebAppActivity;
 import com.aries.smart.WebViewActivity;
 import com.aries.smart.constant.ApiConstant;
 import com.aries.smart.module.adapter.LoginAdapter;
@@ -182,13 +183,6 @@ public class MineFragment extends FastTitleFragment implements IFastRefreshView 
                 });
         LoggerManager.i("initView_getParent:" + mContentView.getParent() + ";rootView:" + mContentView.getRootView());
 
-        final List<String> datas = Arrays.asList("松果转入/转出记录", "货币转出记录");
-
-        MarqueeFactory<TextView, String> marqueeFactory1 = new SimpleNoticeMF(getContext());
-        mMvText.setMarqueeFactory(marqueeFactory1);
-        mMvText.startFlipping();
-        marqueeFactory1.setOnItemClickListener((view, holder) -> ToastUtils.showShort(holder.getData()));
-        marqueeFactory1.setData(datas);
 
         fragments = new Fragment[titles.length];
         fragments[0] = new WalletPineConesFragment();
@@ -215,7 +209,7 @@ public class MineFragment extends FastTitleFragment implements IFastRefreshView 
         mBb.setDelegate(new BGABanner.Delegate() {
             @Override
             public void onBannerItemClick(BGABanner banner, View itemView, Object model, int position) {
-                WebViewActivity.start(mContext, model.toString(), false);
+                WebAppActivity.start(mContext, model.toString(), false);
             }
         });
 
@@ -312,5 +306,29 @@ public class MineFragment extends FastTitleFragment implements IFastRefreshView 
 
         });
 
+        //请求松果转换记录
+        AuthRepository.getInstance().queryWaitPinecone().subscribe(queryWaitPineconeResponse -> {
+            if (StringUtils.equals(queryWaitPineconeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
+                //获取当前用户待领取松果数量
+                mTvToBeCollectedNum.setText("" + queryWaitPineconeResponse.getData());
+            }
+        }, throwable -> {
+
+        });
+
+        final List<String> datas = Arrays.asList("松果转入/转出记录", "货币转出记录");
+
+        MarqueeFactory<TextView, String> marqueeFactory1 = new SimpleNoticeMF(getContext());
+        mMvText.setMarqueeFactory(marqueeFactory1);
+        mMvText.startFlipping();
+        marqueeFactory1.setOnItemClickListener(new MarqueeFactory.OnItemClickListener<TextView, String>() {
+            @Override
+            public void onItemClick(View view, MarqueeFactory.ViewHolder<TextView, String> holder) {
+                ToastUtils.showShort(holder.getData());
+                //跳转松果松子转换页面
+
+            }
+        });
+        marqueeFactory1.setData(datas);
     }
 }

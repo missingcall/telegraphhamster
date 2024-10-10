@@ -18,12 +18,10 @@ public class QueryMarketListResponse {
     }
 
     /**
-     * data : [{"coinPrice":0,"commodityIcon":"","commodityInfoId":"","commodityMark":"","commodityName":"","dayIncome":0,"description":"","goodsStatue":"","payType":"","preconditionsId":"","preconditionsName":"","propId":"","timeLimit":0,"totalIncome":0}]
-     * responseCode :
-     * responseMessage :
+     * responseCode : 200
+     * responseMessage : 操作成功
+     * data : [{"commodityInfoId":"9b711e82a4043296d3e1056eb5dad815","commodityName":"银行1","commodityIcon":"https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240328115613-1727504522001.jpg","timeLimit":1,"dayIncome":0,"totalIncome":1,"payType":"001","coinPrice":1,"goodsStatue":"001","description":"https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240328115613-1727504525345.jpg","propId":"","commodityMark":"","preconditionsId":"","preconditionsName":"","windInterest":1}]
      */
-
-
 
     private String responseCode;
     private String responseMessage;
@@ -57,72 +55,59 @@ public class QueryMarketListResponse {
         @Override
         public String toString() {
             return "DataBean{" +
-                    "coinPrice=" + coinPrice +
-                    ", commodityIcon='" + commodityIcon + '\'' +
-                    ", commodityInfoId='" + commodityInfoId + '\'' +
-                    ", commodityMark='" + commodityMark + '\'' +
+                    "commodityInfoId='" + commodityInfoId + '\'' +
                     ", commodityName='" + commodityName + '\'' +
+                    ", commodityIcon='" + commodityIcon + '\'' +
+                    ", timeLimit=" + timeLimit +
                     ", dayIncome=" + dayIncome +
-                    ", description='" + description + '\'' +
-                    ", goodsStatue='" + goodsStatue + '\'' +
+                    ", totalIncome=" + totalIncome +
                     ", payType='" + payType + '\'' +
+                    ", coinPrice=" + coinPrice +
+                    ", goodsStatue='" + goodsStatue + '\'' +
+                    ", description='" + description + '\'' +
+                    ", propId='" + propId + '\'' +
+                    ", commodityMark='" + commodityMark + '\'' +
                     ", preconditionsId='" + preconditionsId + '\'' +
                     ", preconditionsName='" + preconditionsName + '\'' +
-                    ", propId='" + propId + '\'' +
-                    ", timeLimit=" + timeLimit +
-                    ", totalIncome=" + totalIncome +
+                    ", windInterest=" + windInterest +
                     '}';
         }
 
         /**
-         * coinPrice : 0
-         * commodityIcon :
-         * commodityInfoId :
-         * commodityMark :
-         * commodityName :
+         * commodityInfoId : 9b711e82a4043296d3e1056eb5dad815
+         * commodityName : 银行1
+         * commodityIcon : https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240328115613-1727504522001.jpg
+         * timeLimit : 1
          * dayIncome : 0
-         * description :
-         * goodsStatue :
-         * payType :
+         * totalIncome : 1
+         * payType : 001
+         * coinPrice : 1
+         * goodsStatue : 001
+         * description : https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240328115613-1727504525345.jpg
+         * propId :
+         * commodityMark :
          * preconditionsId :
          * preconditionsName :
-         * propId :
-         * timeLimit : 0
-         * totalIncome : 0
+         * windInterest : 1
          */
 
 
 
-        private int coinPrice;
-        private String commodityIcon;
         private String commodityInfoId;
-        private String commodityMark;
         private String commodityName;
+        private String commodityIcon;
+        private int timeLimit;
         private int dayIncome;
-        private String description;
-        private String goodsStatue;
+        private int totalIncome;
         private String payType;
+        private int coinPrice;
+        private String goodsStatue;
+        private String description;
+        private String propId;
+        private String commodityMark;
         private String preconditionsId;
         private String preconditionsName;
-        private String propId;
-        private int timeLimit;
-        private int totalIncome;
-
-        public int getCoinPrice() {
-            return coinPrice;
-        }
-
-        public void setCoinPrice(int coinPrice) {
-            this.coinPrice = coinPrice;
-        }
-
-        public String getCommodityIcon() {
-            return commodityIcon;
-        }
-
-        public void setCommodityIcon(String commodityIcon) {
-            this.commodityIcon = commodityIcon;
-        }
+        private int windInterest;
 
         public String getCommodityInfoId() {
             return commodityInfoId;
@@ -130,14 +115,6 @@ public class QueryMarketListResponse {
 
         public void setCommodityInfoId(String commodityInfoId) {
             this.commodityInfoId = commodityInfoId;
-        }
-
-        public String getCommodityMark() {
-            return commodityMark;
-        }
-
-        public void setCommodityMark(String commodityMark) {
-            this.commodityMark = commodityMark;
         }
 
         public String getCommodityName() {
@@ -148,6 +125,22 @@ public class QueryMarketListResponse {
             this.commodityName = commodityName;
         }
 
+        public String getCommodityIcon() {
+            return commodityIcon;
+        }
+
+        public void setCommodityIcon(String commodityIcon) {
+            this.commodityIcon = commodityIcon;
+        }
+
+        public int getTimeLimit() {
+            return timeLimit;
+        }
+
+        public void setTimeLimit(int timeLimit) {
+            this.timeLimit = timeLimit;
+        }
+
         public int getDayIncome() {
             return dayIncome;
         }
@@ -156,12 +149,28 @@ public class QueryMarketListResponse {
             this.dayIncome = dayIncome;
         }
 
-        public String getDescription() {
-            return description;
+        public int getTotalIncome() {
+            return totalIncome;
         }
 
-        public void setDescription(String description) {
-            this.description = description;
+        public void setTotalIncome(int totalIncome) {
+            this.totalIncome = totalIncome;
+        }
+
+        public String getPayType() {
+            return payType;
+        }
+
+        public void setPayType(String payType) {
+            this.payType = payType;
+        }
+
+        public int getCoinPrice() {
+            return coinPrice;
+        }
+
+        public void setCoinPrice(int coinPrice) {
+            this.coinPrice = coinPrice;
         }
 
         public String getGoodsStatue() {
@@ -172,12 +181,28 @@ public class QueryMarketListResponse {
             this.goodsStatue = goodsStatue;
         }
 
-        public String getPayType() {
-            return payType;
+        public String getDescription() {
+            return description;
         }
 
-        public void setPayType(String payType) {
-            this.payType = payType;
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public String getPropId() {
+            return propId;
+        }
+
+        public void setPropId(String propId) {
+            this.propId = propId;
+        }
+
+        public String getCommodityMark() {
+            return commodityMark;
+        }
+
+        public void setCommodityMark(String commodityMark) {
+            this.commodityMark = commodityMark;
         }
 
         public String getPreconditionsId() {
@@ -196,28 +221,12 @@ public class QueryMarketListResponse {
             this.preconditionsName = preconditionsName;
         }
 
-        public String getPropId() {
-            return propId;
+        public int getWindInterest() {
+            return windInterest;
         }
 
-        public void setPropId(String propId) {
-            this.propId = propId;
-        }
-
-        public int getTimeLimit() {
-            return timeLimit;
-        }
-
-        public void setTimeLimit(int timeLimit) {
-            this.timeLimit = timeLimit;
-        }
-
-        public int getTotalIncome() {
-            return totalIncome;
-        }
-
-        public void setTotalIncome(int totalIncome) {
-            this.totalIncome = totalIncome;
+        public void setWindInterest(int windInterest) {
+            this.windInterest = windInterest;
         }
     }
 }

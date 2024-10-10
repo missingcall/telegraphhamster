@@ -184,5 +184,10 @@ public class ChangePhoneNumberActivity extends FastTitleActivity {
         }
     };
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
+    }
 
 }

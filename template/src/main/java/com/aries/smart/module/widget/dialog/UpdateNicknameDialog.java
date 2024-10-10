@@ -23,12 +23,15 @@ import com.aries.library.fast.FastManager;
 import com.aries.library.fast.retrofit.FastRetrofit;
 import com.aries.smart.R;
 import com.aries.smart.constant.ApiConstant;
+import com.aries.smart.constant.Event;
 import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.repository.BaseRepository;
 import com.aries.smart.retrofit.request.UpdateNicknameTo;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * 修改昵称Dialog
@@ -147,6 +150,10 @@ public class UpdateNicknameDialog extends CommonDialog {
                 AuthRepository.getInstance().updateNickname(updateNicknameTo).subscribe(updateNicknameResponse -> {
                     if (StringUtils.equals(updateNicknameResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                         ToastUtils.showShort("昵称修改成功,等待审核...");
+                        //刷新首页信息
+                        EventBus.getDefault().post(Event.InfoEvent.INSTANCE);
+                    } else {
+                        ToastUtils.showShort(updateNicknameResponse.getResponseMessage());
                     }
                 }, throwable -> {
                     ToastUtils.showShort("昵称修改失败");

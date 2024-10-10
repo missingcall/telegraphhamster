@@ -10,25 +10,15 @@ import java.util.List;
  */
 public class AccessoriesInfoListResponse {
 
-
     /**
      * responseCode : 200
      * responseMessage : 操作成功
-     * data : {"records":[{"id":1,"name":"test","icon":null,"status":"001","sort":1,"type":"001","unlockMethod":"001","createTime":null,"remark":"test","unlockDescription":"test","unlockParameters":null,"unlockStatus":false,"wearStatus":false},{"id":3,"name":"level1","icon":null,"status":"001","sort":1,"type":"001","unlockMethod":"003","createTime":null,"remark":"等级大于1","unlockDescription":"1","unlockParameters":"1","unlockStatus":false,"wearStatus":false},{"id":2,"name":"test1","icon":null,"status":"001","sort":2,"type":"001","unlockMethod":"001","createTime":null,"remark":"test1","unlockDescription":"test1","unlockParameters":null,"unlockStatus":false,"wearStatus":false}],"total":3,"size":10,"current":1,"orders":[],"optimizeCountSql":true,"hitCount":false,"countId":null,"maxLimit":null,"searchCount":true,"pages":1}
+     * data : {"records":[{"id":28,"name":"头像13","icon":"https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/1702461992549205-1702461993386-1727334818376.jpeg","status":"001","sort":null,"type":"001","unlockMethod":"001","createTime":"2024-09-26T06:56:33.000+00:00","remark":"111","unlockDescription":"12","unlockParameters":"{\"type\":\"001\",\"amount\":\"100\"}","unlockStatus":false,"wearStatus":false},{"id":32,"name":"炫酷皮肤","icon":null,"status":"001","sort":null,"type":"001","unlockMethod":"001","createTime":"2024-10-10T03:08:14.000+00:00","remark":null,"unlockDescription":null,"unlockParameters":"{\"name\":\"松果购买解锁\",\"type\":\"001\",\"amount\":\"500\"}","unlockStatus":false,"wearStatus":false},{"id":33,"name":"炫酷皮肤2","icon":null,"status":"001","sort":null,"type":"001","unlockMethod":"003","createTime":"2024-10-10T03:09:01.000+00:00","remark":null,"unlockDescription":null,"unlockParameters":"{\"name\":\"等级2\",\"id\":\"1\"}","unlockStatus":false,"wearStatus":false},{"id":36,"name":"新头像","icon":"https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/1702461992549205-1702461993386-1728537297691.jpeg","status":"001","sort":null,"type":"001","unlockMethod":"003","createTime":"2024-10-10T05:15:04.000+00:00","remark":"11","unlockDescription":null,"unlockParameters":"{\"name\":\"等级1\",\"id\":\"0\"}","unlockStatus":false,"wearStatus":false}],"total":6,"size":10,"current":1,"orders":[],"optimizeCountSql":true,"hitCount":false,"countId":null,"maxLimit":null,"searchCount":true,"pages":1}
      */
 
     private String responseCode;
     private String responseMessage;
     private DataBean data;
-
-    @Override
-    public String toString() {
-        return "AccessoriesInfoListResponse{" +
-                "responseCode='" + responseCode + '\'' +
-                ", responseMessage='" + responseMessage + '\'' +
-                ", data=" + data +
-                '}';
-    }
 
     public String getResponseCode() {
         return responseCode;
@@ -55,26 +45,9 @@ public class AccessoriesInfoListResponse {
     }
 
     public static class DataBean {
-        @Override
-        public String toString() {
-            return "DataBean{" +
-                    "total=" + total +
-                    ", size=" + size +
-                    ", current=" + current +
-                    ", optimizeCountSql=" + optimizeCountSql +
-                    ", hitCount=" + hitCount +
-                    ", countId=" + countId +
-                    ", maxLimit=" + maxLimit +
-                    ", searchCount=" + searchCount +
-                    ", pages=" + pages +
-                    ", records=" + records +
-                    ", orders=" + orders +
-                    '}';
-        }
-
         /**
-         * records : [{"id":1,"name":"test","icon":null,"status":"001","sort":1,"type":"001","unlockMethod":"001","createTime":null,"remark":"test","unlockDescription":"test","unlockParameters":null,"unlockStatus":false,"wearStatus":false},{"id":3,"name":"level1","icon":null,"status":"001","sort":1,"type":"001","unlockMethod":"003","createTime":null,"remark":"等级大于1","unlockDescription":"1","unlockParameters":"1","unlockStatus":false,"wearStatus":false},{"id":2,"name":"test1","icon":null,"status":"001","sort":2,"type":"001","unlockMethod":"001","createTime":null,"remark":"test1","unlockDescription":"test1","unlockParameters":null,"unlockStatus":false,"wearStatus":false}]
-         * total : 3
+         * records : [{"id":28,"name":"头像13","icon":"https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/1702461992549205-1702461993386-1727334818376.jpeg","status":"001","sort":null,"type":"001","unlockMethod":"001","createTime":"2024-09-26T06:56:33.000+00:00","remark":"111","unlockDescription":"12","unlockParameters":"{\"type\":\"001\",\"amount\":\"100\"}","unlockStatus":false,"wearStatus":false},{"id":32,"name":"炫酷皮肤","icon":null,"status":"001","sort":null,"type":"001","unlockMethod":"001","createTime":"2024-10-10T03:08:14.000+00:00","remark":null,"unlockDescription":null,"unlockParameters":"{\"name\":\"松果购买解锁\",\"type\":\"001\",\"amount\":\"500\"}","unlockStatus":false,"wearStatus":false},{"id":33,"name":"炫酷皮肤2","icon":null,"status":"001","sort":null,"type":"001","unlockMethod":"003","createTime":"2024-10-10T03:09:01.000+00:00","remark":null,"unlockDescription":null,"unlockParameters":"{\"name\":\"等级2\",\"id\":\"1\"}","unlockStatus":false,"wearStatus":false},{"id":36,"name":"新头像","icon":"https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/1702461992549205-1702461993386-1728537297691.jpeg","status":"001","sort":null,"type":"001","unlockMethod":"003","createTime":"2024-10-10T05:15:04.000+00:00","remark":"11","unlockDescription":null,"unlockParameters":"{\"name\":\"等级1\",\"id\":\"0\"}","unlockStatus":false,"wearStatus":false}]
+         * total : 6
          * size : 10
          * current : 1
          * orders : []
@@ -85,8 +58,6 @@ public class AccessoriesInfoListResponse {
          * searchCount : true
          * pages : 1
          */
-
-
 
         private int total;
         private int size;
@@ -189,53 +160,33 @@ public class AccessoriesInfoListResponse {
         }
 
         public static class RecordsBean {
-
-            @Override
-            public String toString() {
-                return "RecordsBean{" +
-                        "id=" + id +
-                        ", name='" + name + '\'' +
-                        ", icon=" + icon +
-                        ", status='" + status + '\'' +
-                        ", sort=" + sort +
-                        ", type='" + type + '\'' +
-                        ", unlockMethod='" + unlockMethod + '\'' +
-                        ", createTime=" + createTime +
-                        ", remark='" + remark + '\'' +
-                        ", unlockDescription='" + unlockDescription + '\'' +
-                        ", unlockParameters=" + unlockParameters +
-                        ", unlockStatus=" + unlockStatus +
-                        ", wearStatus=" + wearStatus +
-                        '}';
-            }
-
             /**
-             * id : 1
-             * name : test
-             * icon : null
+             * id : 28
+             * name : 头像13
+             * icon : https://hamster-dev.oss-cn-hangzhou.aliyuncs.com/admin/gift/images/1702461992549205-1702461993386-1727334818376.jpeg
              * status : 001
-             * sort : 1
+             * sort : null
              * type : 001
              * unlockMethod : 001
-             * createTime : null
-             * remark : test
-             * unlockDescription : test
-             * unlockParameters : null
+             * createTime : 2024-09-26T06:56:33.000+00:00
+             * remark : 111
+             * unlockDescription : 12
+             * unlockParameters : {"type":"001","amount":"100"}
              * unlockStatus : false
              * wearStatus : false
              */
 
             private int id;
             private String name;
-            private Object icon;
+            private String icon;
             private String status;
-            private int sort;
+            private Object sort;
             private String type;
             private String unlockMethod;
-            private Object createTime;
+            private String createTime;
             private String remark;
             private String unlockDescription;
-            private Object unlockParameters;
+            private String unlockParameters;
             private boolean unlockStatus;
             private boolean wearStatus;
 
@@ -255,11 +206,11 @@ public class AccessoriesInfoListResponse {
                 this.name = name;
             }
 
-            public Object getIcon() {
+            public String getIcon() {
                 return icon;
             }
 
-            public void setIcon(Object icon) {
+            public void setIcon(String icon) {
                 this.icon = icon;
             }
 
@@ -271,11 +222,11 @@ public class AccessoriesInfoListResponse {
                 this.status = status;
             }
 
-            public int getSort() {
+            public Object getSort() {
                 return sort;
             }
 
-            public void setSort(int sort) {
+            public void setSort(Object sort) {
                 this.sort = sort;
             }
 
@@ -295,11 +246,11 @@ public class AccessoriesInfoListResponse {
                 this.unlockMethod = unlockMethod;
             }
 
-            public Object getCreateTime() {
+            public String getCreateTime() {
                 return createTime;
             }
 
-            public void setCreateTime(Object createTime) {
+            public void setCreateTime(String createTime) {
                 this.createTime = createTime;
             }
 
@@ -319,11 +270,11 @@ public class AccessoriesInfoListResponse {
                 this.unlockDescription = unlockDescription;
             }
 
-            public Object getUnlockParameters() {
+            public String getUnlockParameters() {
                 return unlockParameters;
             }
 
-            public void setUnlockParameters(Object unlockParameters) {
+            public void setUnlockParameters(String unlockParameters) {
                 this.unlockParameters = unlockParameters;
             }
 

@@ -16,7 +16,6 @@
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/text_white_99"
         app:tabBackground="@drawable/login_tab_bg"
-
         />
 
     <androidx.viewpager.widget.ViewPager

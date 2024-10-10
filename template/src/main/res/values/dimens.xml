@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- textSize<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-    <dimen name="text_size_large">24sp</dimen>
-    <dimen name="text_size_huge">21sp</dimen>
-    <dimen name="text_size_big">19sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_21">21sp</dimen>
+    <dimen name="text_size_19">19sp</dimen>
     <dimen name="text_size_17">17sp</dimen>
-    <dimen name="text_size_middle">16sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
     <dimen name="text_size_15">15sp</dimen>
-    <dimen name="text_size_small">14sp</dimen>
-    <dimen name="text_size_micro">12sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
     <dimen name="text_size_11">11sp</dimen>
     <dimen name="text_size_10">10sp</dimen>
     <dimen name="text_size_9">9sp</dimen>
@@ -22,21 +22,22 @@
 
     <!-- margin<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
     <dimen name="margin_common">15dp</dimen>
-    <dimen name="margin_micro">5dp</dimen>
-    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_7">7dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_15">15dp</dimen>
-    <dimen name="margin_big">20dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
     <dimen name="margin_30">30dp</dimen>
-    <dimen name="margin_large">40dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
     <dimen name="margin_60">60dp</dimen>
 
     <!-- margin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
     <!-- corner<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-    <dimen name="corner_common">45dp</dimen>
-    <dimen name="corner_micro">5dp</dimen>
-    <dimen name="corner_small">10dp</dimen>
-    <dimen name="corner_middle">15dp</dimen>
+    <dimen name="corner_45">45dp</dimen>
+    <dimen name="corner_15">15dp</dimen>
+    <dimen name="corner_10">10dp</dimen>
+    <dimen name="corner_5">5dp</dimen>
 
     <!-- corner>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
@@ -47,19 +48,19 @@
     <dimen name="width_80">80dp</dimen>
     <dimen name="width_60">60dp</dimen>
     <dimen name="width_50">50dp</dimen>
-    <dimen name="width_large">45dp</dimen>
-    <dimen name="width_big">35dp</dimen>
-    <dimen name="width_middle">30dp</dimen>
-    <dimen name="width_small">15dp</dimen>
+    <dimen name="width_45">45dp</dimen>
+    <dimen name="width_35">35dp</dimen>
+    <dimen name="width_30">30dp</dimen>
+    <dimen name="width_15">15dp</dimen>
 
     <dimen name="height_80">80dp</dimen>
     <dimen name="height_70">70dp</dimen>
     <dimen name="height_60">60dp</dimen>
     <dimen name="height_50">50dp</dimen>
-    <dimen name="height_large">45dp</dimen>
-    <dimen name="height_big">35dp</dimen>
-    <dimen name="height_middle">30dp</dimen>
-    <dimen name="height_small">15dp</dimen>
+    <dimen name="height_45">45dp</dimen>
+    <dimen name="height_35">35dp</dimen>
+    <dimen name="height_30">30dp</dimen>
+    <dimen name="height_15">15dp</dimen>
 
     <!-- width height >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 </resources>

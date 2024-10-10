@@ -12,6 +12,8 @@ import com.allen.library.SuperTextView;
 import com.aries.library.fast.module.activity.FastTitleActivity;
 import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
+import com.aries.smart.WebAppActivity;
+import com.aries.smart.WebViewActivity;
 import com.aries.smart.constant.Event;
 import com.aries.smart.module.widget.dialog.CleanDialog;
 import com.aries.smart.module.widget.dialog.LogoutDialog;
@@ -74,24 +76,27 @@ public class SettingActivity extends FastTitleActivity {
     void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.stv_account_security:
-//账号安全
-                FastUtil.startActivity(this,AccountSecurityActivity.class);
+                //账号安全
+                FastUtil.startActivity(this, AccountSecurityActivity.class);
                 break;
 
             case R.id.stv_personal_information_collection_checklist:
-//个人信息收集清单
+                //个人信息收集清单
+                WebAppActivity.start(SettingActivity.this, "https://m.baidu.com");
                 break;
 
             case R.id.stv_list_of_third_party_information_sharing:
-//第三方信息共享清单
+                //第三方信息共享清单
+                WebAppActivity.start(SettingActivity.this, "https://m.baidu.com");
                 break;
 
             case R.id.stv_about_us:
-//关于我们
+                //关于我们
+                FastUtil.startActivity(this, AboutUsActivity.class);
                 break;
 
             case R.id.btn_exit:
-//退出登录dialog
+                //退出登录dialog
                 LogoutDialog logoutDialog = new LogoutDialog(this);
                 logoutDialog.show();
                 break;

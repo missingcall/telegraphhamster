@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hamster_strategy"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_large"
+        android:textSize="@dimen/text_size_24"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -53,7 +53,7 @@
         android:layout_marginRight="15dp"
         android:text="@string/hamster_strategy_details"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_middle"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_strategy"
@@ -100,7 +100,7 @@
                 android:layout_marginBottom="3dp"
                 android:text="@string/feed_hamster"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_middle" />
+                android:textSize="@dimen/text_size_16" />
         </LinearLayout>
 
         <LinearLayout
@@ -131,7 +131,7 @@
                 android:layout_marginBottom="3dp"
                 android:text="@string/cleaning_hamster"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_middle" />
+                android:textSize="@dimen/text_size_16" />
 
         </LinearLayout>
 
@@ -163,7 +163,7 @@
                 android:layout_marginBottom="3dp"
                 android:text="@string/resurrection_hamster"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_middle" />
+                android:textSize="@dimen/text_size_16" />
 
         </LinearLayout>
 
@@ -175,14 +175,14 @@
         android:id="@+id/btn_confirm"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginStart="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_small"
-        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginEnd="@dimen/margin_10"
+        android:layout_marginBottom="@dimen/margin_10"
         android:background="@drawable/btn_common_bg"
         android:text="@string/i_see"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_big"
+        android:textSize="@dimen/text_size_19"
         app:layout_constraintLeft_toLeftOf="@id/tv_detail"
         app:layout_constraintRight_toRightOf="@id/tv_detail"
         app:layout_constraintTop_toBottomOf="@id/cl_items" />

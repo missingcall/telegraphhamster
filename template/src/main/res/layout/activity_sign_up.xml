@@ -32,7 +32,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_account_registration"
         app:layout_constraintBottom_toBottomOf="@id/tv_account_registration"
-        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginLeft="@dimen/margin_10"
         />
     
     <TextView
@@ -45,7 +45,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline_sign_up_1"
-        android:textSize="@dimen/text_size_huge"
+        android:textSize="@dimen/text_size_21"
         />
 
     <TextView
@@ -58,7 +58,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_account_registration"
-        android:textSize="@dimen/text_size_small"
+        android:textSize="@dimen/text_size_14"
         android:layout_marginTop="@dimen/margin_common"
         />
 
@@ -69,9 +69,9 @@
         app:layout_constraintTop_toBottomOf="@id/tv_hint"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/margin_big"
-        android:layout_marginLeft="@dimen/margin_big"
-        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
         android:background="@drawable/shape_btn_bg"
         android:orientation="horizontal"
         android:gravity="center_vertical"
@@ -86,7 +86,7 @@
         android:text="@string/phone_number"
         android:textColor="@color/text_sign"
         android:textSize="@dimen/text_size_15"
-        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginLeft="@dimen/margin_20"
         app:layout_constraintLeft_toLeftOf="@id/ll_phone"
         app:layout_constraintTop_toTopOf="@id/ll_phone"
         app:layout_constraintBottom_toBottomOf="@id/ll_phone"
@@ -94,7 +94,7 @@
 
     <com.aries.smart.module.widget.ClearEditText
         android:id="@+id/cet_phone"
-        android:layout_marginLeft="@dimen/margin_large"
+        android:layout_marginLeft="@dimen/margin_40"
         android:inputType="number"
         android:textSize="@dimen/text_size_15"
         android:maxLines="1"
@@ -120,9 +120,9 @@
         app:layout_constraintTop_toBottomOf="@id/ll_phone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/margin_big"
-        android:layout_marginLeft="@dimen/margin_big"
-        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
         android:background="@drawable/shape_btn_bg"
         android:orientation="horizontal"
         android:gravity="center_vertical"
@@ -140,7 +140,7 @@
         android:text="@string/sign_up_password"
         android:textColor="@color/text_sign"
         android:textSize="@dimen/text_size_15"
-        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginLeft="@dimen/margin_20"
         app:layout_constraintLeft_toLeftOf="@id/ll_password"
         app:layout_constraintTop_toTopOf="@id/ll_password"
         app:layout_constraintBottom_toBottomOf="@id/ll_password"
@@ -172,9 +172,9 @@
         app:layout_constraintTop_toBottomOf="@id/ll_password"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/guideline_sign_up_2"
-        android:layout_marginTop="@dimen/margin_big"
-        android:layout_marginLeft="@dimen/margin_big"
-        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
         android:background="@drawable/shape_btn_bg"
         android:orientation="horizontal"
         android:gravity="center_vertical"
@@ -186,7 +186,7 @@
     <EditText
         android:id="@+id/et_verify"
         android:inputType="number"
-        android:textSize="@dimen/text_size_small"
+        android:textSize="@dimen/text_size_14"
         android:maxLines="1"
         android:singleLine="true"
         android:layout_width="wrap_content"
@@ -226,9 +226,9 @@
         app:layout_constraintTop_toBottomOf="@id/ll_verify"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/margin_big"
-        android:layout_marginLeft="@dimen/margin_big"
-        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
         android:background="@drawable/shape_btn_bg"
         android:orientation="horizontal"
         android:gravity="center_vertical"
@@ -243,7 +243,7 @@
         android:text="@string/invite_code"
         android:textColor="@color/text_sign"
         android:textSize="@dimen/text_size_15"
-        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginLeft="@dimen/margin_20"
         app:layout_constraintLeft_toLeftOf="@id/ll_invite_code"
         app:layout_constraintTop_toTopOf="@id/ll_invite_code"
         app:layout_constraintBottom_toBottomOf="@id/ll_invite_code"
@@ -281,9 +281,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="@dimen/margin_large"
-        android:layout_marginLeft="@dimen/margin_big"
-        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_40"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

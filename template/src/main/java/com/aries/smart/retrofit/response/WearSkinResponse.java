@@ -105,7 +105,7 @@ public class WearSkinResponse {
         private String userId;
         private String displayId;
         private String nickname;
-        private Object auditingNickname;
+        private String auditingNickname;
         private Object sex;
         private String birthday;
         private Object beautifulId;
@@ -184,11 +184,11 @@ public class WearSkinResponse {
             this.nickname = nickname;
         }
 
-        public Object getAuditingNickname() {
+        public String getAuditingNickname() {
             return auditingNickname;
         }
 
-        public void setAuditingNickname(Object auditingNickname) {
+        public void setAuditingNickname(String auditingNickname) {
             this.auditingNickname = auditingNickname;
         }
 

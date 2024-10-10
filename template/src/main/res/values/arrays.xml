@@ -10,8 +10,19 @@
         <item>松果银行</item>
     </string-array>
 
+    <string-array name="arrays_tab_all_in_out">
+        <item>全部</item>
+        <item>转入</item>
+        <item>转出</item>
+    </string-array>
+
     <string-array name="arrays_tab_skin_avatar">
         <item>皮肤</item>
         <item>头像</item>
+    </string-array>
+
+    <string-array name="arrays_tab_login_type">
+        <item>密码登录</item>
+        <item>验证码登录</item>
     </string-array>
 </resources>

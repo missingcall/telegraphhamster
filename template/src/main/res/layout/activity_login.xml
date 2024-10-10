@@ -21,12 +21,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_common"
-            android:layout_marginLeft="@dimen/margin_large"
-            android:layout_marginRight="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_40"
+            android:layout_marginRight="@dimen/margin_40"
             android:measureWithLargestChild="true"
             android:orientation="horizontal"
             app:cardElevation="4dp"
-            app:cardCornerRadius="@dimen/corner_common"
+            app:cardCornerRadius="@dimen/corner_45"
             app:layout_constraintBottom_toTopOf="@id/cd_sign_up"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -62,7 +62,7 @@
                 android:gravity="center"
                 android:text="@string/sign_in"
                 android:textColor="@color/text_white"
-                android:textSize="@dimen/text_size_big"
+                android:textSize="@dimen/text_size_19"
                 android:textStyle="bold"/>
 
         </androidx.cardview.widget.CardView>
@@ -72,12 +72,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_common"
-            android:layout_marginLeft="@dimen/margin_large"
-            android:layout_marginRight="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_40"
+            android:layout_marginRight="@dimen/margin_40"
             android:measureWithLargestChild="true"
             android:orientation="horizontal"
             app:cardElevation="4dp"
-            app:cardCornerRadius="@dimen/corner_common"
+            app:cardCornerRadius="@dimen/corner_45"
             app:layout_constraintBottom_toTopOf="@id/ll_bottom_area"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -112,7 +112,7 @@
                 android:gravity="center"
                 android:text="@string/sign_up"
                 android:textColor="@color/text_white"
-                android:textSize="@dimen/text_size_big"
+                android:textSize="@dimen/text_size_19"
                 android:textStyle="bold"/>
 
 

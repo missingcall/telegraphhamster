@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.aries.library.fast.util.FastUtil;
 import com.aries.smart.R;
+import com.aries.smart.module.mine.RealNameAuthenticationActivity;
 import com.blankj.utilcode.util.ScreenUtils;
 
 public class RealNameDialog extends CommonDialog {
@@ -45,7 +47,7 @@ public class RealNameDialog extends CommonDialog {
             @Override
             public void onClick(View view) {
                 //去实名
-
+                FastUtil.startActivity(getContext(), RealNameAuthenticationActivity.class);
                 dismiss();
             }
         });

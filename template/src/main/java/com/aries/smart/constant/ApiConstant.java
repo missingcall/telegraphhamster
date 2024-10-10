@@ -10,7 +10,8 @@ public class ApiConstant {
 
     /* responseCode */
     public static final String RESPONSE_OK = "200";
-    public static final String RESPONSE_FAILED_TO_PASS_REAL_NAME_AUTHENTICATION = "53430";
+    public static final String RESPONSE_FAILED_TO_PASS_REAL_NAME_AUTHENTICATION = "53430"; //未通过实名认证
+    public static final String RESPONSE_ACCOUNT_FROZEN = "50118"; //账号已冻结
 
     /* 	accessFlags 访问标识 0：代表Android；1：代表IOS；可为空 android平台 */
     public static final String TO_ACCOUNT_CREATE_ACCESS_FLAGS_ANDROID = "0";
@@ -22,8 +23,9 @@ public class ApiConstant {
     public static final String SMS_TYPE_REGISTER = "3"; //注册
     public static final String SMS_TYPE_LOG_OUT = "4"; //注销
     public static final String SMS_TYPE_RETRIEVE_PASSWORD = "5"; //找回密码
-    public static final String SMS_TYPE_BIND_MOBILE_PHONE_NUMBER= "6"; //绑定手机号码
-    public static final String SMS_TYPE_VERIFY_OLD_PHONE= "11"; //验证旧手机
+    public static final String SMS_TYPE_BIND_MOBILE_PHONE_NUMBER = "6"; //绑定手机号码
+    public static final String SMS_TYPE_RETRIEVE_ACCOUNT = "9"; //找回账号
+    public static final String SMS_TYPE_VERIFY_OLD_PHONE = "11"; //验证旧手机
 
     public static final String ACCESSORIES_TYPE_SKIN = "001"; //皮肤
     public static final String ACCESSORIES_TYPE_AVATAR = "002"; //头像
@@ -35,6 +37,16 @@ public class ApiConstant {
 
     public static final String API_HAMSTER_MARKET_TYPE_001 = "001"; //基础仓鼠&仓鼠庄园
     public static final String API_HAMSTER_MARKET_TYPE_003 = "003"; //仓鼠银行
+
+
+    /*
+     *
+     * 松果类型：001：松果领取；002：松果转入；003：存折获取；004：市场消费；005：购买皮肤头像；006：任务获得；007：邀新获得；008：养成消费；009 松果转出；010 管理员添加；011 管理员扣除
+     * */
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_ALL = "000"; //所有记录
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_002 = "002"; //松果转入
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_009 = "009"; //松果转出
+
 
     /**
      * goodsStatue 商品状态 001 商品可购买 002 商品已售磬 003 用户未解锁 004 用户已拥有(待激活) 005 用户已拥有(生效中)
@@ -62,6 +74,10 @@ public class ApiConstant {
     public static final String API_USER_RESET_USER_LOGIN_PASSWORD = "/hamster-user/user/resetUserLoginPassword"; //忘记用户登录密码
     public static final String API_LOGIN = "/hamster-user/user/login"; //手机号验证码登录(老版本)
     public static final String API_USER_UPDATE_MOBILE = "/hamster-user/user/updateMobile"; //修改手机号绑定
+    public static final String API_AUTHENTICATION_SELECTBYUSERID = "/hamster-user/authentication/selectByUserId"; //根据用户id获取用户认证信息
+    public static final String API_AUTHENTICATION_INSERTUSERAUTHENTICATION = "/hamster-user/authentication/insertUserAuthentication"; //实名认证
+    public static final String API_USER_LOGOFFUSER = "/hamster-user/user/logOffUser"; //注销账号
+    public static final String API_USER_ACCOUNTRECOVERY = "/hamster-user/user/accountRecovery"; //恢复账号
 
 
     /* 配件接口 */
@@ -87,6 +103,7 @@ public class ApiConstant {
     public static final String API_CENTER_MARKET_ACTIVATION = "/hamster-center/hamsterMarket/activation"; //背包物品激活
     public static final String API_CENTER_MARKET_BUY = "/hamster-center/hamsterMarket/buy"; //购买商品
     public static final String API_CENTER_MARKET_QUERYWAITPINECONE = "/hamster-center/hamsterMarket/queryWaitPinecone"; //获取当前用户待领取松果数量
+    public static final String API_CENTER_MARKET_QUERY_COLLET_RECORD_LIST = "/hamster-center/hamsterMarket/queryColletRecordList"; //采集记录列表
 
     /* 任务 */
     public static final String API_TASK_SELECT_TASK_INFO_LIST = "/hamster-task/taskInfo/selectTaskInfoList"; //获取任务列表

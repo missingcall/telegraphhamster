@@ -58,7 +58,7 @@ public class PineConeTransferRecordsActivity extends FastTitleActivity {
     public void setTitleBar(TitleBarView titleBar) {
         titleBar
                 .setLeftTextDrawable(R.drawable.btn_left_white_m)
-                .setTitleMainText(R.string.pinecone_transfer_in_out_records)
+                .setTitleMainText(R.string.transfer_in_out_records)
                 .setTitleMainTextColor(Color.WHITE)
                 .setBgColor(0)
                 .setStatusBarLightMode(false)

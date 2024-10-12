@@ -172,5 +172,19 @@
     <string name="collection_instructions">采集说明</string>
     <string name="collection_instructions_describe">采集周期7天，每天采集0.1松果，到期预计总采集松果0.7个</string>
     <string name="pinecone_transfer_in_out_records">松果转入/转出记录</string>
+    <string name="transfer_in_out_records">转入/转出记录</string>
+
+    <string name="coinType_all">所有记录</string>
+    <string name="coinType_001">松果领取</string>
+    <string name="coinType_002">松果转入</string>
+    <string name="coinType_003">存折获取</string>
+    <string name="coinType_004">市场消费</string>
+    <string name="coinType_005">购买皮肤头像</string>
+    <string name="coinType_006">任务获得</string>
+    <string name="coinType_007">邀新获得</string>
+    <string name="coinType_008">养成消费</string>
+    <string name="coinType_009">松果转出</string>
+    <string name="coinType_010">管理员添加</string>
+    <string name="coinType_011">管理员扣除</string>
 
 </resources>

@@ -69,6 +69,7 @@ public class PineconePassbookDialog extends CommonDialog {
     @BindView(R.id.btn_confirm)
     Button mBtnConfirm;
     private String mConfig;
+    private int mTotalPrice;
 
     public PineconePassbookDialog(Context context) {
         super(context);
@@ -214,7 +215,8 @@ public class PineconePassbookDialog extends CommonDialog {
         mNvCount.setOnValueChangeListener(new NumberView.OnValueChangeListener() {
             @Override
             public void onValueChange(int value) {
-                mConfig = "确认购买 " + value * mDataBean.getCoinPrice();
+                mTotalPrice = value * mDataBean.getCoinPrice();
+                mConfig = "确认购买 " + mTotalPrice;
                 SpannableString spannableStringConfig = new SpannableString(mConfig);
                 ImageSpan imageConfig = new ImageSpan(context, R.drawable.unlock_pinecone, DynamicDrawableSpan.ALIGN_BOTTOM);
                 spannableStringConfig.setSpan(imageConfig, 4, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -226,19 +228,10 @@ public class PineconePassbookDialog extends CommonDialog {
             @SuppressLint("CheckResult")
             @Override
             public void onClick(View view) {
-                MarketBuyTo marketBuyTo = new MarketBuyTo();
-                marketBuyTo.setMoney(mDataBean.getCoinPrice());
-                marketBuyTo.setGoodsId(mDataBean.getCommodityInfoId());
-                AuthRepository.getInstance().buy(marketBuyTo).subscribe(baseResponse ->  {
-                    if (StringUtils.equals(baseResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
-                        ToastUtils.showShort(R.string.purchase_successful);
-                    } else {
-                        ToastUtils.showShort(baseResponse.getResponseMessage());
-                    }
-                }, throwable -> {
 
-                });
-                dismiss();
+                //弹出确认框
+                showConfirmPurchaseDialog();
+
             }
         });
 
@@ -251,6 +244,41 @@ public class PineconePassbookDialog extends CommonDialog {
         });
 
 
+    }
+
+    private void showConfirmPurchaseDialog() {
+        SureCancelDialog sureCancelDialog = new SureCancelDialog(getContext());
+        sureCancelDialog.initInfo(new SureCancelDialog.OnInitListener() {
+            @Override
+            public void setHintInfo(TextView infoView) {
+                String hint = "您确定要消耗" + mTotalPrice + "个松果购买" + mDataBean.getTimeLimit() + "天的" + mDataBean.getCommodityName() + "吗？";
+                SpannableString spannableString = new SpannableString(hint);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#80F68D")), 6, (mTotalPrice + "").length() + 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                infoView.setText(spannableString);
+            }
+
+            @Override
+            public void cancelEvent() {
+
+            }
+
+            @SuppressLint("CheckResult")
+            @Override
+            public void sureEvent() {
+                MarketBuyTo marketBuyTo = new MarketBuyTo();
+                marketBuyTo.setMoney(mTotalPrice);
+                marketBuyTo.setGoodsId(mDataBean.getCommodityInfoId());
+                AuthRepository.getInstance().buy(marketBuyTo).subscribe(baseResponse -> {
+                    if (StringUtils.equals(baseResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
+                        ToastUtils.showShort(R.string.purchase_successful);
+                    } else {
+                        ToastUtils.make().setBgColor(Color.BLACK).setGravity(Gravity.CENTER, 0, 0).show(baseResponse.getResponseMessage());
+                    }
+                }, throwable -> {
+
+                });
+            }
+        }).show();
     }
 
     @OnClick({R.id.btn_exit, R.id.btn_confirm})

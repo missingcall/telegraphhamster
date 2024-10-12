@@ -126,4 +126,7 @@ dependencies {
     implementation "com.umeng.umsdk:share-core:7.2.2"
     implementation "com.umeng.umsdk:share-wx:7.2.2"
     //rxjava android
+
+    //日期选择器
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:CalendarPicker:4.1.11'
 }

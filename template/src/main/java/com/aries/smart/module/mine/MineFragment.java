@@ -78,8 +78,6 @@ public class MineFragment extends FastTitleFragment implements IFastRefreshView 
     TabLayout mTlPine;
     @BindView(R.id.vp_wallet)
     ViewPager mVpWallet;
-    @BindView(R.id.mv_text)
-    MarqueeView mMvText;
     @BindView(R.id.cl_wallet)
     ConstraintLayout mClWallet;
     @BindView(R.id.tv_to_be_collected)
@@ -306,29 +304,6 @@ public class MineFragment extends FastTitleFragment implements IFastRefreshView 
 
         });
 
-        //请求松果转换记录
-        AuthRepository.getInstance().queryWaitPinecone().subscribe(queryWaitPineconeResponse -> {
-            if (StringUtils.equals(queryWaitPineconeResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
-                //获取当前用户待领取松果数量
-                mTvToBeCollectedNum.setText("" + queryWaitPineconeResponse.getData());
-            }
-        }, throwable -> {
 
-        });
-
-        final List<String> datas = Arrays.asList("松果转入/转出记录", "货币转出记录");
-
-        MarqueeFactory<TextView, String> marqueeFactory1 = new SimpleNoticeMF(getContext());
-        mMvText.setMarqueeFactory(marqueeFactory1);
-        mMvText.startFlipping();
-        marqueeFactory1.setOnItemClickListener(new MarqueeFactory.OnItemClickListener<TextView, String>() {
-            @Override
-            public void onItemClick(View view, MarqueeFactory.ViewHolder<TextView, String> holder) {
-                ToastUtils.showShort(holder.getData());
-                //跳转松果松子转换页面
-
-            }
-        });
-        marqueeFactory1.setData(datas);
     }
 }

@@ -41,12 +41,35 @@ public class ApiConstant {
 
     /*
      *
-     * 松果类型：001：松果领取；002：松果转入；003：存折获取；004：市场消费；005：购买皮肤头像；006：任务获得；007：邀新获得；008：养成消费；009 松果转出；010 管理员添加；011 管理员扣除
+     * 松果类型：
+     * 001：松果领取；
+     * 002：松果转入；
+     * 003：存折获取；
+     * 004：市场消费；
+     * 005：购买皮肤头像；
+     * 006：任务获得；
+     * 007：邀新获得；
+     * 008：养成消费；
+     * 009 松果转出；
+     * 010 管理员添加；
+     * 011 管理员扣除
      * */
     public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_ALL = "000"; //所有记录
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_001 = "001"; //松果领取
     public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_002 = "002"; //松果转入
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_003 = "003"; //存折获取
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_004 = "004"; //市场消费
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_005 = "005"; //购买皮肤头像
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_006 = "006"; //任务获得
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_007 = "007"; //邀新获得
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_008 = "008"; //养成消费
     public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_009 = "009"; //松果转出
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_010 = "010"; //管理员添加
+    public static final String API_HAMSTER_MARKET_RECORD_LIST_TYPE_011 = "011"; //管理员扣除
 
+
+    public static final String DATE_START_TIME = "2024-01-01 00:00:00";
+    public static final String DATE_END_TIME = "2030-01-01 00:00:00";
 
     /**
      * goodsStatue 商品状态 001 商品可购买 002 商品已售磬 003 用户未解锁 004 用户已拥有(待激活) 005 用户已拥有(生效中)

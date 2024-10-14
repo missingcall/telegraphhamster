@@ -19,6 +19,7 @@ import com.aries.smart.retrofit.repository.AuthRepository;
 import com.aries.smart.retrofit.response.QueryColletRecordListResponse;
 import com.aries.smart.retrofit.response.QueryMarketListResponse;
 import com.aries.ui.view.title.TitleBarView;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
@@ -61,6 +62,7 @@ public class PineConeTransferRecordsFragment extends FastTitleRefreshLoadFragmen
     private long mEndTimeLong;
     private String mStartTime;
     private String mEndTime;
+    private ArrayList<QueryColletRecordListResponse.DataBean.RecordsBean> mList = new ArrayList();
 
     public static PineConeTransferRecordsFragment getInstance(String type) {
         Bundle args = new Bundle();
@@ -97,8 +99,10 @@ public class PineConeTransferRecordsFragment extends FastTitleRefreshLoadFragmen
                 //获取最后一个可见view的位置
                 LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
                 int lastPosition = linearManager.findLastVisibleItemPosition();
+                LogUtils.d("lastPosition : " + lastPosition + "getItemCount : " + layoutManager.getItemCount());
+
                 // 如果滑动到倒数第三条数据，就自动加载下一页数据
-                if (lastPosition >= layoutManager.getItemCount() - 5) {
+                if (lastPosition >= layoutManager.getItemCount() - 3) {
                     onLoadMore();
                 }
 
@@ -123,6 +127,7 @@ public class PineConeTransferRecordsFragment extends FastTitleRefreshLoadFragmen
     @SuppressLint("CheckResult")
     @Override
     public void loadData(int page) {
+        mList.clear();
         AuthRepository.getInstance().queryColletRecordList(mStartTime, mEndTime, page, 10)
                 .compose(bindUntilEvent(FragmentEvent.DESTROY))
                 .subscribe(new FastObserver<QueryColletRecordListResponse>(getIHttpRequestControl()) {
@@ -132,12 +137,36 @@ public class PineConeTransferRecordsFragment extends FastTitleRefreshLoadFragmen
                             mStatusManager.showSuccessLayout();
                             //假数据
                             queryColletRecordListResponse.getData().getRecords().addAll(queryColletRecordListResponse.getData().getRecords());
-                            queryColletRecordListResponse.getData().getRecords().addAll(queryColletRecordListResponse.getData().getRecords());
-                            queryColletRecordListResponse.getData().getRecords().addAll(queryColletRecordListResponse.getData().getRecords());
-                            queryColletRecordListResponse.getData().getRecords().addAll(queryColletRecordListResponse.getData().getRecords());
-                            queryColletRecordListResponse.getData().getRecords().addAll(queryColletRecordListResponse.getData().getRecords());
-                            queryColletRecordListResponse.getData().getRecords().addAll(queryColletRecordListResponse.getData().getRecords());
-                            FastManager.getInstance().getHttpRequestControl().httpRequestSuccess(getIHttpRequestControl(), queryColletRecordListResponse.getData().getRecords() == null ? new ArrayList<>() : queryColletRecordListResponse.getData().getRecords(), null);
+
+
+                            switch (mType) {
+                                case ApiConstant.API_HAMSTER_MARKET_RECORD_LIST_TYPE_ALL:
+                                    //全部记录
+                                    mList = (ArrayList<QueryColletRecordListResponse.DataBean.RecordsBean>) queryColletRecordListResponse.getData().getRecords();
+                                    break;
+
+                                case ApiConstant.API_HAMSTER_MARKET_RECORD_LIST_TYPE_002:
+                                    for ( QueryColletRecordListResponse.DataBean.RecordsBean recordsBean:queryColletRecordListResponse.getData().getRecords()) {
+                                        if(StringUtils.equals(recordsBean.getCoinType() , ApiConstant.API_HAMSTER_MARKET_RECORD_LIST_TYPE_002)){
+                                            mList.add(recordsBean);
+                                        }
+                                    }
+                                    break;
+
+                                case ApiConstant.API_HAMSTER_MARKET_RECORD_LIST_TYPE_009:
+                                    for ( QueryColletRecordListResponse.DataBean.RecordsBean recordsBean:queryColletRecordListResponse.getData().getRecords()) {
+                                        if(StringUtils.equals(recordsBean.getCoinType() , ApiConstant.API_HAMSTER_MARKET_RECORD_LIST_TYPE_009)){
+                                            mList.add(recordsBean);
+                                        }
+                                    }
+                                    break;
+                            }
+
+                            FastManager.getInstance().getHttpRequestControl().
+                                    httpRequestSuccess(getIHttpRequestControl(),
+                                            queryColletRecordListResponse.getData().getRecords() == null ? new ArrayList<>() : mList,
+                                            null);
+
                         }
                     }
                 });

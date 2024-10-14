@@ -88,8 +88,6 @@ public class FindPasswordStep2Activity extends FastTitleActivity {
                     // 请求验证码
                     AuthRepository.getInstance().smsSendCode(getPhone(), ApiConstant.SMS_TYPE_RETRIEVE_PASSWORD)
                             .subscribe(smsSendResponse -> {
-                                LogUtils.d("startVerify-SMS_TYPE_RETRIEVE_PASSWORD", smsSendResponse.getResponseCode());
-                                LogUtils.d("startVerify-SMS_TYPE_RETRIEVE_PASSWORD", smsSendResponse.getResponseMessage());
 
                                 if (StringUtils.equals(smsSendResponse.getResponseCode(), ApiConstant.RESPONSE_OK)) {
                                     ToastUtils.showShort(R.string.wait_sms);

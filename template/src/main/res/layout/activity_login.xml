@@ -8,7 +8,7 @@
     android:background="@drawable/logo_login_bg"
     android:orientation="vertical">
 
-    <include layout="@layout/fast_layout_title_bar"/>
+    <include layout="@layout/fast_layout_title_bar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_login"
@@ -18,52 +18,47 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cd_sign_in"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/margin_15"
+            android:layout_marginRight="@dimen/margin_15"
             android:layout_marginBottom="@dimen/margin_common"
-            android:layout_marginLeft="@dimen/margin_40"
-            android:layout_marginRight="@dimen/margin_40"
             android:measureWithLargestChild="true"
             android:orientation="horizontal"
-            app:cardElevation="4dp"
             app:cardCornerRadius="@dimen/corner_45"
+            app:cardElevation="2dp"
             app:layout_constraintBottom_toTopOf="@id/cd_sign_up"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            >
+            app:layout_constraintRight_toRightOf="parent">
 
-<!--            <FrameLayout
-                android:id="@+id/fl_sign_in"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_login_bg"
-                android:gravity="center|center_vertical"
-                android:orientation="horizontal">
+            <!--            <FrameLayout
+                            android:id="@+id/fl_sign_in"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/shape_login_bg"
+                            android:gravity="center|center_vertical"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_sign_in"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/sign_in"
-                    android:textColor="@color/text_white"
-                    android:textSize="@dimen/text_size_big"
-                    android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tv_sign_in"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@string/sign_in"
+                                android:textColor="@color/text_white"
+                                android:textSize="@dimen/text_size_big"
+                                android:textStyle="bold" />
 
-            </FrameLayout>-->
+                        </FrameLayout>-->
 
             <Button
                 android:id="@+id/btn_currency_conversion"
-                android:background="@drawable/shape_login_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/sign_in"
-                android:textColor="@color/text_white"
-                android:textSize="@dimen/text_size_19"
-                android:textStyle="bold"/>
+                android:background="@drawable/login_phone_num"
+                android:gravity="center" />
 
         </androidx.cardview.widget.CardView>
 
@@ -71,49 +66,49 @@
             android:id="@+id/cd_sign_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_common"
             android:layout_marginLeft="@dimen/margin_40"
             android:layout_marginRight="@dimen/margin_40"
+            android:layout_marginBottom="@dimen/margin_common"
             android:measureWithLargestChild="true"
             android:orientation="horizontal"
-            app:cardElevation="4dp"
             app:cardCornerRadius="@dimen/corner_45"
+            app:cardElevation="4dp"
             app:layout_constraintBottom_toTopOf="@id/ll_bottom_area"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            >
-<!--            <FrameLayout
-                android:id="@+id/fl_sign_up"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_login_bg"
-                android:gravity="center|center_vertical"
-                android:orientation="horizontal">
+            app:layout_constraintRight_toRightOf="parent">
+            <!--            <FrameLayout
+                            android:id="@+id/fl_sign_up"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/shape_login_bg"
+                            android:gravity="center|center_vertical"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_sign_up"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/sign_up"
-                    android:textColor="@color/text_white"
-                    android:textSize="@dimen/text_size_big"
-                    android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tv_sign_up"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@string/sign_up"
+                                android:textColor="@color/text_white"
+                                android:textSize="@dimen/text_size_big"
+                                android:textStyle="bold" />
 
-            </FrameLayout>-->
+                        </FrameLayout>-->
 
             <Button
                 android:id="@+id/btn_sign_up"
-                android:background="@drawable/shape_login_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:background="@drawable/shape_login_bg"
                 android:gravity="center"
                 android:text="@string/sign_up"
                 android:textColor="@color/text_white"
                 android:textSize="@dimen/text_size_19"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:visibility="gone" />
 
 
         </androidx.cardview.widget.CardView>
@@ -132,13 +127,13 @@
 
             <CheckBox
                 android:id="@+id/cb_agree"
-                android:shadowColor="@color/cb_login"
                 android:layout_width="wrap_content"
-                android:text="@string/i_agree"
+                android:layout_height="wrap_content"
                 android:buttonTint="@color/cb_login"
+                android:shadowColor="@color/cb_login"
+                android:text="@string/i_agree"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_10"
-                android:layout_height="wrap_content" />
+                android:textSize="@dimen/text_size_10" />
 
             <TextView
                 android:id="@+id/tv_protocol"
@@ -157,17 +152,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.85" />
-        
+
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/health_game_advice"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="@dimen/text_size_8"
-            android:textColor="@color/white_d0"
             android:layout_marginBottom="20dp"
-            />
+            android:gravity="center"
+            android:text="@string/health_game_advice"
+            android:textColor="@color/white_d0"
+            android:textSize="@dimen/text_size_8"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

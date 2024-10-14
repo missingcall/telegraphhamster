@@ -20,7 +20,7 @@ import com.aries.smart.retrofit.response.GetMyMoneyBagResponse;
 import com.aries.smart.retrofit.response.InfoResponse;
 import com.aries.smart.retrofit.response.InsertUserAuthenticationResponse;
 import com.aries.smart.retrofit.response.LogOffUserResponse;
-import com.aries.smart.retrofit.response.LoginResponse;
+import LoginResponse.LoginResponse;
 import com.aries.smart.retrofit.response.PasswordLoginResponse;
 import com.aries.smart.retrofit.response.QueryColletRecordListResponse;
 import com.aries.smart.retrofit.response.QueryDayIncomeResponse;

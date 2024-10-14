@@ -146,7 +146,7 @@
         android:layout_marginTop="@dimen/margin_10"
         android:layout_marginEnd="@dimen/margin_10"
         android:layout_marginBottom="@dimen/margin_10"
-        android:background="@drawable/btn_common_bg"
+        android:background="@drawable/btn_common_bg_blue"
         android:text="@string/confirm"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_14"

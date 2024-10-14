@@ -139,9 +139,12 @@ public class LoginActivity extends FastTitleActivity {
                 if (isAgreeProtocol) {
 
 //                    FastUtil.startActivity(this ,SignInActivity.class);
-                    //弹出登录页面 DialogFragment
-                    LoginDialog loginDialog = new LoginDialog();
-                    loginDialog.show(getSupportFragmentManager(), "tag");
+                    //弹出登录页面 DialogFragment v1.0.0
+                    /*LoginDialog loginDialog = new LoginDialog();
+                    loginDialog.show(getSupportFragmentManager(), "tag");*/
+
+                    //弹出登录页面 DialogFragment v1.1.0
+                    FastUtil.startActivity(this, LoginSmsActivity.class);
                 } else {
                     //弹窗提示
                     agreeToPrivacy();

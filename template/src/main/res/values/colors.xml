@@ -23,6 +23,8 @@
     <color name="mask_99">#99000000</color>
     <color name="mask_b3">#B3000000</color>
     <color name="black_05">#050505</color>
+    <color name="black_23">#232323</color>
+    <color name="stroke_gray">#3D3F43</color>
 
 
     <!--  >>>  tab相关  >>>-->

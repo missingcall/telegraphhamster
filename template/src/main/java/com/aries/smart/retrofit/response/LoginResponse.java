@@ -1,4 +1,4 @@
-package com.aries.smart.retrofit.response;
+package LoginResponse;
 
 /**
  * @Author: AriesHoo on 2019/7/11 22:00

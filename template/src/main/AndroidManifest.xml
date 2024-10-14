@@ -24,10 +24,10 @@
             android:theme="@style/NormalSplash">
 
             <!-- TODO 测试用 -->
-<!--                     <intent-filter>
+                     <intent-filter>
                          <action android:name="android.intent.action.MAIN" />
                          <category android:name="android.intent.category.LAUNCHER" />
-                     </intent-filter>-->
+                     </intent-filter>
         </activity>
 
         <activity
@@ -35,17 +35,21 @@
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
-            <intent-filter>
+    <!--        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity
             android:name=".WebAppActivity"
             android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
             android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.login.LoginSmsActivity"
+            android:configChanges="locale|layoutDirection|mcc|mnc|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".module.mine.CancelAccountActivity"
